@@ -1,0 +1,32 @@
+{
+    "recipe_id": "chicken-noodle-soup",
+    "recipe_UUID": "defb3569056148868e920232799b0081",
+    "recipe_name": "Chicken noodle soup",
+    "ingredients": [
+        "900ml chicken or vegetable stock (or Miso soup mix)",
+        "1 boneless, skinless chicken breast (about 175g)",
+        "1 tsp chopped fresh ginger",
+        "1 garlic clove, finely chopped",
+        "50g rice or wheat noodles",
+        "2 tbsp sweetcorn, canned or frozen",
+        "2-3 mushrooms, thinly sliced",
+        "2 spring onions, shredded",
+        "2 tsp soy sauce, plus extra for serving",
+        "mint or basil leaves and a little shredded chilli (optional), to serve"
+    ],
+    "planning_info": {
+        "Prep:": "10 mins",
+        "Cook:": "30 mins"
+    },
+    "method": {
+        "STEP 1": "Pour the stock into a pan and add the chicken breast, ginger and garlic. Bring to the boil, then reduce the heat, partly cover and simmer for 20 mins, until the chicken is tender.",
+        "STEP 2": "Put the chicken on a board and shred into bite-size pieces using a couple of forks. Return the chicken to the stock with the noodles, sweetcorn, mushrooms, spring onion and soy sauce. Simmer for 3-4 mins until the noodles are tender.",
+        "STEP 3": "Ladle into two bowls and scatter over the remaining spring onion, mint or basil leaves and chilli, if using. Serve with extra soy sauce."
+    },
+    "nutritional_info": {
+        "Prep:": "10 mins",
+        "Cook:": "30 mins"
+    },
+    "url": "https://www.bbcgoodfood.com/recipes/chicken-noodle-soup",
+    "image_url": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1035613_10-0e544b7.jpg"
+}

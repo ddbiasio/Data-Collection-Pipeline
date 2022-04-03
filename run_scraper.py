@@ -1,11 +1,11 @@
-from logging import root
 import time
 import os
 import uuid
 import json
 import urllib.request
-from scraper import scraper
+from scraper import scraper, locator
 from recipe import recipe
+from selenium.webdriver.common.by import By
 
 class UUIDEncoder(json.JSONEncoder):
     """
@@ -40,22 +40,28 @@ def init_scraper() -> scraper:
     scraper
 
     """
+    try:
 
-    # Set up variables to be passed to scraping methods
-    xp_accept_button = "//button[(@class=' css-1x23ujx')]"
+        # Set up variables to be passed to scraping methods
+        xp_accept_button = "//button[(@class=' css-1x23ujx')]"
 
-    my_scraper = scraper("https://www.bbcgoodfood.com/")
-    my_scraper.accept_cookies(xp_accept_button)
+        my_scraper = scraper("https://www.bbcgoodfood.com/")
 
-    # Set search template based on https://www.bbcgoodfood.com/search?q=chicken
-    # Multiple word searches should be separated by plus
-    my_scraper.search_template = "https://www.bbcgoodfood.com/search?q=$searchwords"
+        if my_scraper != None:
+            my_scraper.accept_cookies(xp_accept_button)
 
-    # Set results template based on https://www.bbcgoodfood.com/search/recipes/page/2/?q=chicken&sort=-relevance
-    # Multiple word searches should be separated by plus
-    my_scraper.results_template = "https://www.bbcgoodfood.com/search/recipes/page/$pagenum/?q=$searchwords&sort=-relevance"
+            # Set search template based on https://www.bbcgoodfood.com/search?q=chicken
+            # Multiple word searches should be separated by plus
+            my_scraper.search_template = "https://www.bbcgoodfood.com/search?q=$searchwords"
 
-    return my_scraper
+            # Set results template based on https://www.bbcgoodfood.com/search/recipes/page/2/?q=chicken&sort=-relevance
+            # Multiple word searches should be separated by plus
+            my_scraper.results_template = "https://www.bbcgoodfood.com/search/recipes/page/$pagenum/?q=$searchwords&sort=-relevance"
+
+        return my_scraper
+
+    except Exception as e:
+        print(str(e))
 
 def run_search(my_scraper: scraper, keyword_search: str):
     """
@@ -71,12 +77,15 @@ def run_search(my_scraper: scraper, keyword_search: str):
     bool
 
     """
+    try:
+        xp_no_results = "//div[(@class='col-12 template-search-universal__no-results')]"
 
-    xp_no_results = "//div[(@class='col-12 template-search-universal__no-results')]"
-
-    #Search for recipes    
-    search_mappings = {'searchwords': keyword_search}
-    return my_scraper.search(search_mappings, xp_no_results)
+        #Search for recipes    
+        search_mappings = {'searchwords': keyword_search}
+        return my_scraper.search(search_mappings, xp_no_results)
+    except Exception as e:
+        my_scraper._driver.quit()
+        print(str(e))
 
 def create_folder(folder_name: str):
     """
@@ -106,13 +115,18 @@ def set_links(my_scraper: scraper):
     None
 
     """
+    try:
+        search_results_locator = locator(By.XPATH, 
+            "//a[(@class='body-copy-small standard-card-new__description')]")
 
-    xp_search_results_elements = "//a[(@class='body-copy-small standard-card-new__description')]"
+        for page in range(1, 2):
+            results_mappings = {'pagenum': page, 'searchwords': keyword_search}
+            if my_scraper.go_to_page_num(results_mappings):
+                my_scraper.get_item_links(search_results_locator)
 
-    for page in range(1, 2):
-        results_mappings = {'pagenum': page, 'searchwords': keyword_search}
-        if my_scraper.go_to_page_num(results_mappings):
-            my_scraper.get_item_links(xp_search_results_elements, page)
+    except Exception as e:
+        my_scraper._driver.quit()
+        print(str(e))
 
 def get_data(my_scraper: scraper):
     
@@ -127,84 +141,24 @@ def get_data(my_scraper: scraper):
     -------
     None
     """
+    try:
+        for idx, link in enumerate(my_scraper.item_links):
+            
+            if idx == 2:                                   
+                #adding a break here so not looping through all during dev/test cycle
+                break
 
-    for idx, link in enumerate(my_scraper.item_links):
+            my_scraper.go_to_page_url(link)
+
+            # Instantiate the recipe object which will then fill the properties with recipe data
+            this_recipe = recipe(link, my_scraper)       
         
-        if idx == 2:                                   
-            #adding a break here so not looping through all during dev/test cycle
-            break
-
-        my_scraper.go_to_page_url(link)
-        recipe_object = recipe()
-
-        #Get IDs and URL
-        recipe_object.recipe_id, recipe_object.recipe_UUID = recipe_object.get_recipe_ids(link)
-        recipe_object.url = link
-
-        # Get main element which holds the recipe data
-        xp_main_recipe_div = "//div[(@class='post recipe')]"
-        recipe_div = my_scraper.get_element(xp_main_recipe_div)
-        
-        # Get the recipe name
-        xp_recipe_header = ".//h1[(@class='heading-1')]"
-        recipe_object.recipe_name = my_scraper.get_child_element(recipe_div, xp_recipe_header).text
-
-        # Get the ingredients
-        xp_ingreds_section = ".//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]"
-        xp_ingred_list = ".//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]" 
-        
-        ingredient_section = my_scraper.get_child_element(recipe_div, xp_ingreds_section)
-        ingredients_list = my_scraper.get_child_elements(ingredient_section, xp_ingred_list)
-
-        for ingredient in ingredients_list:
-            recipe_object.ingredients.append(ingredient.text)
-
-        # Get the recipe method
-        xp_method_section = ".//section[(@class='recipe__method-steps mb-lg col-12 col-lg-6')]"
-        xp_method_steps = ".//li[(@class='pb-xs pt-xs list-item')]"
-        xp_method_step_num = "./span[(@class='mb-xxs heading-6')]"
-        xp_method_step_info = "p"
-
-        method_section = my_scraper.get_child_element(recipe_div, xp_method_section)
-        method_steps = my_scraper.get_child_elements(method_section, xp_method_steps)
-
-        for step in method_steps:
-            step_num = my_scraper.get_child_element(step, xp_method_step_num).text
-            step_details = my_scraper.get_child_element_bytag(step, xp_method_step_info)
-        
-            recipe_object.method.update({step_num: step_details.text})
-
-        # Get the nutritional info
-        xp_nutrition_items = ".//tr[(@class='key-value-blocks__item')]"
-        xp_nutrition_key = "./td[(@class='key-value-blocks__key')]"
-        xp_nutrition_value = "./td[(@class='key-value-blocks__value')]"
-        nutrition_items = my_scraper.get_child_elements(recipe_div, xp_nutrition_items)
-        
-        for item in nutrition_items:
-            nutrition_item = my_scraper.get_child_element(item, xp_nutrition_key).text
-            nutrition_value = my_scraper.get_child_element(item, xp_nutrition_value).text
-
-            recipe_object.nutritional_info.update({nutrition_item: nutrition_value})
-
-        # Get the prep / cook time
-        xp_planning_div = ".//div[(@class='icon-with-text time-range-list cook-and-prep-time post-header__cook-and-prep-time')]"
-        xp_planning_items = ".//li[(@class='body-copy-small list-item')]"
-        xp_planning_text = ".//span[(@class='body-copy-bold mr-xxs')]"
-        xp_planning_time = ".//time"
-        
-        planning_div = my_scraper.get_child_element(recipe_div, xp_planning_div)
-        planning_items = my_scraper.get_child_elements(planning_div, xp_planning_items)
-        for planning_item in planning_items:
-            planning_text = my_scraper.get_child_element(planning_item, xp_planning_text).text
-            planning_time = my_scraper.get_child_element(planning_item, xp_planning_time).text
-        
-        recipe_object.planning_info.update({planning_text.replace(":", ""): planning_time})
-
-        recipe_object.image_url = my_scraper.get_image_url(recipe_div, ".//img[(@class='image__img')]")
-    
-        recipe_id = recipe_object.__dict__['recipe_id']
-        recipe_dict = {recipe_id: recipe_object.__dict__}
-        my_scraper.data_dict.update(recipe_dict)
+            # Add the recipe dictionary and images to the relevant scraper lists
+            my_scraper.data_dicts.append(this_recipe.__dict__)
+            my_scraper.image_links.append({this_recipe.__dict__['recipe_id']: this_recipe.image_url})
+    except Exception as e:
+        my_scraper._driver.quit()
+        print(str(e))
 
 def save_data(my_scraper: scraper):
 
@@ -221,26 +175,33 @@ def save_data(my_scraper: scraper):
     None
 
     """
+    try:
+        # Setup folders
+        root_folder = './raw_data'
+        data_folder = f'{root_folder}/{keyword_search}'
+        images_folder = f'{root_folder}/{keyword_search}/images'
 
-    # Setup folders
-    root_folder = './raw_data'
-    data_folder = f'{root_folder}/{keyword_search}'
-    images_folder = f'{root_folder}/{keyword_search}/images'
+        create_folder(root_folder)
+        create_folder(data_folder)
+        create_folder(images_folder)
 
-    create_folder(root_folder)
-    create_folder(data_folder)
-    create_folder(images_folder)
+        for idx, recipe_dict in enumerate(my_scraper.data_dicts):
+            file_name = f"{recipe_dict['recipe_id']}.json"
+            with open(f"{data_folder}/{file_name}", "w") as outfile:
+                json.dump(my_scraper.data_dicts[idx], outfile, cls=UUIDEncoder, indent=4)
+        
+        for item in my_scraper.image_links:
 
-    for key in my_scraper.data_dict:
-        file_name = key
-        image_url = my_scraper.data_dict[key]['image_url']
-
-        # Download the file from `url` and save it locally under `file_name`:
-        urllib.request.urlretrieve(image_url, f"{images_folder}/{file_name}.jpg")
-
-    with open(f"{data_folder}/data.json", "w") as outfile:
-        json.dump(my_scraper.data_dict, outfile, cls=UUIDEncoder, indent=4)
-
+            for key, value in item.items():
+                file_name = key
+                image_url = value
+                # Download the file from `url` and save it locally under `file_name`:
+                urllib.request.urlretrieve(image_url, f"{images_folder}/{file_name}.jpg")
+    
+    except Exception as e:
+        print(str(e))
+    finally:
+        my_scraper._driver.quit()
 
 if __name__ == "__main__":
 
@@ -253,20 +214,21 @@ if __name__ == "__main__":
         # Set up the scraper
         my_scraper = init_scraper()
 
-        # Run the search and it it returns results then get the data from the associated web pages
-        if run_search(my_scraper, keyword_search):
-            # Getting the recipe page urls
-            set_links(my_scraper)
-            # Getting the data for each recipe and putting it in the dictionary
-            get_data(my_scraper)
-            # Saving the dictionary (in json format) and images locally
-            save_data(my_scraper)
+        # If init failed we won't have a scraper object
+        if my_scraper != None:
+
+            # Run the search and it it returns results then get the data from the associated web pages
+            if run_search(my_scraper, keyword_search):
+                # Getting the recipe page urls
+                set_links(my_scraper)
+                # Getting the data for each recipe and putting it in the dictionary
+                get_data(my_scraper)
+                # Saving the dictionary (in json format) and images locally
+                save_data(my_scraper)
 
         else:
             print("No recipes found")
-
-        my_scraper._driver.quit()
-        
+     
     except Exception as e:
         print(str(e))
 

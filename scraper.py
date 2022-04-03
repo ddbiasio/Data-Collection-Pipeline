@@ -4,10 +4,27 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, TimeoutException
+from selenium.common.exceptions import WebDriverException, NoSuchElementException, StaleElementReferenceException, TimeoutException
 from string import Template
-from recipe import recipe
 import os
+
+class locator:
+    """
+    This class allows an element locator to be defined as an object to pass to scraper find routines
+
+    Attributes
+    ----------
+    locate_by: By
+        A supported locator strategy e.g. XPATH, TAG_NAME etc.
+    locate_value:
+        Locator value for search result elements on the page e.g. the Xpath, the tag etc.
+    
+    """
+    def __init__(self, locate_by: By, locate_value: str):
+        self.locate_by = locate_by
+        self.locate_value = locate_value
+
+
 
 class scraper:
 
@@ -17,6 +34,8 @@ class scraper:
     ...
     Attributes
     ----------
+        _driver : WebDriver
+            The browser session used to scrape the website
         base_url : str
             The initial url to be loaded as starting point for web scraping
         search_url: str
@@ -27,11 +46,11 @@ class scraper:
             A string providing a template for the search results URL
         item_links: list
             A list of URLS obtained from the website search
-        data_dict: dict
-            A dictionary containing data from each item page scraped
+        data_dicts: list
+            A list of dictionaries for each item scraped
+        image_links: list
+            A list of dictionaries containing the URLS for item images
 
-        _driver : WebDriver
-            The 
 
     Methods
     -------
@@ -50,30 +69,32 @@ class scraper:
         go_to_page_url(self, url: str) -> bool
             Navigates to the url for a selected item
 
-        get_element(self, element_xpath: str) -> WebElement
-            Finds an element using its XPATH
+        get_element(self, parent: WebElement, locator: locator, is_list: bool) -> WebElement:
+            Finds an element or elements using defined locator strategy and value, starting at parent if specified
 
-        get_child_element(self, element_xpath: str) -> WebElement
-            Finds a child element of an element using its XPATH
+        get_item_data(self, parent: WebElement, locator: locator) -> str:
+            Returns text attribute using defined locator strategy and value, optional find within parent element
 
-        get_elements(self, element_xpath: str) -> list:
-            Finds a list of elements using its XPATH
+        get_data_as_list(self, parent: WebElement, 
+                container_locator: locator, list_locator: locator) -> list:
+            Returns a list of data items scraped from a list of elements 
+            which may be located in a container element
 
-        get_child_elements(self, parent: WebElement, element_xpath: str) -> WebElement:
-            Finds a list of child elements of an element using their XPATH
-
-        get_child_element_bytag(self, parent: WebElement, element_tag: str) -> WebElement
-            Finds child element using its tag name
-
-        get_element_bytag(self, element_tag: str) -> WebElement
-            Finds an element using its tag name
+        get_data_as_dict(self, parent: WebElement, container_locator: locator, 
+                list_locator: locator, key_locator: locator, value_locator: locator) -> dict
+            Returns a dictionary of data items scraped from a list of elements 
+            which may be located in a container element
+        
+        get_image_url(self, parent: WebElement, locator: locator) -> str:
+            Gets the URL associated with an image from the src attribute
     """
     def __init__(self, url: str) -> None:
 
         """
         Parameters
         ----------
-        None
+        url: str
+            The URL of the website to be scraped
 
         """
         self.base_url = url
@@ -82,12 +103,18 @@ class scraper:
         self.results_template = None
 
         self.item_links = []
-        self.data_dict = {}
+        self.data_dicts = []
+        self.image_links = []
         self._driver = None
 
-        # initiate the session
-        self._driver = webdriver.Firefox()
-        self._driver.get(self.base_url)
+        try:
+            # initiate the session
+            self._driver = webdriver.Firefox()
+            self._driver.get(self.base_url)
+        except WebDriverException as e:
+            # If something fails the close the driver and raise the exception
+            self._driver.quit()
+            raise RuntimeError(f"Failed to initialise scraper: {e.msg}") from e
 
     def accept_cookies(self, consent_button: str, consent_iframe: str = None) -> None:
         """
@@ -145,12 +172,16 @@ class scraper:
         """
         search_url=Template(self.search_template).substitute(**search_subs)
 
-        self._driver.get(search_url)
+        try:
+            self._driver.get(search_url)
+        except WebDriverException:
+            raise RuntimeError("The search page could not be loaded")
 
         if no_results != None:
             try:               
                 #if the no results div exists then search returned no results
                 no_results_element = self._driver.find_element(by=By.XPATH, value=no_results)
+                self._driver.quit()
                 return False
 
             except NoSuchElementException:
@@ -159,15 +190,15 @@ class scraper:
         else:
             return True
 
-    def get_item_links(self, search_items: str) -> None:
+    def get_item_links(self, locator: locator) -> None:
 
         """
         Saves the URLs for each item in a page of the search results
 
         Parameters
         ----------
-        search_items:
-            XPATH for the search result elements on the page
+        locator: locator
+            A supported locator strategy and value of the locator to find the element
 
         Returns
         -------
@@ -179,7 +210,7 @@ class scraper:
         # to the item page
 
         #find all the search result items
-        items = self._driver.find_elements(by=By.XPATH, value=search_items)
+        items = self.get_element(None, locator, True)
 
         for idx, item in enumerate(items):
             #go to each recipe and get the link and add to list
@@ -206,8 +237,9 @@ class scraper:
             self._driver.get(page_url)
             return True
 
-        except TimeoutException:
-            return False
+        except (TimeoutException, WebDriverException):
+            raise RuntimeError(f"Unable to load page: {page_url}")
+
 
     def go_to_page_url(self, url: str) -> bool:
         """
@@ -227,133 +259,171 @@ class scraper:
         try:
             self._driver.get(url)
             return True
-        except TimeoutException:
-            return False
+        except (TimeoutException, WebDriverException):
+            raise RuntimeError(f"Unable to load page: {url}")
 
-    def get_element(self, element_xpath: str) -> WebElement:
+    def get_element(self, parent: WebElement, locator: locator, is_list: bool) -> WebElement:
         """
-        Finds an element using its XPATH
+        Finds an element or elements using defined locator strategy and value, starting at parent if specified
 
         Parameters
         ----------
-        element_xpath: str
-            The XPATH of the element to find
+        locator: locator
+            A supported locator strategy and value of the locator to find the element
+        is_list: bool
+            True when expecting a list of elements to be returned
+        parent: 
+            The parent web element
         
         Returns
         -------
         WebElement
 
         """
+        search_in = self._driver if parent == None else parent
 
-        return self._driver.find_element(by=By.XPATH, value=element_xpath)
+        try:
+            if is_list:
+                return search_in.find_elements(by=locator.locate_by, value=locator.locate_value)
+            else:
+                return search_in.find_element(by=locator.locate_by, value=locator.locate_value)
+        except NoSuchElementException:
+            raise RuntimeError(f"Element at {locator.locate_by} does not exist.")
 
-    def get_child_element(self, parent: WebElement, element_xpath: str) -> WebElement:
-
+    def get_item_data(self, parent: WebElement, locator: locator) -> str:
         """
-        Finds a child element of an element using its XPATH
+        Returns text attribute using defined locator strategy and value, optional find within parent element
 
         Parameters
         ----------
-        parent: WebElement
-            The parent element
-        element_xpath: str
-            The XPATH of the element to find
+        parent: 
+            The parent web element        
+        locator: locator
+            A supported locator strategy and value of the locator to find the element
+
         
         Returns
         -------
-        WebElement
+        str
 
         """
+        search_in = self._driver if parent == None else parent
+        try:
+            return search_in.find_element(by=locator.locate_by, value=locator.locate_value).text
+        except NoSuchElementException:
+            raise RuntimeError(f"Element at {locator.locate_by} does not exist.")
 
-        return parent.find_element(by=By.XPATH, value=element_xpath)
-
-    def get_elements(self, element_xpath: str) -> list:
+    def get_data_as_list(self, parent: WebElement, 
+        container_locator: locator, list_locator: locator) -> list:
         """
-        Finds a list of elements using its XPATH
+        Returns a list of data items scraped from a list of elements 
+        which may be located in a container element
 
         Parameters
         ----------
-        element_xpath: str
-            The XPATH of the element to find
-        
+        container_locator: locator
+            A supported locator strategy and value of the locator to find list container
+        list_locator: locator
+            A supported locator strategy and value of the locator to find the list
+
         Returns
         -------
         list
 
         """
+        try:
+            if container_locator == None:
+                if parent == None:
+                    container_locator = None
+                else:
+                    container_locator = parent
+            else:
+                list_container = self.get_element(parent, container_locator, False)
+            
+            list_items = self.get_element(list_container, list_locator, True)
 
-        return self._driver.find_elements(by=By.XPATH, value=element_xpath)
+            list_item_values = []
+            for item in list_items:
+                list_item_values.append(item.text)
 
-    def get_child_elements(self, parent: WebElement, element_xpath: str) -> WebElement:
+            return list_item_values
+            
+        except NoSuchElementException:
+            raise RuntimeError(f"Error getting list items: Element at {locator.locate_by} does not exist.")
+
+
+    def get_data_as_dict(self, 
+        parent: WebElement, 
+        container_locator: locator, 
+        list_locator: locator, 
+        key_locator: locator,
+        value_locator: locator) -> dict:
         """
-        Finds a list of child elements of an element using their XPATH
-
-        Parameters
-        ----------
-        parent: WebElement
-            The parent element
-        element_xpath: str
-            The XPATH relative)(of the elements to find
-        
-        Returns
-        -------
-        list
-        
-        """
-
-        return parent.find_elements(by=By.XPATH, value=element_xpath)
-    
-    def get_child_element_bytag(self, parent: WebElement, element_tag: str) -> WebElement:
-
-        """
-        Finds child element using its tag name
-
-        Parameters
-        ----------
-        parent: WebElement
-            The parent element
-        element_xpath: str
-            The tag of the element to find
-        
-        Returns
-        -------
-        WebElement
-
-        """
-        return parent.find_element(by=By.TAG_NAME, value=element_tag)
-
-    def get_element_bytag(self, element_tag: str) -> WebElement:
-
-        """
-        Finds an element using its tag name
-
-        Parameters
-        ----------
-        element_xpath: str
-            The tag of the element to find
-        
-        Returns
-        -------
-        WebElement
-
-        """
-        return self._driver.find_element(by=By.TAG_NAME, value=element_tag)
-
-    def get_image_url(self, parent: WebElement, image_xpath: str) -> str:
-        """
-        Gets the URL associated with an image
+        Returns a dictionary of data items scraped from a list of elements 
+        which may be located in a container element
 
         Parameters
         ----------
         parent: WebElement
             The parent element of the image element
-        image_xpath: str
-            The XPATH of the image element
+        container_locator: locator
+            A supported locator strategy and value of the locator to find list container
+        list_locator: locator
+            A supported locator strategy and value of the locator to find the list
+        key_locator: locator
+            A supported locator strategy and value of the locator to find the elements for keys        
+        value_locator: locator
+            A supported locator strategy and value of the locator to find the elements for values        
+
+        Returns
+        -------
+        dict
+
+        """
+        try:
+            if container_locator == None:
+                if parent == None:
+                    list_container = None
+                else:
+                    list_container = parent
+            else:
+                list_container = self.get_element(parent, container_locator, False)
+            
+            list_items = self.get_element(list_container, list_locator, True)
+
+            dict_item_values = {}
+            for item in list_items:
+                key_text = self.get_element(item, key_locator, False).text
+                value_text = self.get_element(item, value_locator, False).text
+            
+                dict_item_values.update({key_text: value_text})
+
+            return dict_item_values
+            
+        except NoSuchElementException:
+            raise RuntimeError(f"Error getting dict items: Element at {locator.locate_by} does not exist.")
+
+    def get_image_url(self, parent: WebElement, locator: locator) -> str:
+        """
+        Gets the URL associated with an image from the src attribute
+
+        Parameters
+        ----------
+        parent: WebElement
+            The parent element of the image element
+        locator: locator
+            A supported locator strategy and value of the locator to find the image element
+
 
         Returns
         -------
         str
         """
-        return parent.find_element(by=By.XPATH, 
-        value=image_xpath).get_attribute('src').split('?', 1)[0]
 
+        search_in = self._driver if parent == None else parent
+        try:
+            return search_in.find_element(by=locator.locate_by, 
+                value=locator.locate_value).get_attribute('src').split('?', 1)[0]
+
+        except NoSuchElementException:
+            raise RuntimeError(f"Error getting image: Element at {locator.locate_by} does not exist.")
