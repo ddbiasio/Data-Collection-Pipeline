@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -175,7 +174,7 @@ class recipe_collector():
             #if the element is not there then cookies must have been accepted before
             return
 
-        except TimeoutError:
+        except TimeoutException:
             #if timeout to get the button then cookies must have been accepted before
             return
 
@@ -325,7 +324,7 @@ class recipe_collector():
             self._driver.get(page_url)
             return True
 
-        except TimeoutError:
+        except TimeoutException:
             return False
 
     def go_to_page_url(self, url: str) -> bool:
@@ -346,7 +345,7 @@ class recipe_collector():
         try:
             self._driver.get(url)
             return True
-        except TimeoutError:
+        except TimeoutException:
             return False
 
     def close_session(self) -> None:
