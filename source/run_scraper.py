@@ -19,7 +19,7 @@ class UUIDEncoder(json.JSONEncoder):
     -------
     default(obj : object) -> hex
         If the object is a UUID then return it in hex format
-    
+
     """
     def default(self, obj: object) -> str:
         if isinstance(obj, uuid.UUID):
@@ -30,7 +30,7 @@ class UUIDEncoder(json.JSONEncoder):
 def init_scraper() -> Union[scraper, None]:
     """
     Initialises the scraper object, accept cookies and set url templates for search / navigate
-    
+
     Parameters
     ----------
     None
@@ -72,7 +72,7 @@ def run_search(my_scraper: scraper, keyword_search: str):
     ----------
     keyword_search: str
         Search keyword or words (must be joined by '+' character)
-    
+
     Returns
     -------
     bool
@@ -130,7 +130,7 @@ def set_links(my_scraper: scraper):
         print(str(e))
 
 def get_data(my_scraper: scraper):
-    
+
     """
     Populates the data_dict attribute with recipe information from the URLS in item_links list
 
@@ -186,7 +186,7 @@ def save_data(my_scraper: scraper):
             file_name = f"{recipe_dict['recipe_id']}.json"
             with open(f"{data_folder}/{file_name}", "w") as outfile:
                 json.dump(my_scraper.data_dicts[idx], outfile, cls=UUIDEncoder, indent=4)
-        
+
         for item in my_scraper.image_links:
 
             for key, value in item.items():
@@ -194,7 +194,7 @@ def save_data(my_scraper: scraper):
                 image_url = value
                 # Download the file from `url` and save it locally under `file_name`:
                 urllib.request.urlretrieve(image_url, f"{images_folder}/{file_name}.jpg")
-    
+
     except Exception as e:
         print(str(e))
     finally:
@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
         else:
             print("No recipes found")
-     
+
     except Exception as e:
         print(str(e))
 

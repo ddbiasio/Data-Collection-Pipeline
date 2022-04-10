@@ -17,7 +17,7 @@ class locator:
         A supported locator strategy e.g. XPATH, TAG_NAME etc.
     locate_value:
         Locator value for search result elements on the page e.g. the Xpath, the tag etc.
-    
+
     """
     def __init__(self, locate_by: str, locate_value: str):
         self.locate_by = locate_by
@@ -74,10 +74,10 @@ class scraper:
 
         get_elements(self, list_locator: locator) -> List[WebElement]:
             Returns a list of web elements  using the defined locator
- 
+
         get_child_elements(self, parent: WebElement, list_locator: locator) -> List[WebElement]
             Returns a list of web elements within parent WebElement using the defined locator
-        
+
         get_image_url(self, parent: WebElement, locator: locator) -> str
             Gets the URL associated with an image from the src attribute
 
@@ -127,7 +127,7 @@ class scraper:
 
         """
         try:
-            if consent_iframe != None:
+            if consent_iframe is not None:
                 consent_frame = WebDriverWait(self._driver, 10).until(EC.visibility_of_element_located((By.ID, consent_iframe)))
                 self._driver.switch_to.frame(consent_frame)
 
@@ -148,10 +148,10 @@ class scraper:
             accept_button.click()     
 
     def search(self, search_subs: dict, no_results: str = None) -> bool:
-        
+
         """
         Executes a search the a search URL generated from url template and substitute values
-        
+
         Parameters
         ----------
         search_subs: dict
@@ -171,7 +171,7 @@ class scraper:
         except WebDriverException:
             raise RuntimeError("The search page could not be loaded")
 
-        if no_results != None:
+        if no_results is not None:
             try:               
                 #if the no results div exists then search returned no results
                 no_results_element = self._driver.find_element(by=By.XPATH, value=no_results)
@@ -214,7 +214,7 @@ class scraper:
     def go_to_page_num(self, results_subs: dict) -> bool:
         """
         Navigates to a page generated from url template and substitute values
- 
+
         Parameters
         ----------
         results_subs : dict
@@ -223,7 +223,7 @@ class scraper:
         Returns
         -------
         bool
-               
+
         """
         try:
             page_url = Template(self.results_template).substitute(**results_subs)
@@ -247,7 +247,7 @@ class scraper:
         Returns
         -------
         bool
-            
+
         """
         try:
             self._driver.get(url)
@@ -261,11 +261,11 @@ class scraper:
 
         Parameters
         ----------
-        parent: 
+        parent:
             The parent web element
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        
+
         Returns
         -------
         WebElement
@@ -281,14 +281,14 @@ class scraper:
     def get_child_element(self, parent: WebElement, locator: locator)  -> WebElement:
         """
         Finds a element within parent WebElement using the defined locator
- 
+
         Parameters
         ----------
-        parent: 
+        parent:
             The parent web element
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        
+
         Returns
         -------
         WebElement
@@ -308,9 +308,9 @@ class scraper:
         ----------
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        parent: 
+        parent:
             The parent web element
-        
+
         Returns
         -------
         WebElement
@@ -326,14 +326,14 @@ class scraper:
     def get_child_elements(self, parent: WebElement, locator: locator) -> List[WebElement]:
         """
         Returns a list of web elements within parent WebElement using the defined locator
- 
+
         Parameters
         ----------
-        parent: 
+        parent:
             The parent web element
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        
+
         Returns
         -------
         WebElement
@@ -362,7 +362,6 @@ class scraper:
         str
         """
 
-        #search_in = self._driver if parent == None else parent
         try:
             return parent.find_element(by=locator.locate_by, 
                 value=locator.locate_value).get_attribute('src').split('?', 1)[0]
