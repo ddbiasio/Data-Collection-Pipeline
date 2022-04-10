@@ -9,8 +9,8 @@ from selenium.webdriver.common.by import By
 class Recipe():
     """
     This class provides a means to store the recipe information whilst processing
-    
- 
+
+
     Attributes
     ----------
         recipe_id : str
@@ -31,7 +31,7 @@ class Recipe():
             The URL for the recipe page
         image_url : str
             The URL for the recipe image
-        
+
     Methods
     -------
         get_recipe_ids(self, url) -> tuple(str, UUID)
@@ -50,7 +50,7 @@ class Recipe():
         self.nutritional_info: Dict[str, str] = {}
         self.url: str = url
         self.image_url = ""
-        
+
         self.recipe_id, self.recipe_UUID = self.get_recipe_ids(url)
         self.get_data(recipe_scraper)
 
@@ -81,7 +81,7 @@ class Recipe():
             # Get main element which holds the recipe data
         main_recipe = locator(By.XPATH, "//div[(@class='post recipe')]")
         recipe_div = recipe_scraper.get_element(main_recipe)
-        
+
         # Get the recipe name
         recipe_header = locator(By.XPATH,".//h1[(@class='heading-1')]")
         self.recipe_name = recipe_scraper.get_child_element(recipe_div, recipe_header).text
@@ -89,10 +89,10 @@ class Recipe():
         # Get the ingredients
         ingreds_section_loc = locator(By.XPATH, ".//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]")
         ingred_list_loc = locator(By.XPATH, ".//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]")
-        
+
         ingred_section = recipe_scraper.get_child_element(recipe_div, ingreds_section_loc)
         ingred_list = recipe_scraper.get_child_elements(ingred_section, ingred_list_loc)
-        
+
         for ingredient in ingred_list:
             self.ingredients.append(ingredient.text)
 
@@ -101,7 +101,7 @@ class Recipe():
         method_steps_loc = locator(By.XPATH, ".//li[(@class='pb-xs pt-xs list-item')]")
         method_step_num_loc = locator(By.XPATH, "./span[(@class='mb-xxs heading-6')]")
         method_step_info_loc = locator(By.TAG_NAME, "p")
-        
+
         method_section = recipe_scraper.get_child_element(recipe_div, method_section_loc)
         method_steps = recipe_scraper.get_child_elements(method_section, method_steps_loc)
 

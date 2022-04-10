@@ -19,7 +19,7 @@ class locator:
         A supported locator strategy e.g. XPATH, TAG_NAME etc.
     locate_value:
         Locator value for search result elements on the page e.g. the Xpath, the tag etc.
-    
+
     """
     def __init__(self, locate_by: str, locate_value: str):
         self.locate_by = locate_by
@@ -76,10 +76,10 @@ class scraper:
 
         get_elements(self, list_locator: locator) -> List[WebElement]:
             Returns a list of web elements  using the defined locator
- 
+
         get_child_elements(self, parent: WebElement, list_locator: locator) -> List[WebElement]
             Returns a list of web elements within parent WebElement using the defined locator
-        
+
         get_image_url(self, parent: WebElement, locator: locator) -> str
             Gets the URL associated with an image from the src attribute
 
@@ -150,10 +150,10 @@ class scraper:
             accept_button.click()     
 
     def search(self, search_subs: dict, no_results: str = None) -> bool:
-        
+
         """
         Executes a search the a search URL generated from url template and substitute values
-        
+
         Parameters
         ----------
         search_subs: dict
@@ -216,7 +216,7 @@ class scraper:
     def go_to_page_num(self, results_subs: dict) -> bool:
         """
         Navigates to a page generated from url template and substitute values
- 
+
         Parameters
         ----------
         results_subs : dict
@@ -225,7 +225,7 @@ class scraper:
         Returns
         -------
         bool
-               
+
         """
         try:
             page_url = Template(self.results_template).substitute(**results_subs)
@@ -249,7 +249,7 @@ class scraper:
         Returns
         -------
         bool
-            
+
         """
         try:
             self._driver.get(url)
@@ -263,11 +263,11 @@ class scraper:
 
         Parameters
         ----------
-        parent: 
+        parent:
             The parent web element
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        
+
         Returns
         -------
         WebElement
@@ -283,14 +283,14 @@ class scraper:
     def get_child_element(self, parent: WebElement, locator: locator)  -> WebElement:
         """
         Finds a element within parent WebElement using the defined locator
- 
+
         Parameters
         ----------
-        parent: 
+        parent:
             The parent web element
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        
+
         Returns
         -------
         WebElement
@@ -310,9 +310,9 @@ class scraper:
         ----------
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        parent: 
+        parent:
             The parent web element
-        
+
         Returns
         -------
         WebElement
@@ -328,14 +328,14 @@ class scraper:
     def get_child_elements(self, parent: WebElement, locator: locator) -> List[WebElement]:
         """
         Returns a list of web elements within parent WebElement using the defined locator
- 
+
         Parameters
         ----------
-        parent: 
+        parent:
             The parent web element
         locator: locator
             A supported locator strategy and value of the locator to find the element
-        
+
         Returns
         -------
         WebElement
