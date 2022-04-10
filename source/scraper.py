@@ -210,7 +210,7 @@ class scraper:
         #find all the search result items
         items = self.get_elements(loc)
 
-        for item in enumerate(items):
+        for item in items:
             #go to each recipe and get the link and add to list
             item_url = item.get_attribute("href")
             self.item_links.append(item_url)
