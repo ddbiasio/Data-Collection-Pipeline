@@ -85,7 +85,6 @@ def run_search(my_scraper: scraper, keyword_search: str):
         search_mappings = {'searchwords': keyword_search}
         return my_scraper.search(search_mappings, xp_no_results)
     except Exception as e:
-        my_scraper._driver.quit()
         print(str(e))
 
 def create_folder(folder_name: str):
@@ -125,8 +124,7 @@ def set_links(my_scraper: scraper):
             if my_scraper.go_to_page_num(results_mappings):
                 my_scraper.get_item_links(search_results_locator)
 
-    except Exception as e:
-        my_scraper._driver.quit()
+    except RuntimeError as e:
         print(str(e))
 
 def get_data(my_scraper: scraper):
@@ -154,7 +152,7 @@ def get_data(my_scraper: scraper):
             my_scraper.data_dicts.append(dict(this_recipe.__dict__))
             my_scraper.image_links.append({this_recipe.__dict__['recipe_id']: this_recipe.image_url})
 
-    except Exception as e:
+    except RuntimeError as e:
         print(str(e))
 
 def save_data(my_scraper: scraper):
@@ -195,10 +193,10 @@ def save_data(my_scraper: scraper):
                 # Download the file from `url` and save it locally under `file_name`:
                 urllib.request.urlretrieve(image_url, f"{images_folder}/{file_name}.jpg")
 
-    except Exception as e:
+        my_scraper.quit()
+        
+    except RuntimeError as e:
         print(str(e))
-    finally:
-        my_scraper._driver.quit()
 
 if __name__ == "__main__":
 

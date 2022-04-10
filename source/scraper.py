@@ -80,6 +80,9 @@ class scraper:
 
         get_image_url(self, parent: WebElement, locator: locator) -> str
             Gets the URL associated with an image from the src attribute
+        
+        quit(self):
+            Quits the session
 
     """
     def __init__(self, url: str) -> None:
@@ -368,3 +371,6 @@ class scraper:
 
         except NoSuchElementException:
             raise RuntimeError(f"Error getting image: Element at {locator.locate_by} does not exist.")
+
+    def quit(self) -> None:
+        self._driver.quit()
