@@ -1,7 +1,5 @@
-import re
 from typing import Dict, List
 import uuid
-import json
 from scraper import scraper
 from scraper import locator
 from selenium.webdriver.common.by import By
