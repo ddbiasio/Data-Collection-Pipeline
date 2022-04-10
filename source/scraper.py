@@ -364,7 +364,6 @@ class scraper:
         str
         """
 
-        #search_in = self._driver if parent == None else parent
         try:
             return parent.find_element(by=locator.locate_by, 
                 value=locator.locate_value).get_attribute('src').split('?', 1)[0]
