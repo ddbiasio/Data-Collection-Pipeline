@@ -1,10 +1,11 @@
 import time
 import os
+from typing import Union
 import uuid
 import json
 import urllib.request
 from scraper import scraper, locator
-from recipe import recipe
+from recipe import Recipe
 from selenium.webdriver.common.by import By
 
 class UUIDEncoder(json.JSONEncoder):
@@ -21,13 +22,13 @@ class UUIDEncoder(json.JSONEncoder):
         If the object is a UUID then return it in hex format
     
     """
-    def default(self, obj: object) -> hex:
+    def default(self, obj: object) -> str:
         if isinstance(obj, uuid.UUID):
             # if the obj is uuid, we simply return the value of uuid
             return obj.hex
         return json.JSONEncoder.default(self, obj)
 
-def init_scraper() -> scraper:
+def init_scraper() -> Union[scraper, None]:
     """
     Initialises the scraper object, accept cookies and set url templates for search / navigate
     
@@ -47,7 +48,7 @@ def init_scraper() -> scraper:
 
         my_scraper = scraper("https://www.bbcgoodfood.com/")
 
-        if my_scraper != None:
+        if my_scraper is not None:
             my_scraper.accept_cookies(xp_accept_button)
 
             # Set search template based on https://www.bbcgoodfood.com/search?q=chicken
@@ -62,6 +63,7 @@ def init_scraper() -> scraper:
 
     except Exception as e:
         print(str(e))
+        return None
 
 def run_search(my_scraper: scraper, keyword_search: str):
     """
@@ -142,22 +144,18 @@ def get_data(my_scraper: scraper):
     None
     """
     try:
-        for idx, link in enumerate(my_scraper.item_links):
-            
+        for idx, link in enumerate(my_scraper.item_links):          
             if idx == 2:                                   
                 #adding a break here so not looping through all during dev/test cycle
                 break
-
             my_scraper.go_to_page_url(link)
-
             # Instantiate the recipe object which will then fill the properties with recipe data
-            this_recipe = recipe(link, my_scraper)       
-        
+            this_recipe = Recipe(link, my_scraper)              
             # Add the recipe dictionary and images to the relevant scraper lists
-            my_scraper.data_dicts.append(this_recipe.__dict__)
+            my_scraper.data_dicts.append(dict(this_recipe.__dict__))
             my_scraper.image_links.append({this_recipe.__dict__['recipe_id']: this_recipe.image_url})
+
     except Exception as e:
-        my_scraper._driver.quit()
         print(str(e))
 
 def save_data(my_scraper: scraper):
@@ -215,7 +213,7 @@ if __name__ == "__main__":
         my_scraper = init_scraper()
 
         # If init failed we won't have a scraper object
-        if my_scraper != None:
+        if my_scraper is not None:
 
             # Run the search and it it returns results then get the data from the associated web pages
             if run_search(my_scraper, keyword_search):
