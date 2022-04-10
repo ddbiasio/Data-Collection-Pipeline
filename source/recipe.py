@@ -129,7 +129,7 @@ class Recipe():
         planning_time_loc = locator(By.XPATH, ".//time")
 
         planning_div = recipe_scraper.get_child_element(recipe_div, planning_div_loc)
-        planning_items = recipe_scraper.get_child_elements(planning_div, planning_div_loc)
+        planning_items = recipe_scraper.get_child_elements(planning_div, planning_items_loc)
 
         for plan_item in planning_items:
             planning_text = recipe_scraper.get_child_element(plan_item, planning_text_loc).text

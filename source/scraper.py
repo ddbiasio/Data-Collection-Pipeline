@@ -174,7 +174,8 @@ class scraper:
         except WebDriverException:
             raise RuntimeError("The search page could not be loaded")
 
-        if no_results is not None:
+        no_results_element = None
+        if not no_results:
             try:               
                 #if the no results div exists then search returned no results
                 no_results_element = self._driver.find_element(by=By.XPATH, value=no_results)
@@ -209,7 +210,7 @@ class scraper:
         #find all the search result items
         items = self.get_elements(loc)
 
-        for idx, item in enumerate(items):
+        for item in enumerate(items):
             #go to each recipe and get the link and add to list
             item_url = item.get_attribute("href")
             self.item_links.append(item_url)
