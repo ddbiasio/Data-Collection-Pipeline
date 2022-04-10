@@ -46,5 +46,26 @@ I discovered that UUIDs are not serializable so created a custome JSONDecoder fo
 ## Task 6
 Each recipe card has a single image.  When building the recipe dictionary I get the image URL from the recipe details and use urllib.request.urlretrieve to extract the image and save to ./raw_data/{search}/images, naming it with the recipe ID e.g. chicken-pasta-bake.jpg so this can be linked to a recipe at a later stage
 
+# Milestone 4
+
+## Tasks 1 and 2
+Amended scraper class to be more generic and accept variables for locator strings
+Modified this further based on general assumption that generally would want to return either a single element, or a list of elements, or a single elements text value, or values from a list of elements either in list form, or dictionary format where there are key: value structures
+All find_element operations can either be executed from the page level, or within another element on the page. Lists of elements can also be within a further container.
+The methods created to get any of these types of object are all generic to allow them to be called with or without a parent element, or to look for list elements in a container, or just from the parent element
+I also wanted to make the calls to find_element more generic so as not to have to implement methods for each type of locator.  I created a class locator which has attributes to define the and the locator value.  This is set in the calling function for each of the elements to be found in the method.
+
+This reduced the main set of methods for actually scraping the data to get_element retutns a element or a list of elements, get_item_data (returns text of an element), get_data_as_list (returns text from a list of elements as a list) and get_data_as_dict (returns key: value type data from a list of elements), with an additional method to get the image URL from an <img> element.
+
+I think this set of sceanrios could cover a variety of page structures, but of course I am sure there could be exceptions which would be discovered if I then used the scraper for a different site, and which could then be coded for.
+
+I added the functions for calling the scraper methods to the recipe class, so it is instantiatated with a recipe URL and then populates the attributes with the relevant data from the web page.  The object __dict__ is then added to the scraper object list of dictinaries, as is the image URL.
+
+Once all data is scraped, the recipe dictionaries and image dictionaies are iterated through to save each recipe as a json, and to download and save each image.
+
+I also added some exception handling to handle elements not being found, or pages not being loaded.
+
+I have updated all docstrings to reflect the changes made.
+
 
 

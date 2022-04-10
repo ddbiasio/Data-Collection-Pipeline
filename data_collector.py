@@ -350,7 +350,7 @@ class recipe_collector():
             return False
 
     def close_session(self) -> None:
-        self._driver.close()
+        self._driver.quit()
 
 
 def run_the_scraper(search_string: str):
@@ -395,7 +395,7 @@ def run_the_scraper(search_string: str):
 
             for idx, url in enumerate(my_scraper.recipe_urls):
 
-                if idx == 1:                                   
+                if idx == 2:                                   
                     #adding a break here so not looping through all during dev/test cycle
                     break
 
