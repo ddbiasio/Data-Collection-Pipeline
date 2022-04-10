@@ -129,7 +129,7 @@ class scraper:
 
         """
         try:
-            if consent_iframe != None:
+            if consent_iframe is not None:
                 consent_frame = WebDriverWait(self._driver, 10).until(EC.visibility_of_element_located((By.ID, consent_iframe)))
                 self._driver.switch_to.frame(consent_frame)
 
@@ -173,7 +173,7 @@ class scraper:
         except WebDriverException:
             raise RuntimeError("The search page could not be loaded")
 
-        if no_results != None:
+        if no_results is not None:
             try:               
                 #if the no results div exists then search returned no results
                 no_results_element = self._driver.find_element(by=By.XPATH, value=no_results)
