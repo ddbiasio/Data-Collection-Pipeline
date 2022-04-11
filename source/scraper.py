@@ -25,8 +25,8 @@ class locator:
 
     """
     def __init__(self, locate_by: str, locate_value: str):
-        self.locate_by = locate_by
-        self.locate_value = locate_value
+            self.locate_by = locate_by
+            self.locate_value = locate_value
 
 
 class scraper:
@@ -125,9 +125,9 @@ class scraper:
             raise RuntimeError(f"Failed to initialise scraper: {e.msg}") from e
 
     def accept_cookies(
-        self,
-        consent_button: str,
-        consent_iframe: str = None) -> None:
+            self,
+            consent_button: str,
+            consent_iframe: str = None) -> None:
         """
         Locates a button within a frame and executes the click to accept cookies
 
