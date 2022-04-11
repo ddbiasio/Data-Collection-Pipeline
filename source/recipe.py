@@ -54,7 +54,8 @@ class Recipe():
         self.recipe_id, self.recipe_UUID = self.get_recipe_ids(url)
         self.get_data(recipe_scraper)
 
-    def get_recipe_ids(self, url: str):
+    @staticmethod
+    def get_recipe_ids(url: str):
     #def get_recipe_ids(self, url: str) -> tuple(str, uuid.UUID):
     #This throws an error when I add annotation and can't see why
     #various articles suggest other annotation e.g. Tuple[x, y] or tuple[x, y]

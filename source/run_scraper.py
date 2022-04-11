@@ -81,7 +81,7 @@ def run_search(my_scraper: scraper, keyword_search: str):
     try:
         xp_no_results = "//div[(@class='col-12 template-search-universal__no-results')]"
 
-        #Search for recipes    
+        # Search for recipes    
         search_mappings = {'searchwords': keyword_search}
         return my_scraper.search(search_mappings, xp_no_results)
     except Exception as e:
@@ -97,7 +97,7 @@ def create_folder(folder_name: str):
         The name of the folder to create (full path should be provided)
 
     """
-    #create folder
+    # create folder
     if not os.path.exists(folder_name):
             os.mkdir(folder_name)
 
@@ -143,7 +143,7 @@ def get_data(my_scraper: scraper):
     try:
         for idx, link in enumerate(my_scraper.item_links):          
             if idx == 2:                                   
-                #adding a break here so not looping through all during dev/test cycle
+                # adding a break here so not looping through all during dev/test cycle
                 break
             my_scraper.go_to_page_url(link)
             # Instantiate the recipe object which will then fill the properties with recipe data
@@ -194,7 +194,7 @@ def save_data(my_scraper: scraper):
                 urllib.request.urlretrieve(image_url, f"{images_folder}/{file_name}.jpg")
 
         my_scraper.quit()
-        
+
     except RuntimeError as e:
         print(str(e))
 
