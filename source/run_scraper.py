@@ -7,6 +7,7 @@ from scraper import scraper, locator
 from recipe import Recipe
 from selenium.webdriver.common.by import By
 
+
 class UUIDEncoder(json.JSONEncoder):
     """
     Contains a function to make UUID in dictionary serializable
@@ -21,11 +22,13 @@ class UUIDEncoder(json.JSONEncoder):
         If the object is a UUID then return it in hex format
 
     """
+
     def default(self, obj: object) -> str:
         if isinstance(obj, uuid.UUID):
             # if the obj is uuid, we simply return the value of uuid
             return obj.hex
         return json.JSONEncoder.default(self, obj)
+
 
 def init_scraper() -> Union[scraper, None]:
     """
@@ -64,6 +67,7 @@ def init_scraper() -> Union[scraper, None]:
         print(str(e))
         return None
 
+
 def run_search(my_scraper: scraper, keyword_search: str):
     """
     Runs the scraper search method using the defined keyword(s)
@@ -87,6 +91,7 @@ def run_search(my_scraper: scraper, keyword_search: str):
     except Exception as e:
         print(str(e))
 
+
 def create_folder(folder_name: str):
     """
     Creates a folder if it doesn't exist already
@@ -100,6 +105,7 @@ def create_folder(folder_name: str):
     # create folder
     if not os.path.exists(folder_name):
             os.mkdir(folder_name)
+
 
 def set_links(my_scraper: scraper):
     """
@@ -126,6 +132,7 @@ def set_links(my_scraper: scraper):
 
     except RuntimeError as e:
         print(str(e))
+
 
 def get_data(my_scraper: scraper):
 
@@ -154,6 +161,7 @@ def get_data(my_scraper: scraper):
 
     except RuntimeError as e:
         print(str(e))
+
 
 def save_data(my_scraper: scraper):
 
@@ -197,6 +205,7 @@ def save_data(my_scraper: scraper):
 
     except RuntimeError as e:
         print(str(e))
+
 
 if __name__ == "__main__":
 

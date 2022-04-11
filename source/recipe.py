@@ -6,6 +6,7 @@ from scraper import scraper
 from scraper import locator
 from selenium.webdriver.common.by import By
 
+
 class Recipe():
     """
     This class provides a means to store the recipe information whilst processing
@@ -76,6 +77,7 @@ class Recipe():
         recipe_id = url.split('/')[-1]
         recipe_uuid = uuid.uuid4()
         return recipe_id, recipe_uuid
+
 
     def get_data(self, recipe_scraper: scraper):
 
