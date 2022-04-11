@@ -311,7 +311,8 @@ class scraper:
         except NoSuchElementException:
             raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
 
-    def get_child_element(self, parent: WebElement, loc: locator) -> WebElement:
+    @staticmethod
+    def get_child_element(parent: WebElement, loc: locator) -> WebElement:
         """
         Finds a element within parent WebElement using the defined locator
 
@@ -359,8 +360,8 @@ class scraper:
         except NoSuchElementException:
             raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
 
-    def get_child_elements(self, 
-                            parent: WebElement, 
+    @staticmethod
+    def get_child_elements(parent: WebElement, 
                             loc: locator) -> List[WebElement]:
         """
         Returns a list of web elements within parent WebElement 
