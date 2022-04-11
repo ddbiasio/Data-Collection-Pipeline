@@ -3,7 +3,10 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import WebDriverException, NoSuchElementException, StaleElementReferenceException, TimeoutException
+from selenium.common.exceptions import WebDriverException
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException
 from string import Template
 from typing import List, Union
 
@@ -153,7 +156,8 @@ class scraper:
             self._driver.switch_to.default_content()
 
         except NoSuchElementException:
-            # If the element is not there then cookies must have been accepted before
+            # If the element is not there then cookies must have been 
+            # accepted before
             return
 
         except StaleElementReferenceException:
@@ -408,7 +412,8 @@ class scraper:
                 value=loc.locate_value).get_attribute('src').split('?', 1)[0]
 
         except NoSuchElementException:
-            raise RuntimeError((f"Error getting image: Element at {loc.locate_by} does not exist."))
+            raise RuntimeError((f"Error getting image: "
+                                "Element at {loc.locate_by} does not exist."))
 
     def quit(self) -> None:
         self._driver.quit()

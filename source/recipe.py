@@ -87,56 +87,108 @@ class Recipe():
 
         # Get the recipe name
         recipe_header = locator(By.XPATH,".//h1[(@class='heading-1')]")
-        self.recipe_name = recipe_scraper.get_child_element(recipe_div, recipe_header).text
+        self.recipe_name = recipe_scraper.get_child_element(
+                        recipe_div, 
+                        recipe_header).text
 
         # Get the ingredients
-        ingreds_section_loc = locator(By.XPATH, ".//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]")
-        ingred_list_loc = locator(By.XPATH, ".//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]")
+        ingreds_section_loc = locator(
+            By.XPATH, 
+            ".//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]")
+        ingred_list_loc = locator(
+            By.XPATH, 
+            ".//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]")
 
-        ingred_section = recipe_scraper.get_child_element(recipe_div, ingreds_section_loc)
-        ingred_list = recipe_scraper.get_child_elements(ingred_section, ingred_list_loc)
+        ingred_section = recipe_scraper.get_child_element(
+                        recipe_div, 
+                        ingreds_section_loc)
+        ingred_list = recipe_scraper.get_child_elements(
+                        ingred_section, 
+                        ingred_list_loc)
 
         for ingredient in ingred_list:
             self.ingredients.append(ingredient.text)
 
         # Get the recipe method
-        method_section_loc = locator(By.XPATH, ".//section[(@class='recipe__method-steps mb-lg col-12 col-lg-6')]")
-        method_steps_loc = locator(By.XPATH, ".//li[(@class='pb-xs pt-xs list-item')]")
-        method_step_num_loc = locator(By.XPATH, "./span[(@class='mb-xxs heading-6')]")
+        method_section_loc = locator(
+            By.XPATH, 
+            ".//section[(@class='recipe__method-steps mb-lg col-12 col-lg-6')]")
+        method_steps_loc = locator(
+            By.XPATH, 
+            ".//li[(@class='pb-xs pt-xs list-item')]")
+        method_step_num_loc = locator(
+            By.XPATH, 
+            "./span[(@class='mb-xxs heading-6')]")
         method_step_info_loc = locator(By.TAG_NAME, "p")
 
-        method_section = recipe_scraper.get_child_element(recipe_div, method_section_loc)
-        method_steps = recipe_scraper.get_child_elements(method_section, method_steps_loc)
+        method_section = recipe_scraper.get_child_element(
+            recipe_div, 
+            method_section_loc)
+        method_steps = recipe_scraper.get_child_elements(
+            method_section, 
+            method_steps_loc)
 
         for step in method_steps:
-            method_step_num = recipe_scraper.get_child_element(step, method_step_num_loc).text
-            method_step_info = recipe_scraper.get_child_element(step, method_step_info_loc).text
+            method_step_num = recipe_scraper.get_child_element(
+                step, 
+                method_step_num_loc).text
+            method_step_info = recipe_scraper.get_child_element(
+                step, 
+                method_step_info_loc).text
             self.method.update({method_step_num: method_step_info})
 
         # Get the nutritional info
-        nutrition_items_loc = locator(By.XPATH, ".//tr[(@class='key-value-blocks__item')]")
-        nutrition_key_loc = locator(By.XPATH, "./td[(@class='key-value-blocks__key')]")
-        nutrition_value_loc = locator(By.XPATH, "./td[(@class='key-value-blocks__value')]")
+        nutrition_items_loc = locator(
+            By.XPATH, 
+            ".//tr[(@class='key-value-blocks__item')]")
+        nutrition_key_loc = locator(
+            By.XPATH, 
+            "./td[(@class='key-value-blocks__key')]")
+        nutrition_value_loc = locator(
+            By.XPATH, 
+            "./td[(@class='key-value-blocks__value')]")
 
-        nutrition_items = recipe_scraper.get_child_elements(recipe_div, nutrition_items_loc)
+        nutrition_items = recipe_scraper.get_child_elements(
+            recipe_div, 
+            nutrition_items_loc)
 
         for item in nutrition_items:
-            nutrition_key = recipe_scraper.get_child_element(item, nutrition_key_loc).text
-            nutrition_value = recipe_scraper.get_child_element(item, nutrition_value_loc).text
+            nutrition_key = recipe_scraper.get_child_element(
+                item, 
+                nutrition_key_loc).text
+            nutrition_value = recipe_scraper.get_child_element(
+                item, 
+                nutrition_value_loc).text
             self.nutritional_info.update({nutrition_key: nutrition_value})
 
         # Get the prep / cook time
-        planning_div_loc = locator(By.XPATH, ".//div[(@class='icon-with-text time-range-list cook-and-prep-time post-header__cook-and-prep-time')]")
-        planning_items_loc = locator(By.XPATH, ".//li[(@class='body-copy-small list-item')]")
-        planning_text_loc = locator(By.XPATH, ".//span[(@class='body-copy-bold mr-xxs')]")
-        planning_time_loc = locator(By.XPATH, ".//time")
+        planning_div_loc = locator(
+            By.XPATH, 
+            ".//div[(@class='icon-with-text time-range-list cook-and-prep-time post-header__cook-and-prep-time')]")
+        planning_items_loc = locator(
+            By.XPATH, 
+            ".//li[(@class='body-copy-small list-item')]")
+        planning_text_loc = locator(
+            By.XPATH, 
+            ".//span[(@class='body-copy-bold mr-xxs')]")
+        planning_time_loc = locator(
+            By.XPATH, 
+            ".//time")
 
-        planning_div = recipe_scraper.get_child_element(recipe_div, planning_div_loc)
-        planning_items = recipe_scraper.get_child_elements(planning_div, planning_items_loc)
+        planning_div = recipe_scraper.get_child_element(
+            recipe_div, 
+            planning_div_loc)
+        planning_items = recipe_scraper.get_child_elements(
+            planning_div, 
+            planning_items_loc)
 
         for plan_item in planning_items:
-            planning_text = recipe_scraper.get_child_element(plan_item, planning_text_loc).text
-            planning_time = recipe_scraper.get_child_element(plan_item, planning_time_loc).text
+            planning_text = recipe_scraper.get_child_element(
+                plan_item, 
+                planning_text_loc).text
+            planning_time = recipe_scraper.get_child_element(
+                plan_item, 
+                planning_time_loc).text
             self.planning_info.update({planning_text: planning_time})
 
         # Get the recipe image
