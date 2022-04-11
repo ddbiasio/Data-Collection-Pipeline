@@ -131,7 +131,7 @@ def set_links(my_scraper: scraper):
 
     """
     try:
-        search_results_locator = locator(By.XPATH, 
+        search_results_locator = locator(By.XPATH,
             "//a[(@class='body-copy-small standard-card-new__description')]")
 
         for page in range(1, 2):
@@ -207,9 +207,9 @@ def save_data(my_scraper: scraper):
             file_name = f"{recipe_dict['recipe_id']}.json"
             with open(f"{data_folder}/{file_name}", "w") as outfile:
                 json.dump(
-                    my_scraper.data_dicts[idx], 
-                    outfile, 
-                    cls=UUIDEncoder, 
+                    my_scraper.data_dicts[idx],
+                    outfile,
+                    cls=UUIDEncoder,
                     indent=4)
 
         for item in my_scraper.image_links:
@@ -220,7 +220,7 @@ def save_data(my_scraper: scraper):
                 # Download the file from `url` and save it 
                 # locally under `file_name`:
                 urllib.request.urlretrieve(
-                    image_url, 
+                    image_url,
                     f"{images_folder}/{file_name}.jpg")
 
         my_scraper.quit()

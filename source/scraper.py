@@ -125,8 +125,8 @@ class scraper:
             raise RuntimeError(f"Failed to initialise scraper: {e.msg}") from e
 
     def accept_cookies(
-        self, 
-        consent_button: str, 
+        self,
+        consent_button: str,
         consent_iframe: str = None) -> None:
         """
         Locates a button within a frame and executes the click to accept cookies
@@ -305,7 +305,7 @@ class scraper:
 
         """
         try:
-            return self._driver.find_element(by=loc.locate_by, 
+            return self._driver.find_element(by=loc.locate_by,
                                             value=loc.locate_value)
 
         except NoSuchElementException:
@@ -353,7 +353,7 @@ class scraper:
         """
         try:
             return self._driver.find_elements(
-                by=loc.locate_by, 
+                by=loc.locate_by,
                 value=loc.locate_value)
 
         except NoSuchElementException:
@@ -381,7 +381,7 @@ class scraper:
         """
         try:
             return parent.find_elements(
-                by=loc.locate_by, 
+                by=loc.locate_by,
                 value=loc.locate_value)
 
         except NoSuchElementException:
@@ -407,7 +407,7 @@ class scraper:
         """
 
         try:
-            return parent.find_element(by=loc.locate_by, 
+            return parent.find_element(by=loc.locate_by,
                 value=loc.locate_value).get_attribute('src').split('?', 1)[0]
 
         except NoSuchElementException:
