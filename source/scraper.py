@@ -25,8 +25,8 @@ class locator:
 
     """
     def __init__(self, locate_by: str, locate_value: str):
-            self.locate_by = locate_by
-            self.locate_value = locate_value
+        self.locate_by = locate_by
+        self.locate_value = locate_value
 
 
 class scraper:
