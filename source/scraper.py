@@ -124,8 +124,10 @@ class scraper:
             self._driver.quit()
             raise RuntimeError(f"Failed to initialise scraper: {e.msg}") from e
 
-    def accept_cookies(self, consent_button: str, 
-                    consent_iframe: str = None) -> None:
+    def accept_cookies(
+        self, 
+        consent_button: str, 
+        consent_iframe: str = None) -> None:
         """
         Locates a button within a frame and executes the click to accept cookies
 
@@ -189,7 +191,7 @@ class scraper:
         bool
 
         """
-        search_url=Template(self.search_template).substitute(**search_subs)
+        search_url = Template(self.search_template).substitute(**search_subs)
 
         try:
             self._driver.get(search_url)
@@ -211,7 +213,6 @@ class scraper:
             raise RuntimeError("The search page could not be loaded")
         else:
             return True
-
 
     def get_item_links(self, loc: locator) -> None:
 
@@ -310,7 +311,6 @@ class scraper:
         except NoSuchElementException:
             raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
 
-
     def get_child_element(self, parent: WebElement, loc: locator) -> WebElement:
         """
         Finds a element within parent WebElement using the defined locator
@@ -353,12 +353,11 @@ class scraper:
         """
         try:
             return self._driver.find_elements(
-                                    by=loc.locate_by, 
-                                    value=loc.locate_value)
+                by=loc.locate_by, 
+                value=loc.locate_value)
 
         except NoSuchElementException:
             raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
-
 
     def get_child_elements(self, 
                             parent: WebElement, 
@@ -382,8 +381,8 @@ class scraper:
         """
         try:
             return parent.find_elements(
-                            by=loc.locate_by, 
-                            value=loc.locate_value)
+                by=loc.locate_by, 
+                value=loc.locate_value)
 
         except NoSuchElementException:
             raise RuntimeError(f"Element at {loc.locate_by} does not exist.")

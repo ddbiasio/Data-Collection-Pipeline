@@ -73,7 +73,7 @@ def init_scraper() -> Union[scraper, None]:
         return None
 
 
-def run_search(my_scraper: scraper, keyword_search: str):
+def run_search(my_scraper: scraper, keyword_search: str) -> bool:
     """
     Runs the scraper search method using the defined keyword(s)
 
@@ -96,6 +96,7 @@ def run_search(my_scraper: scraper, keyword_search: str):
         return my_scraper.search(search_mappings, xp_no_results)
     except Exception as e:
         print(str(e))
+        return False
 
 
 def create_folder(folder_name: str):
@@ -110,7 +111,7 @@ def create_folder(folder_name: str):
     """
     # create folder
     if not os.path.exists(folder_name):
-            os.mkdir(folder_name)
+        os.mkdir(folder_name)
 
 
 def set_links(my_scraper: scraper):
@@ -258,4 +259,3 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(str(e))
-
