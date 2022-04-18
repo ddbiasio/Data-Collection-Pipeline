@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -21,7 +20,7 @@ class UUIDEncoder(json.JSONEncoder):
     -------
     default(obj : object) -> hex
         If the object is a UUID then return it in hex format
-    
+
     """
     def default(self, obj: object) -> hex:
         if isinstance(obj, uuid.UUID):
@@ -32,8 +31,8 @@ class UUIDEncoder(json.JSONEncoder):
 class recipe():
     """
     This class provides a means to store the recipe information whilst processing
-    
- 
+
+
     Attributes
     ----------
         recipe_id : str
@@ -54,7 +53,7 @@ class recipe():
             The URL for the recipe page
         image_url : str
             The URL for the recipe image
-        
+
     Methods
     -------
         get_recipe_ids(self, url) -> tuple(str, UUID)
@@ -108,7 +107,7 @@ class recipe_collector():
         data_dictionary : dict
             The data scraped from the website in dictionary format
         _driver : Driver
-        
+
     Methods
     -------
         accept_cookies(none):
@@ -128,10 +127,10 @@ class recipe_collector():
 
         get_recipe_data(self, url: str): -> dict
             Gets the ingredients, method and other information for a single recipe
-        
+
         go_to_page_num(self, page_num: int): -> bool
             Navigates to the page in search results by page number
-        
+
         go_to_page_url(self, url: str) -> bool
             Navigates to a page by its URL (usually for a specific recipe)
 
@@ -153,7 +152,7 @@ class recipe_collector():
         self._driver = webdriver.Firefox()
         self._driver.get(self._base_url)
         self.accept_cookies()
-    
+
     def accept_cookies(self) -> None:
         """
         Locates the Accept Cookies button and clicks it
@@ -175,7 +174,7 @@ class recipe_collector():
             #if the element is not there then cookies must have been accepted before
             return
 
-        except TimeoutError:
+        except TimeoutException:
             #if timeout to get the button then cookies must have been accepted before
             return
 
@@ -186,10 +185,10 @@ class recipe_collector():
             accept_button.click()     
 
     def search_recipes(self, search_string: str) -> bool:
-        
+
         """
         Executes a search for recipes on the home page
-        
+
         Parameters
         ----------
         search_string : str
@@ -269,21 +268,21 @@ class recipe_collector():
 
         ingredient_section = recipe_div.find_element(by=By.XPATH, value=".//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]")
         ingredients_list = ingredient_section.find_elements(by=By.XPATH, value=".//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]")
-        
+
         for ingredient in ingredients_list:
             recipe_object.ingredients.append(ingredient.text)
-        
+
         method_section = recipe_div.find_element(by=By.XPATH, value=".//section[(@class='recipe__method-steps mb-lg col-12 col-lg-6')]")
         method_steps = method_section.find_elements(by=By.XPATH, value=".//li[(@class='pb-xs pt-xs list-item')]")
 
         for step in method_steps:
             step_num = step.find_element(by=By.XPATH, value="./span[(@class='mb-xxs heading-6')]")
             step_details = step.find_element(by=By.TAG_NAME, value="p")
-        
+
             recipe_object.method.update({step_num.text: step_details.text})
-        
+
         nutrition_items = recipe_div.find_elements(by=By.XPATH, value=".//tr[(@class='key-value-blocks__item')]")
-        
+
         for item in nutrition_items:
             nutrition_item = item.find_element(by=By.XPATH, value="./td[(@class='key-value-blocks__key')]").text
             nutrition_value = item.find_element(by=By.XPATH, value="./td[(@class='key-value-blocks__value')]").text
@@ -309,7 +308,7 @@ class recipe_collector():
     def go_to_page_num(self, page_num: int) -> bool:
         """
         Navigates to the page in search results by page number
- 
+
         Parameters
         ----------
         page_num : int
@@ -318,14 +317,14 @@ class recipe_collector():
         Returns
         -------
         bool
-               
+
         """
         try:
             page_url = f"https://www.bbcgoodfood.com/search/recipes/page/{page_num}/?q=chicken&sort=-relevance"
             self._driver.get(page_url)
             return True
 
-        except TimeoutError:
+        except TimeoutException:
             return False
 
     def go_to_page_url(self, url: str) -> bool:
@@ -341,12 +340,12 @@ class recipe_collector():
         Returns
         -------
         bool
-            
+
         """
         try:
             self._driver.get(url)
             return True
-        except TimeoutError:
+        except TimeoutException:
             return False
 
     def close_session(self) -> None:
@@ -369,7 +368,7 @@ def run_the_scraper(search_string: str):
 
         #execute the search
         if my_scraper.search_recipes(search_string):
-            
+
             for page in range(1, 2):
                 my_scraper.get_recipe_links(page)
                 #loop through urls gathered to get recipe details
@@ -413,7 +412,7 @@ def run_the_scraper(search_string: str):
 
         else:
             print(f"There were no recipes relating to {search_string}")
-        
+
     except Exception as e:
         print(str(e))
 
