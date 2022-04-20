@@ -1,195 +1,90 @@
-from typing import Dict, List
-import uuid
-import json
-from scraper import scraper
-from scraper import locator
-from selenium.webdriver.common.by import By
+from scraper import Locator
+from scraper import Scraper
+from selenium.webdriver.common.by import By 
+from string import Template
 
+class RecipeScraper:
 
-class Recipe():
-    """
-    This class provides a means to store the recipe information whilst processing
+    def __init__(self):
 
+        self.recipe_dict = {
+            "recipe_name": Locator(By.XPATH,"""//div[(@class='post recipe')]//h1[(@class='heading-1')]"""),
+            "ingredients": [Locator(By.XPATH, """//div[(@class='post recipe')]//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]""")],
+            "method": {
+                "list_loc": Locator(By.XPATH, """//div[(@class='post recipe')]//section[(@class='recipe__method-steps mb-lg col-12 col-lg-6')]//li[(@class='pb-xs pt-xs list-item')]"""),
+                "key_loc": Locator(By.XPATH, "./span[(@class='mb-xxs heading-6')]"),
+                "value_loc": Locator(By.TAG_NAME, "p")
+            },
+            "nutritional_info": {
+                "list_loc": Locator(By.XPATH, """//div[(@class='post recipe')]//tr[(@class='key-value-blocks__item')]"""),
+                "key_loc": Locator(By.XPATH, "./td[(@class='key-value-blocks__key')]"),
+                "value_loc": Locator(By.XPATH, "./td[(@class='key-value-blocks__value')]")        
+            },
+            "planning_info": {
+                "list_loc": Locator(By.XPATH, """//div[(@class='post recipe')]//div[(@class='icon-with-text time-range-list cook-and-prep-time post-header__cook-and-prep-time')]//li[(@class='body-copy-small list-item')]"""),
+                "key_loc": Locator(By.XPATH, ".//span[(@class='body-copy-bold mr-xxs')]"),
+                "value_loc": Locator(By.XPATH, ".//time")               
+            }
+        }
 
-    Attributes
-    ----------
-        recipe_id : str
-            The unique name for the recipe obtained from the URL
-        recipe_UUID : UUID
-            The UUIDv4 generated for the recipe
-        recipe_name : str
-            The name of the recipe
-        ingredients : list
-            A list of the ingredients
-        planning_info : dict
-            Information on preparation and cooking times
-        method : dict
-            A dictionary of the method with keys Step1, Step2, .. Stepn as required
-        nutritional_info : dict
-            A dictionary of the nutritional info e.g. calories, fat, sugar etc.
-        url : str
-            The URL for the recipe page
-        image_url : str
-            The URL for the recipe image
+        # Set up variables to be passed to scraping methods
+        self.xp_accept_button = Locator(By.XPATH, "//button[(@class=' css-1x23ujx')]")
+        self.scraper = Scraper("https://www.bbcgoodfood.com/")
 
-    Methods
-    -------
-        get_recipe_ids(self, url) -> tuple(str, UUID)
-            Returns the recipe unique name (from url) and a UUIDv4 for the recipe
+        if self.scraper is not None:
+            self.scraper.accept_cookies(self.xp_accept_button)
 
-    """
+        # Set search template based on 
+        # https://www.bbcgoodfood.com/search?q=chicken
+        # Multiple word searches should be separated by plus
+        self.search_template = (
+            "https://www.bbcgoodfood.com/search?q=$searchwords")
 
-    def __init__(self, url: str, recipe_scraper: scraper):
+        # Set results template based on 
+        # https://www.bbcgoodfood.com/search/recipes/page/2/?q=chicken&sort=-relevance
+        # Multiple word searches should be separated by plus
+        self.results_template = (
+            "https://www.bbcgoodfood.com/search/recipes/page/$pagenum/?q=$searchwords&sort=-relevance")
 
-        self.recipe_id = ""
-        self.recipe_UUID = None
-        self.recipe_name = ""
-        self.ingredients: List[str] = []
-        self.planning_info: Dict[str, str] = {}
-        self.method: Dict[str, str] = {}
-        self.nutritional_info: Dict[str, str] = {}
-        self.url: str = url
-        self.image_url = ""
+        # XPATH details for the no results element
+        self.xp_no_results = Locator(By.XPATH,
+            "//div[(@class='col-12 template-search-universal__no-results')]")
 
-        self.recipe_id, self.recipe_UUID = self.get_recipe_ids(url)
-        self.get_data(recipe_scraper)
+        self.images = Locator(By.XPATH, "//div[(@class='post recipe')]//div[(@class='post-header__image-container')]//img[(@class='image__img')]")
 
-    @staticmethod
-    def get_recipe_ids(url: str):
-        # def get_recipe_ids(self, url: str) -> tuple(str, uuid.UUID):
-        # This throws an error when I add annotation and can't see why
-        # various articles suggest other annotation e.g. Tuple[x, y] or tuple[x, y]
-        # But Tuple is said to be deprecated and tuple[] shows as syntax error
-        """
-        Returns the recipe unique name (from url) and a UUIDv4 for the recipe
+    def get_recipe_data(
+            self, 
+            keyword_search: str, 
+            num_pages: int,
+            data_folder: str,
+            image_folder: str):
 
-        Parameters
-        ----------
-        url : str
-            The url for the recipe
+        # Search for recipes    
+        search_mappings = {'searchwords': keyword_search}
+        search_url = Template(self.search_template).substitute(**search_mappings)
+        if self.scraper.search(search_url, self.xp_no_results):
+            # Get the links from the recipe cards in search results
 
-        Returns
-        -------
-        tuple(str, str)
-            The recipe name ID, and recipe UUIDv4
-        """
-        recipe_id = url.split('/')[-1]
-        recipe_uuid = uuid.uuid4()
-        return recipe_id, recipe_uuid
+            search_results_locator = Locator(By.XPATH,
+                "//a[(@class='body-copy-small standard-card-new__description')]")
 
+            # Get links from first 'num_pages' of results
+            for page in range(1, num_pages):
+                # Sets the URL for results pages by page num
+                results_mappings = {'pagenum': page, 'searchwords': keyword_search}
+                results_page = Template(self.results_template).substitute(**results_mappings)
 
-    def get_data(self, recipe_scraper: scraper):
+                if self.scraper.go_to_page_url(results_page):
+                    urls = self.scraper.get_item_links(search_results_locator)
+            
+            # Iterate through the page URLS n times and scrape the data
+            # Writing the files to the defined data folder
+            self.scraper.scrape_pages(
+                urls, 
+                self.recipe_dict, 
+                self.images, 
+                2, 
+                data_folder,
+                image_folder)
 
-            # Get main element which holds the recipe data
-        main_recipe = locator(By.XPATH, "//div[(@class='post recipe')]")
-        recipe_div = recipe_scraper.get_element(main_recipe)
-
-        # Get the recipe name
-        recipe_header = locator(By.XPATH, ".//h1[(@class='heading-1')]")
-        self.recipe_name = recipe_scraper.get_child_element(
-                        recipe_div,
-                        recipe_header).text
-
-        # Get the ingredients
-        ingreds_section_loc = locator(
-            By.XPATH,
-            ".//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]")
-        ingred_list_loc = locator(
-            By.XPATH,
-            ".//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]")
-
-        ingred_section = recipe_scraper.get_child_element(
-                        recipe_div,
-                        ingreds_section_loc)
-        ingred_list = recipe_scraper.get_child_elements(
-                        ingred_section,
-                        ingred_list_loc)
-
-        for ingredient in ingred_list:
-            self.ingredients.append(ingredient.text)
-
-        # Get the recipe method
-        method_section_loc = locator(
-            By.XPATH,
-            ".//section[(@class='recipe__method-steps mb-lg col-12 col-lg-6')]")
-        method_steps_loc = locator(
-            By.XPATH,
-            ".//li[(@class='pb-xs pt-xs list-item')]")
-        method_step_num_loc = locator(
-            By.XPATH,
-            "./span[(@class='mb-xxs heading-6')]")
-        method_step_info_loc = locator(By.TAG_NAME, "p")
-
-        method_section = recipe_scraper.get_child_element(
-            recipe_div,
-            method_section_loc)
-        method_steps = recipe_scraper.get_child_elements(
-            method_section,
-            method_steps_loc)
-
-        for step in method_steps:
-            method_step_num = recipe_scraper.get_child_element(
-                step,
-                method_step_num_loc).text
-            method_step_info = recipe_scraper.get_child_element(
-                step,
-                method_step_info_loc).text
-            self.method.update({method_step_num: method_step_info})
-
-        # Get the nutritional info
-        nutrition_items_loc = locator(
-            By.XPATH,
-            ".//tr[(@class='key-value-blocks__item')]")
-        nutrition_key_loc = locator(
-            By.XPATH,
-            "./td[(@class='key-value-blocks__key')]")
-        nutrition_value_loc = locator(
-            By.XPATH,
-            "./td[(@class='key-value-blocks__value')]")
-
-        nutrition_items = recipe_scraper.get_child_elements(
-            recipe_div,
-            nutrition_items_loc)
-
-        for item in nutrition_items:
-            nutrition_key = recipe_scraper.get_child_element(
-                item,
-                nutrition_key_loc).text
-            nutrition_value = recipe_scraper.get_child_element(
-                item,
-                nutrition_value_loc).text
-            self.nutritional_info.update({nutrition_key: nutrition_value})
-
-        # Get the prep / cook time
-        planning_div_loc = locator(
-            By.XPATH,
-            ".//div[(@class='icon-with-text time-range-list cook-and-prep-time post-header__cook-and-prep-time')]")
-        planning_items_loc = locator(
-            By.XPATH,
-            ".//li[(@class='body-copy-small list-item')]")
-        planning_text_loc = locator(
-            By.XPATH,
-            ".//span[(@class='body-copy-bold mr-xxs')]")
-        planning_time_loc = locator(
-            By.XPATH,
-            ".//time")
-
-        planning_div = recipe_scraper.get_child_element(
-            recipe_div,
-            planning_div_loc)
-        planning_items = recipe_scraper.get_child_elements(
-            planning_div,
-            planning_items_loc)
-
-        for plan_item in planning_items:
-            planning_text = recipe_scraper.get_child_element(
-                plan_item,
-                planning_text_loc).text
-            planning_time = recipe_scraper.get_child_element(
-                plan_item,
-                planning_time_loc).text
-            self.planning_info.update({planning_text: planning_time})
-
-        # Get the recipe image
-        image_locator = locator(By.XPATH, ".//img[(@class='image__img')]")
-        self.image_url = recipe_scraper.get_image_url(recipe_div, image_locator)
+            self.scraper.quit()

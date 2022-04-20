@@ -41,7 +41,7 @@ I used the __dict__ attribute of my recipe class to create a dictionary for the 
 ## Task 5
 In my main program (after loading and searching for recipes) I loop through each page to get the recipe URLs.  Then for each URL I load the recipe page to extract the details.  As each recipe dictionary is created I update a dictionary (all_recipes) with each new recipe.  The final dictionary is them written to data.json in a folder ./raw_data/{search} where {search} is the search string used to find the recipes
 
-I discovered that UUIDs are not serializable so created a custome JSONDecoder for the cls parameter to provide a serializable version of the UUID
+I discovered that UUIDs are not serializable so created a custom JSONDecoder for the cls parameter to provide a serializable version of the UUID
 
 ## Task 6
 Each recipe card has a single image.  When building the recipe dictionary I get the image URL from the recipe details and use urllib.request.urlretrieve to extract the image and save to ./raw_data/{search}/images, naming it with the recipe ID e.g. chicken-pasta-bake.jpg so this can be linked to a recipe at a later stage
@@ -57,8 +57,6 @@ I also wanted to make the calls to find_element more generic so as not to have t
 
 This reduced the main set of methods for actually scraping the data to get_element retutns a element or a list of elements, get_item_data (returns text of an element), get_data_as_list (returns text from a list of elements as a list) and get_data_as_dict (returns key: value type data from a list of elements), with an additional method to get the image URL from an <img> element.
 
-I think this set of sceanrios could cover a variety of page structures, but of course I am sure there could be exceptions which would be discovered if I then used the scraper for a different site, and which could then be coded for.
-
 I added the functions for calling the scraper methods to the recipe class, so it is instantiatated with a recipe URL and then populates the attributes with the relevant data from the web page.  The object __dict__ is then added to the scraper object list of dictinaries, as is the image URL.
 
 Once all data is scraped, the recipe dictionaries and image dictionaies are iterated through to save each recipe as a json, and to download and save each image.
@@ -66,6 +64,31 @@ Once all data is scraped, the recipe dictionaries and image dictionaies are iter
 I also added some exception handling to handle elements not being found, or pages not being loaded.
 
 I have updated all docstrings to reflect the changes made.
+
+# Task 3
+Using pytest to create unit tests.  During the task I have further refactored the code. I discovered that I could use a more detailed XPATH to go directly to an element so I now find elements using this instead of travewrsing the page stucture to find elements within divs etc.  Once I implemented this I found the scraper to run much faster sicne it requires less find_element operations to get all the data.
+
+I revisited how I could inform the scraper class of the details I needed to scrape, and so I now pass a dictionary to the class which has as it keys the items to be scraped which will be the keys in the dictionary conatining the page data.  The values are locator details (By and value to pass to the find_element function.
+
+For the data I am collecting I either need a single element's text, or text from a list of elements, or text from list of paired elements.  The page defintion dicitonary will therefore inform the class of the type of data being scraped through the format of the values:
+ - value is a Locator object: return text fropm this element
+ - value is a single element list object containing a Locator: find all elements for this locator and return their text as a a list
+ - value is a dctionary with three items: list_loc, key_locm value_loc (all Lcoator objects): find all elements for the list locator, and then within each element find the key / value from the text of the relevant element and return as a dictionary
+
+I therefore have 3 main methods:
+ - get_element
+ - get_element_list
+ - get_element_dict
+
+I have a method to find all the images relating to the recipe (which assumes all images will have the same locator details), and retruns the URLs for these in a list
+
+The Scraper has a method which will then accept a page defintion (dict) and use this to scrape the page and return the data in dictinary format
+
+I also added a methiod which will scrape all the pages from a search, write each page to a json file and download and save the images.
+
+I created a utilities module for the JSONDecoder class, and also for some of the basic filer operations such as creating folders, downloading and saving an image.
+
+I have installed mypy and implemented code changes to fix issues identified from that, and continue to do so on an ongoing basis.  I have also ran deepsource against my code and applied fixes for some of the issues, and will keep doing this on an ongoing basis.
 
 
 

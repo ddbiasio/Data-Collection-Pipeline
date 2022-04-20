@@ -44477,3 +44477,1286 @@ JavaScript warning: https://pagead2.googlesyndication.com/bg/6DGELVyRstON4LmPFAM
 
 ###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
 
+1650398461602	geckodriver	INFO	Listening on 127.0.0.1:58385
+1650398462118	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "58629" "-no-remote" "-profile" "/tmp/rust_mozprofilegduRaG"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650398463873	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilegduRaG/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58629/devtools/browser/41f58d30-7001-43d8-b703-6eb87ea68342
+1650398467543	Marionette	INFO	Listening on port 42139
+1650398467629	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 7819 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.inskinad.com/isfe/creative/1/base.js, line 1: unreachable code after return statement
+JavaScript warning: https://cdn.inskinad.com/isfe/creative/1/base.js, line 1: unreachable code after return statement
+JavaScript warning: https://cdn.inskinad.com/isfe/creative/1/base.js, line 1: unreachable code after return statement
+JavaScript warning: https://cdn.inskinad.com/isfe/creative/1/base.js, line 1: unreachable code after return statement
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://z.moatads.com/inskinmedia689754970364/moatad.js#moatClientLevel1=125031&moatClientLevel2=406100&moatClientLevel3=727440&zMoatIMP=dfaed1a7-f333-43db-a838-c992bd05a3ca&zMoatPT=&zMoatLII=435841&zMoatDV=Desktop&zMoatFT=Superwide&zMoatTMT=, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 4130 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650398529665	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://z.moatads.com/sublimeskinz337986118618/moatad.js#moatClientLevel1=13963&moatClientLevel2=215918&moatClientLevel3=appnexus_0&moatClientLevel4=10317&skin=1, line 242: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 6325 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 4342 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 2192 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://imasdk.googleapis.com/formats/outstream/versioned/prod2/outstream_web_client_20220413_RC00/outstream.min.js, line 577: Error: lima_missing_ad_media
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 5531 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/openxdisplay970503469688/moatad.js#moatClientLevel1=537073246&moatClientSlicer1=537152314&moatClientSlicer2=539180842&moatClientSlicer3=539180845&zMoatOX3TRANS=bf58a8c4-4d88-4537-a0c1-e99ba2690a35&zMoatOX3TRANSTIME=1650399029&zMoatADID=537891184&zMoatSZ=300x600&zMoatTAGID=41140611&zMoatBUID=0&zMoatDEALID=OX-XPT-kkjr6X, line 244: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 2312 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650399120296	geckodriver	INFO	Listening on 127.0.0.1:34449
+1650399120813	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "35209" "-no-remote" "-profile" "/tmp/rust_mozprofileWeb66i"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650399122547	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileWeb66i/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:35209/devtools/browser/4e295513-53d3-4c89-b797-2002c5705de5
+1650399125829	Marionette	INFO	Listening on port 37557
+1650399125877	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 813 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 1285 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650399199706	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1650399200995	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1650401211856	geckodriver	INFO	Listening on 127.0.0.1:43933
+1650401212372	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40581" "-no-remote" "-profile" "/tmp/rust_mozprofileen8Cvz"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650401213963	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileen8Cvz/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:40581/devtools/browser/91231f44-47be-4252-b457-31cd5093af55
+1650401217434	Marionette	INFO	Listening on port 36427
+1650401217525	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 96 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650401278575	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1650401346875	geckodriver	INFO	Listening on 127.0.0.1:49525
+1650401346907	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "52627" "-no-remote" "-profile" "/tmp/rust_mozprofile1djDuI"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650401349505	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile1djDuI/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52627/devtools/browser/4299bd1d-b868-46ba-8cd9-d260e40050ed
+1650401353366	Marionette	INFO	Listening on port 33297
+1650401353549	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+1650401358932	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 6463 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 6421 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 3785 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 3726 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 5295 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 945 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+1650401417265	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-78ITlTDrfuWYU&moatClientLevel2=qfm&moatClientLevel3=ee164ed1-d162-44f1-9ad9-b4a785dbd041&moatClientLevel4=da58855a-fc90-44b8-bcbc-add4d55f6ba9&uid=MpPAk0Xnwect4sCTQ_3E5jPj3e5BkcX6NJbClDHjsZIzkrWWvEDo-w==, line 244: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/iDHsPPU-w9vlnufKSHbr26QNWWZn22uKUKQjwtrxHns.js line 1 > eval line 5524 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/iponwebwrappervideo285247619039/moatvideo.js#_moatApi8985906, line 249: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650401444476	geckodriver	INFO	Listening on 127.0.0.1:46461
+1650401445013	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "34501" "-no-remote" "-profile" "/tmp/rust_mozprofileOKOu0s"
+JavaScript error: https://static.adsafeprotected.com/ias/v1/vpaid.2022.04.13-16.21-5f43045.js, line 344: NS_ERROR_NOT_INITIALIZED
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650401453270	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileOKOu0s/search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:34501/devtools/browser/85b424df-e683-4c96-a2ff-b569b3160f32
+1650401555697	Marionette	INFO	Listening on port 41319
+Exiting due to channel error.
+Exiting due to channel error.
+1650401625742	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: timeout
+1650472350176	geckodriver	INFO	Listening on 127.0.0.1:56973
+1650472350684	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "48839" "-no-remote" "-profile" "/tmp/rust_mozprofile5geHMb"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650472352361	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile5geHMb/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:48839/devtools/browser/f057a978-d5e5-410c-be04-e990aa7d6a5e
+1650472355551	Marionette	INFO	Listening on port 43699
+1650472355635	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6935 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650472489201	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407463&moatClientLevel4=3833181&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://imasdk.googleapis.com/formats/outstream/versioned/prod2/outstream_web_client_20220413_RC00/outstream.min.js, line 577: Error: lima_missing_ad_media
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 768 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6236 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4500 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650472507565	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472507638	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472511754	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472514610	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472518687	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472520227	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472530087	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472584232	geckodriver	INFO	Listening on 127.0.0.1:56241
+1650472584746	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "39519" "-no-remote" "-profile" "/tmp/rust_mozprofileKHeteP"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650472586183	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileKHeteP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:39519/devtools/browser/c5d80f8c-505b-4064-a112-74936ebc8ca9
+1650472589207	Marionette	INFO	Listening on port 39697
+1650472589298	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 5362 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407478&moatClientLevel4=3833188&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7794 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650472622536	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+
+###!!! [Parent][PBackgroundParent] Error: RunMessage(msgname=PBackgroundIDBDatabase::Msg_Close) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PBackgroundParent] Error: RunMessage(msgname=PBackgroundIDBDatabase::Msg_Close) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6547 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7445 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2030 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650472640831	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472643743	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472644110	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472646134	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472650511	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472654646	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472657072	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472660425	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472663290	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472667120	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472669072	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472674658	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472678342	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472681381	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472683922	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472684826	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472692009	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472694981	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472696507	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472698645	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472701139	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472705786	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472711707	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650472716066	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472718837	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472728175	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472728939	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472730500	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1650472731264	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/quantcastvpaid04786010/moatvideo.js#_moatApi8679862, line 253: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650472732378	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472734497	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1650472734767	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472747192	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472750386	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472752120	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472753826	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472755803	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472757598	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1650472757766	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472765444	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472769712	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472773590	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472776973	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472780245	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472783821	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472787510	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1650472787572	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472788073	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472790797	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1650472791412	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472804573	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472806701	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472807377	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472810471	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472812710	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472815412	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472818909	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472824491	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472829278	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472832542	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472837244	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472837608	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650472840623	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1650472841023	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472844791	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650472922254	Marionette	INFO	Stopped listening on port 39697
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1650472959338	geckodriver	INFO	Listening on 127.0.0.1:54229
+1650472959359	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50691" "-no-remote" "-profile" "/tmp/rust_mozprofile1bnfv5"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650472961262	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile1bnfv5/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50691/devtools/browser/139ee795-1734-4091-862f-9001e963f793
+1650472964299	Marionette	INFO	Listening on port 42139
+1650472964431	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+1650472968086	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4885 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650472998143	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407463&moatClientLevel4=3833181&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1179 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6244 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7370 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6860 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650473019247	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473019340	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473023248	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473029846	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473036627	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473038980	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473040443	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473046832	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473131412	geckodriver	INFO	Listening on 127.0.0.1:46431
+1650473131420	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "51705" "-no-remote" "-profile" "/tmp/rust_mozprofilekziwkv"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650473132901	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilekziwkv/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51705/devtools/browser/5cf44b5c-7cc6-4e94-bc1c-b7c3e13c8caa
+1650473135661	Marionette	INFO	Listening on port 34739
+1650473135758	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7484 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650473158292	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407463&moatClientLevel4=3833181&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 5254 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 3246 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2076 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 5210 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650473191743	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473191803	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473201140	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473206602	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473208372	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650473756022	geckodriver	INFO	Listening on 127.0.0.1:41237
+1650473756071	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "53313" "-no-remote" "-profile" "/tmp/rust_mozprofile5lMOkQ"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650473758214	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile5lMOkQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53313/devtools/browser/a19d5ebf-bc8c-45b4-ae73-ce5bcd8429d6
+1650473762326	Marionette	INFO	Listening on port 46109
+1650473762366	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1650473769425	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://tpc.googlesyndication.com/sadbundle/$csp%3Der3$/1231474865232342904/index.html#t=13288708170042457741&p=https%3A%2F%2Fff8667b2f1a33f28056f5ee5a7ab33f0.safeframe.googlesyndication.com, line 2: SyntaxError: illegal character U+200B
+
+###!!! [Parent][PBackgroundParent] Error: RunMessage(msgname=PBackgroundIDBDatabase::Msg_Close) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PBackgroundParent] Error: RunMessage(msgname=PBackgroundIDBDatabase::Msg_Close) Channel closing: too late to send/recv, messages will be lost
+
+1650473800281	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650473800290	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7612 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2324 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+1650473839505	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650473878516	geckodriver	INFO	Listening on 127.0.0.1:34099
+1650473879025	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "45287" "-no-remote" "-profile" "/tmp/rust_mozprofilebvCZyU"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650473880686	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebvCZyU/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:45287/devtools/browser/a41e2edf-b1df-4e95-a3c0-3674a8352940
+1650473883882	Marionette	INFO	Listening on port 46207
+1650473883977	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+1650473892913	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1174 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407478&moatClientLevel4=3833188&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+1650473967046	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650473977511	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 676 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7726 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1304 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7803 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650474000696	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474000731	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://z.moatads.com/quantcastvpaid04786010/moatvideo.js#_moatApi47322414, line 253: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650474498205	Marionette	INFO	Stopped listening on port 46207
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1650474504498	geckodriver	INFO	Listening on 127.0.0.1:54181
+1650474505020	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "43221" "-no-remote" "-profile" "/tmp/rust_mozprofileEPD3hx"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650474507237	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileEPD3hx/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43221/devtools/browser/9907ac25-8b75-4fb3-8316-d43fab40fcd8
+1650474511377	Marionette	INFO	Listening on port 44841
+1650474511495	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2762 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650474550242	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407478&moatClientLevel4=3833188&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7485 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2227 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2381 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650474585276	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474585297	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474591342	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474597663	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474600226	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474607793	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474609196	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474614407	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474616858	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650474625831	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474627474	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650474629894	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474638416	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474639914	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474643887	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474648644	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474651141	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474656958	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474661220	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474664874	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474672312	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/quantcastvpaid04786010/moatvideo.js#_moatApi17734235, line 253: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650474675664	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474679488	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474682306	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474682690	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474686295	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1650474687347	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474691930	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474695713	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474699060	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474701585	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474704649	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474745942	geckodriver	INFO	Listening on 127.0.0.1:57539
+1650474746455	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50209" "-no-remote" "-profile" "/tmp/rust_mozprofilezG0Gdq"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650474748176	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilezG0Gdq/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50209/devtools/browser/2aed034d-9736-474d-8a50-2a10240f721b
+1650474751922	Marionette	INFO	Listening on port 45085
+1650474752020	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+1650474758203	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+1650474760164	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7582 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407463&moatClientLevel4=3833181&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: , line 0: uncaught exception: 7
+1650474848038	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6941 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1727 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2671 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2996 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650474870375	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474870433	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474874539	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474879624	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474881945	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474889749	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474889936	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650474892466	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474898440	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474901058	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474906243	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474908794	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/quantcastvpaid04786010/moatvideo.js#_moatApi21394053, line 253: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650474910334	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474913746	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474915464	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650474918247	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474922213	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474925074	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474928492	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650474936044	geckodriver	INFO	Listening on 127.0.0.1:33353
+1650474936560	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44975" "-no-remote" "-profile" "/tmp/rust_mozprofileN1FoP3"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650474938230	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileN1FoP3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:44975/devtools/browser/a4f71fdd-4e30-4968-9f75-e7ed0e4af018
+1650474941321	Marionette	INFO	Listening on port 40711
+1650474941422	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1404 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407459&moatClientLevel4=3833195&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+1650475011209	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 470 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6730 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2068 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7652 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+1650475046386	geckodriver	INFO	Listening on 127.0.0.1:57793
+1650475046903	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "34633" "-no-remote" "-profile" "/tmp/rust_mozprofileZJQZ3k"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650475048561	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZJQZ3k/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:34633/devtools/browser/1452dece-34ce-4e7c-9de6-dc2077358565
+1650475051921	Marionette	INFO	Listening on port 39101
+1650475051969	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+1650475058150	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 978 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650475102066	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407479&moatClientLevel4=3833201&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 5313 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 5321 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 216 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2785 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650475138563	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475138678	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475153753	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475154062	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475158885	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475160865	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475168754	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475169662	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475175350	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475176893	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475182186	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475183260	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475189740	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475191890	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475194921	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475195478	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475199232	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475202992	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475206353	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475212729	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475215372	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475220414	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650475224963	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475230917	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475234864	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475236127	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475444169	Marionette	INFO	Stopped listening on port 39101
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1650475448783	geckodriver	INFO	Listening on 127.0.0.1:60517
+1650475449285	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "58219" "-no-remote" "-profile" "/tmp/rust_mozprofileynPt7c"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650475451056	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileynPt7c/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58219/devtools/browser/f2a8aac2-10a0-4476-aea8-46f02e197dd5
+1650475454515	Marionette	INFO	Listening on port 39889
+1650475454581	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407478&moatClientLevel4=3833188&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+1650475525260	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 3759 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 252 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7187 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6840 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+1650475550967	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475551059	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475559097	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475567535	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475574926	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475582768	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475585180	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475601385	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475603606	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475611575	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650475618766	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475621677	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475627161	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475634645	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475638311	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475640815	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475657161	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475662647	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475665308	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475684789	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475689310	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650475701108	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475708006	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475723323	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475739804	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475755011	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475769913	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475784034	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475798502	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475813368	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475830190	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650475960883	Marionette	INFO	Stopped listening on port 39889
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1650477826757	geckodriver	INFO	Listening on 127.0.0.1:42831
+1650477827272	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "43519" "-no-remote" "-profile" "/tmp/rust_mozprofileaUljV5"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650477829858	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileaUljV5/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:43519/devtools/browser/a2372447-6c72-4fa3-a996-fac9560961b8
+1650477834188	Marionette	INFO	Listening on port 33471
+1650477834274	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+1650478037554	geckodriver	INFO	Listening on 127.0.0.1:45683
+1650478038070	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42175" "-no-remote" "-profile" "/tmp/rust_mozprofileqafasc"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650478039957	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileqafasc/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42175/devtools/browser/d909ea32-fe85-4805-89e8-c52e7ca13c68
+1650478043653	Marionette	INFO	Listening on port 34343
+1650478043733	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4705 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650478140836	geckodriver	INFO	Listening on 127.0.0.1:32797
+1650478141352	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50067" "-no-remote" "-profile" "/tmp/rust_mozprofileFDtaYu"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650478143821	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileFDtaYu/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50067/devtools/browser/d53ae039-5fa1-46cc-8f8d-6f5ceae8123d
+1650478147294	Marionette	INFO	Listening on port 45005
+1650478147419	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1650478152139	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+1650478154019	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 3536 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407459&moatClientLevel4=3833195&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+1650478199700	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1627 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 3715 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4658 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1709 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+1650478227727	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478227764	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478231852	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1650478236947	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478237436	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478247311	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478247329	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478261433	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478263819	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478268517	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478269924	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478280138	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478282432	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478291040	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478291166	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650478301018	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478301921	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478315084	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650478317902	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478322815	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478324937	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478333585	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478341143	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478341172	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://z.moatads.com/quantcastvpaid04786010/moatvideo.js#_moatApi64186572, line 253: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650478349711	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478354869	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650478357870	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478362329	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478364849	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478374453	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478379142	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1650478384944	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478392465	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478401207	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478410093	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478418944	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478430375	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478441660	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478449756	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478459441	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478468247	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478476123	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478486137	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478492901	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478505212	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478510803	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478522449	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478528536	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478539569	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478545977	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478687672	geckodriver	INFO	Listening on 127.0.0.1:58727
+1650478688182	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50929" "-no-remote" "-profile" "/tmp/rust_mozprofileavXWOw"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650478690230	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileavXWOw/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50929/devtools/browser/ea5fb745-4df2-4bb5-957b-5c7d3d363087
+1650478693743	Marionette	INFO	Listening on port 43675
+1650478693858	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4794 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407463&moatClientLevel4=3833181&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650478748149	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 744 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 374 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6927 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4749 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+1650478769786	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478769949	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478774064	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478786944	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478789536	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478793733	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478831747	geckodriver	INFO	Listening on 127.0.0.1:50323
+1650478832267	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "51233" "-no-remote" "-profile" "/tmp/rust_mozprofilemNUHB2"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650478834367	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemNUHB2/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51233/devtools/browser/17a06347-a7dc-44a7-8ee8-7d3b6f78fc18
+1650478837948	Marionette	INFO	Listening on port 37425
+1650478838023	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://z.moatads.com/totalmediaukdcmdisplay715441700527/moatad.js#moatClientLevel1=10009212&moatClientLevel2=27559023&moatClientLevel3=333192073&moatClientLevel4=169440960&moatClientSlicer1=6167483&zMoatENV=j, line 242: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1171 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407463&moatClientLevel4=3833181&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://imasdk.googleapis.com/formats/outstream/versioned/prod2/outstream_web_client_20220413_RC00/outstream.min.js, line 577: Error: lima_missing_ad_media
+1650478914181	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7475 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4542 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6017 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650478947391	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478947593	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478950430	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478951821	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478960848	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478966255	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478973428	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478973897	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478976453	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478981399	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478984798	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478992398	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478993583	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650478997831	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650478999429	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479005937	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+1650479011933	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479013770	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479015641	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479018396	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479027968	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479035345	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479039070	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479046549	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479049604	Marionette	INFO	Stopped listening on port 37425
+console.error: PushServiceWebSocket: 
+  _beginWSSetup: Not in shutdown state! Current state
+  2
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+1650479441118	geckodriver	INFO	Listening on 127.0.0.1:57197
+1650479441633	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "56699" "-no-remote" "-profile" "/tmp/rust_mozprofileiP0GTD"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650479443137	Marionette	INFO	Marionette enabled
+ATTENTION: default value of option mesa_glthread overridden by environment.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileiP0GTD/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56699/devtools/browser/8a5dc5f0-3174-4bcb-a739-2ce8c9576a13
+1650479446312	Marionette	INFO	Listening on port 35877
+1650479446394	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 82 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1650479477344	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6024 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 935 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 169 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 4788 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407459&moatClientLevel4=3833195&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://players.brightcove.net/1786863135/777b296f-1c59-4fff-a252-cd121cdebe7d_default/index.min.js, line 1: Error: Cannot use create a virtual MediaSource for this video
+1650479508420	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479508993	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479519770	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479520157	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479532021	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479536299	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479543429	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479544420	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479549668	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.warn: "Failed to add session data entry for frame targets in browsing context" 2147483835
+console.warn: (new AbortError("Actor 'DevToolsFrame' destroyed before query 'DevToolsFrameParent:addSessionDataEntry' was resolved", (void 0)))
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: "Already started legacy listener for root-node on server0.conn0.windowGlobal2147484051/windowGlobalTarget2"
+console.warn: "Already started legacy listener for root-node on server0.conn0.windowGlobal2147484053/windowGlobalTarget2"
+console.warn: "Already started legacy listener for root-node on server0.conn0.windowGlobal2147484055/windowGlobalTarget2"
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 1495 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 567"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:567:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 567, column: 0
+console.error: ({})
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 567"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:567:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 567, column: 0
+console.error: ({})
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 567"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:567:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 567, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 567: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 567: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 567: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 567"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:567:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 567, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 567: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+1650479589860	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7629 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484099/domwalker23, type watchRootNode failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nmodule.exports@resource://devtools/shared/commands/resource/legacy-listeners/root-node.js:60:31\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Unable to find target with innerWindowId:2147484098"
+console.error: "Unable to find target with innerWindowId:2147484098"
+console.error: "Unable to find target with innerWindowId:2147484098"
+1650479602890	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479603228	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479603831	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.error: "Unable to find target with innerWindowId:2147484098"
+console.error: "Unable to find target with innerWindowId:2147484098"
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484103/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484103/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Unable to find target with innerWindowId:2147484059"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Error when attaching target:" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484149/thread1, type isAttached failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nattachThread@resource://devtools/client/fronts/targets/target-mixin.js:572:49\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484149/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Unable to find target with innerWindowId:2147483781"
+1650479655927	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 2456 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3456: TypeError: data.frameData.id is null
+console.error: "Unable to find target with innerWindowId:2147484133"
+console.error: "Unable to find target with innerWindowId:2147484133"
+1650479674986	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479675027	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479675063	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.error: "Error when attaching target:" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484191/thread1, type isAttached failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nattachThread@resource://devtools/client/fronts/targets/target-mixin.js:572:49\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484191/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Error when attaching target:" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484189/thread1, type isAttached failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nattachThread@resource://devtools/client/fronts/targets/target-mixin.js:572:49\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484189/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Error when attaching target:" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484190/thread1, type isAttached failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nattachThread@resource://devtools/client/fronts/targets/target-mixin.js:572:49\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484190/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: , line 0: uncaught exception: 7
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484199/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484197/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Unable to find target with innerWindowId:2147484197"
+console.error: "Unable to find target with innerWindowId:2147484197"
+console.error: "Unable to find target with innerWindowId:2147484197"
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484134/layout54, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484134/layout54, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484134/layout54, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484134/layout54, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484134/layout54, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484146/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484146/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484146/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484146/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484146/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484157/layout31, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484157/layout31, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484157/layout31, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484157/layout31, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484157/layout31, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484204/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484204/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484204/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484204/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484204/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484143/layout120, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484143/layout120, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484143/layout120, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484143/layout120, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484143/layout120, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484150/layout65, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484150/layout65, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484150/layout65, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484150/layout65, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484150/layout65, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Unable to find target with innerWindowId:2147484134"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 510 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.error: "Failed to start [root-node] legacy listener for target server0.conn0.windowGlobal2147484215/windowGlobalTarget2" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484206/domwalker25, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Failed to start [root-node] legacy listener for target server0.conn0.windowGlobal2147484216/windowGlobalTarget2" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484206/domwalker25, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484206/domwalker25, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484206/domwalker25, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal2147484206/domwalker25, type getEmbedderElement failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+reparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26
+
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal2147484206/domwalker25, type getEmbedderElement failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+reparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26
+
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3456: TypeError: data.frameData.id is null
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3456: TypeError: data.frameData.id is null
+1650479705447	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:2147484158"
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484227/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 3918 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.error: "Unable to find target with innerWindowId:2147484249"
+console.error: "Unable to find target with innerWindowId:2147484249"
+1650479738536	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7584 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650479750740	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479753342	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484297/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484301/domwalker23, type watchRootNode failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nmodule.exports@resource://devtools/shared/commands/resource/legacy-listeners/root-node.js:60:31\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484303/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484303/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Unable to find target with innerWindowId:2147484297"
+console.error: "Unable to find target with innerWindowId:2147484297"
+console.error: "Unable to find target with innerWindowId:2147484297"
+console.error: "Unable to find target with innerWindowId:2147484297"
+console.error: "Unable to find target with innerWindowId:2147484297"
+console.error: "Unable to find target with innerWindowId:2147484297"
+console.error: "Unable to find target with innerWindowId:2147484303"
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal2147484303/inspectorActor4, type getWalker failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+_getWalker@resource://devtools/client/fronts/inspector.js:90:30
+initialize@resource://devtools/client/fronts/inspector.js:79:12
+
+1650479768903	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484256/layout60, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484292/layout30, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484264/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484270/layout28, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484284/layout30, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484293/layout143, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Unable to find target with innerWindowId:2147484284"
+console.error: "Unable to find target with innerWindowId:2147484284"
+console.error: "Unable to find target with innerWindowId:2147484292"
+console.error: "Unable to find target with innerWindowId:2147484292"
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484305/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 5386 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650479804489	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484309/layout28, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484339/layout29, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484348/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484340/layout29, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484349/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484341/layout29, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484350/layout28, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484357/layout28, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484361/layout27, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484311/layout27, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484360/layout29, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484364/layout25, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+1650479814417	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.error: "Failed to start [root-node] legacy listener for target server0.conn0.windowGlobal2147484379/windowGlobalTarget2" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484338/domwalker24, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484338/domwalker24, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannel.contentType]
+console.error: "Failed to start [root-node] legacy listener for target server0.conn0.windowGlobal2147484384/windowGlobalTarget2" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484354/domwalker24, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484385/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484385/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484354/domwalker24, type getEmbedderElement failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nreparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3456: TypeError: data.frameData.id is null
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3456: TypeError: data.frameData.id is null
+console.error: "Unable to find target with innerWindowId:2147484384"
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3456: TypeError: data.frameData.id is null
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3456: TypeError: data.frameData.id is null
+console.error: "Unable to find target with innerWindowId:2147484385"
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal2147484338/domwalker24, type getEmbedderElement failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+reparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26
+
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal2147484354/domwalker24, type getEmbedderElement failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+reparentRemoteFrame@resource://devtools/client/fronts/walker.js:408:26
+
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal2147484385/inspectorActor4, type getWalker failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+_getWalker@resource://devtools/client/fronts/inspector.js:90:30
+initialize@resource://devtools/client/fronts/inspector.js:79:12
+
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484388/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+1650479824107	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650479828738	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484383"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+console.error: "Unable to find target with innerWindowId:2147484390"
+1650479847616	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+console.error: "Unable to find target with innerWindowId:2147484405"
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal2147484408/layout26, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+1650480136030	geckodriver	INFO	Listening on 127.0.0.1:39925
+1650480136554	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49275" "-no-remote" "-profile" "/tmp/rust_mozprofileZztkXq"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1650480139773	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZztkXq/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49275/devtools/browser/51a72cae-8d77-44b7-8c72-d689687975ab
+1650480146614	Marionette	INFO	Listening on port 35407
+1650480146729	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+1650480159629	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: https://aswpsdkus.com/notify/v1/ua-sdk.min.js, line 1: Error: Notification permission is denied.
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407472&moatClientLevel4=3833204&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/allresponsemediaglobalftdisplay739160694092/moatad.js#moatClientLevel1=18966&moatClientLevel2=171277&moatClientLevel3=6407463&moatClientLevel4=3833181&moatClientSlicer1=18330, line 243: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650480226993	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6154 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 7814 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k-Lxrj_3cR5KhrMTVpzAVOH1CgwXrUvkekFpn42ZeoQ.js line 1 > eval line 6766 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1650480265117	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650480265613	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1650480270875	Marionette	INFO	Stopped listening on port 35407
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.

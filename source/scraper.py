@@ -7,18 +7,20 @@ from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import TimeoutException
-from string import Template
 from typing import List, Union
+from utilities import UUIDEncoder
+from utilities import file_ops
+import uuid
 
-class locator:
+class Locator:
     """
-    This class allows an element locator to be defined 
-    as an object to pass to scraper find routines
+    This class allows an element Locator to be defined 
+    as an object to pass to Scraper find routines
 
     Attributes
     ----------
     locate_by: str
-        A supported locator strategy e.g. XPATH, TAG_NAME etc.
+        A supported Locator strategy e.g. XPATH, TAG_NAME etc.
     locate_value:
         Locator value for search result elements on the page 
         e.g. the Xpath, the tag etc.
@@ -29,7 +31,7 @@ class locator:
         self.locate_value = locate_value
 
 
-class scraper:
+class Scraper:
 
     """
     This class provides functions for web scraping
@@ -38,21 +40,9 @@ class scraper:
     Attributes
     ----------
         _driver : WebDriver
-            The browser session used to scrape the website
+            The browser session used to -scrape the website
         base_url: str
             The initial url to be loaded as starting point for web scraping
-        search_url: str
-            The url for executing a search
-        search_template: str
-            A string providing a template for the search URL
-        results_template: str
-            A string providing a template for the search results URL
-        item_links: List[str]
-            A list of URLS obtained from the website search
-        data_dicts: List[str]
-            A list of dictionaries for each item scraped
-        image_links: List[str]
-            A list of dictionaries containing the URLS for item images
 
     Methods
     -------
@@ -61,42 +51,45 @@ class scraper:
             Locates a button within a frame (optional) 
             and executes the click to accept cookies
 
-        search(self, search_subs: dict, no_results: str = None) -> bool
+        search(self, search_url: str, no_results: str = None) -> bool
             Executes a search using the defined search url
 
-        get_item_links(self, search_items: str) -> None
-            Saves the URLs for each item in a page of the search results
-
-        go_to_page_num(self, results_subs: dict) -> bool
-             Navigates to a page generated from url template and substitute values
+        get_item_links(self, loc: Locator) -> list:
+            Returns list of URLs for each item in a page of the search results
 
         go_to_page_url(self, url: str) -> bool
-            Navigates to the url for a selected item
+            Navigates to the web page identified by 'url'
 
-        get_element(self, loc: locator) -> WebElement
-            Returns an element using the defined locator
+        get_element_text(self, loc: Locator) -> str:
+            Returns an element's text using the defined Locator
 
-        get_child_element(self, parent: WebElement, loc: locator)
-                -> WebElement
-            Returns a element within parent WebElement 
-            using the defined locator
+        get_element_list(self, loc: Locator) -> list[str]:
+            Finds a list of elements using the defined Locator
+            and returns the text of each in a list
 
-        get_elements(self, loc: locator) -> List[WebElement]:
-            Returns a list of web elements  using the defined locator
+        get_element_dict(get_elements_dict(
+                self, 
+                list_loc: Locator,
+                key_loc: Locator,
+                value_loc: Locator) -> dict:
+            Finds a list of elements, and then finds key / value
+            elements within each element and returns their values in
+            a dictionary
 
-        get_child_elements(self, parent: WebElement, loc: locator)
-                 -> List[WebElement]
-            Returns a list of web elements within parent WebElement 
-            using the defined locator
+        get_page_data(self, page_definition: dict) -> dict:
+            Uses the page_definition to scrape a page for the
+            data items described in the dictionary, where each key is a 
+            data item for the page data
 
-        get_image_url(self, parent: WebElement, loc: locator) -> str
+        get_image_url(self, parent: WebElement, loc: Locator) -> str
             Gets the URL associated with an image from the src attribute
-        
+
         quit(self):
             Quits the session
 
     """
-    def __init__(self, url: str) -> None:
+    def __init__(self, 
+                url: str) -> None:
 
         """
         Parameters
@@ -106,13 +99,6 @@ class scraper:
 
         """
         self.base_url = url
-        self.search_query_string = ""
-        self.search_template = ""
-        self.results_template = ""
-
-        self.item_links: List[str] = []
-        self.data_dicts: List[dict] = []
-        self.image_links: List[dict] = []
 
         try:
             # initiate the session
@@ -121,22 +107,22 @@ class scraper:
 
         except WebDriverException as e:
             # If something fails the close the driver and raise the exception
-            self._driver.quit()
-            raise RuntimeError(f"Failed to initialise scraper: {e.msg}") from e
+            # self._driver.quit()
+            raise RuntimeError(f"Failed to initialise Scraper: {e.msg}") from e
 
     def accept_cookies(
             self,
-            consent_button: str,
-            consent_iframe: str = None) -> None:
+            consent_button: Locator,
+            consent_iframe: Locator = None) -> None:
         """
         Locates a button within a frame and executes the click to accept cookies
 
         Parameters
         ----------
         consent_button: str
-            XPATH for the Accept Cookies button
+            Locator for the Accept Cookies button
         consent_iframe = None: str
-            ID for the frame where consent buttons are displayed
+            Locator for the frame where consent buttons are displayed
 
         Returns
         -------
@@ -146,13 +132,17 @@ class scraper:
         try:
             if consent_iframe is not None:
                 consent_frame = WebDriverWait(self._driver, 10).until(
-                    EC.visibility_of_element_located((By.ID, consent_iframe)))
+                    EC.visibility_of_element_located(
+                        (consent_iframe.locate_by, 
+                        consent_iframe.locate_value)))
                 self._driver.switch_to.frame(consent_frame)
 
             # This additional wait may be required to ensure 
             # the buttons are accessible
             accept_button = WebDriverWait(self._driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, consent_button)))
+                EC.element_to_be_clickable(
+                    (consent_button.locate_by, 
+                    consent_button.locate_value)))
             accept_button.click()
 
             self._driver.switch_to.default_content()
@@ -172,17 +162,16 @@ class scraper:
                 (By.XPATH, "//button[(@class=' css-1x23ujx')]")))
             accept_button.click()     
 
-    def search(self, search_subs: dict, no_results: str = None) -> bool:
+    def search(self, search_url: str, no_results: str = None) -> bool:
 
         """
-        Executes a search with a search URL generated from url template 
-        replacing placeholder elements with substitute values
+        Executes a search with a search URL which should
+        be in the correct format for the web site being scraped
 
         Parameters
         ----------
-        search_subs: dict
-            A dictionary of mappings of {searchwords: str} 
-            to substitute in the search URL template
+        search_url: str
+            The URL which executes a search on the website
         no_results: str
             XPATH for the element displaying no results message
 
@@ -191,8 +180,6 @@ class scraper:
         bool
 
         """
-        search_url = Template(self.search_template).substitute(**search_subs)
-
         try:
             self._driver.get(search_url)
 
@@ -214,15 +201,15 @@ class scraper:
         else:
             return True
 
-    def get_item_links(self, loc: locator) -> None:
+    def get_item_links(self, loc: Locator) -> list:
 
         """
-        Saves the URLs for each item in a page of the search results
+        Returns a list of URLs for each item in a page of the search results
 
         Parameters
         ----------
-        loc: locator
-            A supported locator strategy and value of the locator 
+        loc: Locator
+            A supported Locator strategy and value of the Locator 
             to find the element
 
         Returns
@@ -235,40 +222,19 @@ class scraper:
         # containing the link to the item page
 
         # find all the search result items
-        items = self.get_elements(loc)
+        url_list = []
+        items = self._driver.find_elements(
+            by=loc.locate_by, value=loc.locate_value)
 
         for item in items:
             # go to each recipe and get the link and add to list
             item_url = item.get_attribute("href")
-            self.item_links.append(item_url)
-
-    def go_to_page_num(self, results_subs: dict) -> bool:
-        """
-        Navigates to a page generated from url template and substitute values
-
-        Parameters
-        ----------
-        results_subs : dict
-            A dictionary of values {pagenum: int, searchwords: str} 
-            to substitute in the page URL template
-
-        Returns
-        -------
-        bool
-
-        """
-        try:
-            page_url = Template(self.results_template).substitute(**results_subs)
-
-            self._driver.get(page_url)
-            return True
-
-        except (TimeoutException, WebDriverException):
-            raise RuntimeError(f"Unable to load page: {page_url}")
+            url_list.append(item_url)
+        return url_list
 
     def go_to_page_url(self, url: str) -> bool:
         """
-        Navigates to the url for a selected item
+        Navigates to the web page identified by 'url'
 
 
         Parameters
@@ -287,17 +253,17 @@ class scraper:
         except (TimeoutException, WebDriverException):
             raise RuntimeError(f"Unable to load page: {url}")
 
-    def get_element(self, loc: locator) -> WebElement:
+    def get_element_text(self, loc: Locator) -> str:
         """
-        Returns an element using the defined locator
+        Returns an element's text using the defined Locator
 
         Parameters
         ----------
         parent:
             The parent web element
-        loc: locator
-            A supported locator strategy and value of the 
-            locator to find the element
+        loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the element
 
         Returns
         -------
@@ -306,113 +272,170 @@ class scraper:
         """
         try:
             return self._driver.find_element(by=loc.locate_by,
-                                            value=loc.locate_value)
+                                            value=loc.locate_value).text
 
         except NoSuchElementException:
             raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
 
-    def get_child_element(self, parent: WebElement, loc: locator) -> WebElement:
+    def get_element_list(self, loc: Locator) -> list[str]:
         """
-        Finds a element within parent WebElement using the defined locator
+        Finds a list of elements using the defined Locator
+        and returns the text of each in a list
 
         Parameters
         ----------
-        parent:
-            The parent web element
-        loc: locator
-            A supported locator strategy and value of the 
-            locator to find the element
+        loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the element
 
         Returns
         -------
-        WebElement
+        list[str]
 
         """
+        list_values = []
         try:
-            return parent.find_element(by=loc.locate_by, value=loc.locate_value)
-
+            list_items = self._driver.find_elements(
+                by=loc.locate_by, value=loc.locate_value)
+            for item in list_items:
+                list_values.append(item.text)
         except NoSuchElementException:
-            raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
+            raise RuntimeError(f"Elements at {loc.locate_by} does not exist.")
+        finally:
+            return list_values
 
-    def get_elements(self, loc: locator) -> List[WebElement]:
+    def get_elements_dict(
+            self, 
+            list_loc: Locator,
+            key_loc: Locator,
+            value_loc: Locator) -> dict:
         """
-        Returns a list of web elements using the defined locator
+        Finds a list of elements, and then finds key / value
+        elements within each element and returns their values in
+        a dictionary
+        Parameters
+        ----------
+        list_loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the list elements
+        key_loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the key element
+        value_loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the value element
+        Returns
+        -------
+        list[str]
+
+        """
+        dict_values = {}
+        try:
+            list_items = self._driver.find_elements(by=list_loc.locate_by, value=list_loc.locate_value)
+            for item in list_items:
+                try:
+                    key_text = item.find_element(by=key_loc.locate_by, value=key_loc.locate_value).text
+                except NoSuchElementException:         
+                    raise RuntimeError(f"Element at {key_loc.locate_by} does not exist.")
+                try:
+                    value_text = item.find_element(by=value_loc.locate_by, value=value_loc.locate_value).text
+                except NoSuchElementException:            
+                    raise RuntimeError(f"Element at {value_loc.locate_by} does not exist.")
+                dict_values.update({key_text: value_text})
+        except NoSuchElementException:
+            raise RuntimeError(f"Elements at {list_loc.locate_by} does not exist.")
+        finally:
+            return dict_values
+
+    def get_page_data(self, page_definition: dict) -> dict:
+        """
+        Uses the page_definition to scrape a page for the
+        data items described in the dictionary, where each key is a 
+        data item for the page data
 
         Parameters
         ----------
-        loc: locator
-            A supported locator strategy and value of the 
-            locator to find the element
-        parent:
-            The parent web element
-
+        page_defintion: dict
+            A dicitonary defining how page data will be located
+            {key: Locator} - returns a text value from an element
+            {key: [Locator]} - returns text from a list of elements in list format
+            {key: {list_loc: Locator}, {key_loc: Locator}, {value_loc: Locator}} - 
+                returns a dictionary of key / value pairs from a list of elements
+        
         Returns
         -------
-        WebElement
+        dict 
+            A dictionary of items containing information scraped from the page
+        """
+
+        page_dict = {}
+        for key, value in page_definition.items():
+            if type(value) is Locator:
+                # Dictionary item is a single element text value
+                page_dict.update({key: self.get_element_text(value)})
+            elif type(value) is list:
+                # Dictionary item is a list of values
+                page_dict.update({key: self.get_element_list(*value)})
+            else:
+                # Dictionary item is a dictionary of values
+                page_dict.update({key: self.get_elements_dict(**value)})
+        return page_dict
+
+    def scrape_pages(
+        self,
+        item_links: list,
+        page_def: dict, 
+        image_loc: Locator,
+        num_pages: int,
+        data_folder: str,
+        image_folder: str) -> None:
 
         """
-        try:
-            return self._driver.find_elements(
-                by=loc.locate_by,
-                value=loc.locate_value)
-
-        except NoSuchElementException:
-            raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
-
-    def get_child_elements(self,
-                            parent: WebElement,
-                            loc: locator) -> List[WebElement]:
+        Scrapes a list of URLS in range to num_pages
+        using the page definition dictionary provided
+        and saves each page as a JSON file
         """
-        Returns a list of web elements within parent WebElement 
-        using the defined locator
+        for idx, link in enumerate(item_links):
 
-        Parameters
-        ----------
-        parent:
-            The parent web element
-        loc: locator
-            A supported locator strategy and value of the 
-            locator to find the element
+            if idx == num_pages - 1:
+                break
 
-        Returns
-        -------
-        WebElement
+            self.go_to_page_url(link)
+            page_dict = self.get_page_data(page_def)
+            item_id = link.rsplit('/', 1)[-1]
+            page_dict.update({"item_id": link.rsplit('/', 1)[-1]})
+            page_dict.update({"item_UUID": uuid.uuid4()})
+            page_dict.update({"image_urls": self.get_image_url(image_loc)})
+            file_ops.dict_to_json_file(page_dict, f"{data_folder}/{item_id}.json")
+            for url in page_dict["image_urls"]:
+                file_ops.get_image(url, f"{image_folder}/{item_id}.json")
 
-        """
-        try:
-            return parent.find_elements(
-                by=loc.locate_by,
-                value=loc.locate_value)
-
-        except NoSuchElementException:
-            raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
-
-    @staticmethod
-    def get_image_url(parent: WebElement, loc: locator) -> str:
+    def get_image_url(self, loc: Locator) -> list:
         """
         Gets the URL associated with an image from the src attribute
 
         Parameters
         ----------
-        parent: WebElement
-            The parent element of the image element
-        loc: locator
-            A supported locator strategy and value of the 
-            locator to find the image element
-
+        loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the image element
 
         Returns
         -------
         str
         """
-
+        image_urls = []
         try:
-            return parent.find_element(by=loc.locate_by,
-                value=loc.locate_value).get_attribute('src').split('?', 1)[0]
+            images = self._driver.find_elements(by=loc.locate_by,
+                value=loc.locate_value)
+            for image in images:
+                image_urls.append(image.get_attribute('src').split('?', 1)[0])
 
         except NoSuchElementException:
             raise RuntimeError((f"Error getting image: "
                                 "Element at {loc.locate_by} does not exist."))
+        finally:
+            return image_urls
 
     def quit(self) -> None:
         self._driver.quit()
