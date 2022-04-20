@@ -7,10 +7,6 @@ from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import TimeoutException
-from typing import List, Union
-from utilities import UUIDEncoder
-from utilities import file_ops
-import uuid
 
 class Locator:
     """
@@ -139,11 +135,15 @@ class Scraper:
 
             # This additional wait may be required to ensure 
             # the buttons are accessible
-            accept_button = WebDriverWait(self._driver, 10).until(
-                EC.element_to_be_clickable(
-                    (consent_button.locate_by, 
-                    consent_button.locate_value)))
-            accept_button.click()
+            try:
+                accept_button = WebDriverWait(self._driver, 10).until(
+                    EC.element_to_be_clickable(
+                        (consent_button.locate_by, 
+                        consent_button.locate_value)))
+                accept_button.click()
+            except TimeoutException:
+                # already clicked
+                pass
 
             self._driver.switch_to.default_content()
 
@@ -157,12 +157,13 @@ class Scraper:
             # There is no other navigation etc.
             # which would case this so maybe something in page load.  
             # Retry when this occurs
-            accept_button = WebDriverWait(self._driver, 30).until(
+            accept_button = WebDriverWait(self._driver, 10).until(
                 EC.element_to_be_clickable(
-                (By.XPATH, "//button[(@class=' css-1x23ujx')]")))
-            accept_button.click()     
+                    (consent_button.locate_by, 
+                    consent_button.locate_value)))
+            accept_button.click()
 
-    def search(self, search_url: str, no_results: str = None) -> bool:
+    def search(self, search_url: str, no_results: Locator = None) -> bool:
 
         """
         Executes a search with a search URL which should
@@ -172,8 +173,8 @@ class Scraper:
         ----------
         search_url: str
             The URL which executes a search on the website
-        no_results: str
-            XPATH for the element displaying no results message
+        no_results: Locator
+            Locator strategy and value for the element displaying no results message
 
         Returns
         -------
@@ -183,23 +184,22 @@ class Scraper:
         try:
             self._driver.get(search_url)
 
-            if not no_results:
+            if no_results != None:
                 try:               
                     # if the no results div exists then search returned no results
                     no_results_element = self._driver.find_element(
-                        by=By.XPATH, value=no_results)
-                    self._driver.quit()
+                        by=no_results.locate_by, value=no_results.locate_value)
                     return False
 
                 except NoSuchElementException:
                     # if the no results div does not exist 
                     # then search returned results
                     return True
-
+            else:
+                return True
         except WebDriverException:
             raise RuntimeError("The search page could not be loaded")
-        else:
-            return True
+
 
     def get_item_links(self, loc: Locator) -> list:
 
@@ -232,7 +232,7 @@ class Scraper:
             url_list.append(item_url)
         return url_list
 
-    def go_to_page_url(self, url: str) -> bool:
+    def go_to_page_url(self, url: str, invalid_page: Locator) -> bool:
         """
         Navigates to the web page identified by 'url'
 
@@ -249,7 +249,15 @@ class Scraper:
         """
         try:
             self._driver.get(url)
-            return True
+            if invalid_page != None:
+                try:
+                    invalid_page_element = self._driver.find_element(
+                                by=invalid_page.locate_by, value=invalid_page.locate_value)
+                    return False
+                except NoSuchElementException:
+                    return True
+            else:
+                return True
         except (TimeoutException, WebDriverException):
             raise RuntimeError(f"Unable to load page: {url}")
 
@@ -381,35 +389,6 @@ class Scraper:
                 page_dict.update({key: self.get_elements_dict(**value)})
         return page_dict
 
-    def scrape_pages(
-        self,
-        item_links: list,
-        page_def: dict, 
-        image_loc: Locator,
-        num_pages: int,
-        data_folder: str,
-        image_folder: str) -> None:
-
-        """
-        Scrapes a list of URLS in range to num_pages
-        using the page definition dictionary provided
-        and saves each page as a JSON file
-        """
-        for idx, link in enumerate(item_links):
-
-            if idx == num_pages - 1:
-                break
-
-            self.go_to_page_url(link)
-            page_dict = self.get_page_data(page_def)
-            item_id = link.rsplit('/', 1)[-1]
-            page_dict.update({"item_id": link.rsplit('/', 1)[-1]})
-            page_dict.update({"item_UUID": uuid.uuid4()})
-            page_dict.update({"image_urls": self.get_image_url(image_loc)})
-            file_ops.dict_to_json_file(page_dict, f"{data_folder}/{item_id}.json")
-            for url in page_dict["image_urls"]:
-                file_ops.get_image(url, f"{image_folder}/{item_id}.json")
-
     def get_image_url(self, loc: Locator) -> list:
         """
         Gets the URL associated with an image from the src attribute
@@ -439,3 +418,4 @@ class Scraper:
 
     def quit(self) -> None:
         self._driver.quit()
+        self._driver = None

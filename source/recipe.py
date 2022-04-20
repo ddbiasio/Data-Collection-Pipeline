@@ -2,6 +2,8 @@ from scraper import Locator
 from scraper import Scraper
 from selenium.webdriver.common.by import By 
 from string import Template
+from utilities import file_ops
+import uuid
 
 class RecipeScraper:
 
@@ -52,6 +54,35 @@ class RecipeScraper:
 
         self.images = Locator(By.XPATH, "//div[(@class='post recipe')]//div[(@class='post-header__image-container')]//img[(@class='image__img')]")
 
+    def scrape_pages(
+        self,
+        item_links: list,
+        page_def: dict, 
+        image_loc: Locator,
+        num_pages: int,
+        data_folder: str,
+        image_folder: str) -> None:
+
+        """
+        Scrapes a list of URLS in range to num_pages
+        using the page definition dictionary provided
+        and saves each page as a JSON file
+        """
+        for idx, link in enumerate(item_links):
+
+            if idx == num_pages - 1:
+                break
+
+            self.go_to_page_url(link)
+            page_dict = self.get_page_data(page_def)
+            item_id = link.rsplit('/', 1)[-1]
+            page_dict.update({"item_id": link.rsplit('/', 1)[-1]})
+            page_dict.update({"item_UUID": uuid.uuid4()})
+            page_dict.update({"image_urls": self.get_image_url(image_loc)})
+            file_ops.dict_to_json_file(page_dict, f"{data_folder}/{item_id}.json")
+            for url in page_dict["image_urls"]:
+                file_ops.get_image(url, f"{image_folder}/{item_id}.json")
+
     def get_recipe_data(
             self, 
             keyword_search: str, 
@@ -79,7 +110,7 @@ class RecipeScraper:
             
             # Iterate through the page URLS n times and scrape the data
             # Writing the files to the defined data folder
-            self.scraper.scrape_pages(
+            self.scrape_pages(
                 urls, 
                 self.recipe_dict, 
                 self.images, 
@@ -87,4 +118,4 @@ class RecipeScraper:
                 data_folder,
                 image_folder)
 
-            self.scraper.quit()
+        self.scraper.quit()
