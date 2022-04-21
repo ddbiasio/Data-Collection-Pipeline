@@ -2,6 +2,7 @@ import pytest
 from source.scraper import Locator
 from source.scraper import Scraper
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 
 @pytest.fixture(scope="module")
 def test_scraper() -> Scraper:
@@ -45,6 +46,8 @@ def test_go_to_page_url_invalid(test_scraper: Scraper):
 def test_get_item_links(test_scraper: Scraper):
     error_page = Locator(By.XPATH, "//div[(@class='article error-page error-page-404')]")
     test_scraper.go_to_page_url("https://www.propertypal.com/property-for-sale/castlereagh-belfast/page-2", error_page)
+    # This is how the class was in the HTML - not sure what all the
+    # blanl lines are about but it doesn't work without them
     results_cards = Locator(By.XPATH,"""//div[(@class='box propbox
 		 
 		
@@ -92,3 +95,38 @@ def test_get_page_data(test_scraper: Scraper):
     }
     page_dict = test_scraper.get_page_data(page_def)
     assert len(page_dict) > 0
+
+def test_invalid_element(test_scraper: Scraper):
+    with pytest.raises(RuntimeError):
+        value = test_scraper.get_element_text(
+            Locator(By.XPATH, "invalid_xpath"))
+
+def test_invalid_list(test_scraper: Scraper):
+    with pytest.raises(RuntimeError):
+        value = test_scraper.get_element_list(
+            Locator(By.XPATH, "invalid_xpath"))
+
+def test_invalid_dict_list(test_scraper: Scraper):
+    with pytest.raises(RuntimeError):
+        value = test_scraper.get_elements_dict(
+            Locator(By.ID, "invalid_loc"),
+            Locator(By.XPATH, ".//th"),
+            Locator(By.XPATH, ".//td"))
+
+def test_invalid_dict_key(test_scraper: Scraper):
+    with pytest.raises(RuntimeError):
+        value = test_scraper.get_elements_dict(
+            Locator(By.ID, "key-info-table"),
+            Locator(By.XPATH, "invalid_loc"),
+            Locator(By.XPATH, ".//td"))
+
+def test_invalid_dict_val(test_scraper: Scraper):
+    with pytest.raises(RuntimeError):
+        value = test_scraper.get_elements_dict(
+            Locator(By.ID, "key-info-table"),
+            Locator(By.XPATH, ".//th"),
+            Locator(By.XPATH, "invalid_loc"))
+
+def test_invalid_url(test_scraper: Scraper):
+    with pytest.raises(RuntimeError):
+        assert not test_scraper.go_to_page_url("https://www.this_is_not_a_valid_url.com", None)

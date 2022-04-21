@@ -283,7 +283,7 @@ class Scraper:
                                             value=loc.locate_value).text
 
         except NoSuchElementException:
-            raise RuntimeError(f"Element at {loc.locate_by} does not exist.")
+            raise RuntimeError(f"Element at {loc.locate_value} does not exist.")
 
     def get_element_list(self, loc: Locator) -> list[str]:
         """
@@ -302,16 +302,15 @@ class Scraper:
 
         """
         list_values = []
-        try:
-            list_items = self._driver.find_elements(
-                by=loc.locate_by, value=loc.locate_value)
+        list_items = self._driver.find_elements(
+            by=loc.locate_by, value=loc.locate_value)
+        if len(list_items) > 0:
             for item in list_items:
                 list_values.append(item.text)
-        except NoSuchElementException:
-            raise RuntimeError(f"Elements at {loc.locate_by} does not exist.")
-        finally:
             return list_values
-
+        else:
+            raise RuntimeError(f"Elements at {loc.locate_value} does not exist.")
+ 
     def get_elements_dict(
             self, 
             list_loc: Locator,
@@ -338,22 +337,23 @@ class Scraper:
 
         """
         dict_values = {}
-        try:
-            list_items = self._driver.find_elements(by=list_loc.locate_by, value=list_loc.locate_value)
+
+        list_items = self._driver.find_elements(by=list_loc.locate_by, value=list_loc.locate_value)
+        if len(list_items) > 0:
             for item in list_items:
                 try:
                     key_text = item.find_element(by=key_loc.locate_by, value=key_loc.locate_value).text
                 except NoSuchElementException:         
-                    raise RuntimeError(f"Element at {key_loc.locate_by} does not exist.")
+                    raise RuntimeError(f"Element at {key_loc.locate_value} does not exist.")
                 try:
                     value_text = item.find_element(by=value_loc.locate_by, value=value_loc.locate_value).text
                 except NoSuchElementException:            
-                    raise RuntimeError(f"Element at {value_loc.locate_by} does not exist.")
+                    raise RuntimeError(f"Element at {value_loc.locate_value} does not exist.")
                 dict_values.update({key_text: value_text})
-        except NoSuchElementException:
-            raise RuntimeError(f"Elements at {list_loc.locate_by} does not exist.")
-        finally:
             return dict_values
+        else:
+            raise RuntimeError(f"Elements at {list_loc.locate_value} does not exist.")
+        
 
     def get_page_data(self, page_definition: dict) -> dict:
         """
@@ -377,6 +377,7 @@ class Scraper:
         """
 
         page_dict = {}
+
         for key, value in page_definition.items():
             if type(value) is Locator:
                 # Dictionary item is a single element text value
@@ -387,6 +388,7 @@ class Scraper:
             else:
                 # Dictionary item is a dictionary of values
                 page_dict.update({key: self.get_elements_dict(**value)})
+
         return page_dict
 
     def get_image_url(self, loc: Locator) -> list:
@@ -412,7 +414,7 @@ class Scraper:
 
         except NoSuchElementException:
             raise RuntimeError((f"Error getting image: "
-                                "Element at {loc.locate_by} does not exist."))
+                                "Element at {loc.locate_value} does not exist."))
         finally:
             return image_urls
 
