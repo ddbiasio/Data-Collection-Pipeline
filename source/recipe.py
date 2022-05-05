@@ -4,34 +4,23 @@ from selenium.webdriver.common.by import By
 from string import Template
 from utilities import file_ops
 import uuid
+import recipe_constants as rc
 
 class RecipeScraper:
 
     def __init__(self):
 
         self.recipe_dict = {
-            "recipe_name": Locator(By.XPATH,"""//div[(@class='post recipe')]//h1[(@class='heading-1')]"""),
-            "ingredients": [Locator(By.XPATH, """//div[(@class='post_recipe')]//section[(@class='recipe__ingredients col-12 mt-md col-lg-6')]//li[(@class='pb-xxs pt-xxs list-item list-item--separator')]""")],
-            "method": {
-                "list_loc": Locator(By.XPATH, """//div[(@class='post recipe')]//section[(@class='recipe__method-steps mb-lg col-12 col-lg-6')]//li[(@class='pb-xs pt-xs list-item')]"""),
-                "key_loc": Locator(By.XPATH, "./span[(@class='mb-xxs heading-6')]"),
-                "value_loc": Locator(By.TAG_NAME, "p")
-            },
-            "nutritional_info": {
-                "list_loc": Locator(By.XPATH, """//div[(@class='post recipe')]//tr[(@class='key-value-blocks__item')]"""),
-                "key_loc": Locator(By.XPATH, "./td[(@class='key-value-blocks__key')]"),
-                "value_loc": Locator(By.XPATH, "./td[(@class='key-value-blocks__value')]")        
-            },
-            "planning_info": {
-                "list_loc": Locator(By.XPATH, """//div[(@class='post recipe')]//div[(@class='icon-with-text time-range-list cook-and-prep-time post-header__cook-and-prep-time')]//li[(@class='body-copy-small list-item')]"""),
-                "key_loc": Locator(By.XPATH, ".//span[(@class='body-copy-bold mr-xxs')]"),
-                "value_loc": Locator(By.XPATH, ".//time")               
-            }
+            "recipe_name": rc.RECIPE_NAME_LOC,
+            "ingredients": rc.INGREDIENTS_LOC,
+            "method": rc.METHOD_LOC,
+            "nutritional_info": rc.NUTRITIONAL_INFO_LOC,
+            "planning_info": rc.PLANNING_INFO_LOC
         }
 
         # Set up variables to be passed to scraping methods
-        self.xp_accept_button = Locator(By.XPATH, "//button[(@class=' css-1x23ujx')]")
-        self.scraper = Scraper("https://www.bbcgoodfood.com/")
+        self.xp_accept_button = rc.ACCEPT_BUTTON_LOC
+        self.scraper = Scraper(rc.WEBSITE_URL)
 
         if self.scraper is not None:
             self.scraper.accept_cookies(self.xp_accept_button)
@@ -39,23 +28,21 @@ class RecipeScraper:
         # Set search template based on 
         # https://www.bbcgoodfood.com/search?q=chicken
         # Multiple word searches should be separated by plus
-        self.search_template = (
-            "https://www.bbcgoodfood.com/search?q=$searchwords")
+        self.search_template = rc.SEARCH_URL_TEMPLATE
 
         # Set results template based on 
         # https://www.bbcgoodfood.com/search/recipes/page/2/?q=chicken&sort=-relevance
         # Multiple word searches should be separated by plus
-        self.results_template = (
-            "https://www.bbcgoodfood.com/search/recipes/page/$pagenum/?q=$searchwords&sort=-relevance")
+        self.results_template = rc.RESULTS_URL_TEMPLATE
+    
 
         # XPATH details for the no results element
-        self.xp_no_results = Locator(By.XPATH,
-            "//div[(@class='col-12 template-search-universal__no-results')]")
+        self.xp_no_results = rc.NO_RESULTS_DIV_LOC
 
-        self.images = Locator(By.XPATH, "//div[(@class='post recipe')]//div[(@class='post-header__image-container')]//img[(@class='image__img')]")
+        self.images = rc.IMAGES_LOC
 
         # XPATH details for the invalid page content
-        self.invalid_page = Locator(By.XPATH, "//div[(@class='template-error__content')]")
+        self.invalid_page = rc.ERROR_PAGE_DIV_LOC
 
     def scrape_pages(
         self,
