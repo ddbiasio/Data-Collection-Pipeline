@@ -37,8 +37,6 @@ class Scraper:
     ----------
         _driver : WebDriver
             The browser session used to -scrape the website
-        base_url: str
-            The initial url to be loaded as starting point for web scraping
 
     Methods
     -------
@@ -94,12 +92,11 @@ class Scraper:
             The URL of the website to be scraped
 
         """
-        self.base_url = url
 
         try:
             # initiate the session
             self._driver = webdriver.Firefox()
-            self._driver.get(self.base_url)
+            self._driver.get(url)
 
         except WebDriverException as e:
             # If something fails the close the driver and raise the exception
