@@ -4,7 +4,7 @@ from utilities import file_ops
 # A list of search terms that can be iterated through
 # for multiple scraping variations
 
-searches = ["chickensdfsdsdfdg"]
+searches = ["chickens"]
 
 file_ops.create_folder("./raw_data")
 
