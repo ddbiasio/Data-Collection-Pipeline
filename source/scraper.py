@@ -7,6 +7,8 @@ from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 class Locator:
     """
@@ -95,7 +97,11 @@ class Scraper:
 
         try:
             # initiate the session
-            self._driver = webdriver.Firefox()
+            options = Options()
+            options.add_argument("--headless")
+            options.binary_location = '/usr/bin/google-chrome'
+            driverService = Service('/usr/bin/chromedriver')
+            self._driver = webdriver.Chrome(service=driverService, options=options)
             self._driver.get(url)
 
         except WebDriverException as e:
@@ -103,19 +109,19 @@ class Scraper:
             # self._driver.quit()
             raise RuntimeError(f"Failed to initialise Scraper: {e.msg}") from e
 
-    def accept_cookies(
+    def dismiss_popup(
             self,
-            consent_button: Locator,
-            consent_iframe: Locator = None) -> None:
+            button_loc: Locator,
+            iframe_loc: Locator = None) -> None:
         """
         Locates a button within a frame and executes the click to accept cookies
 
         Parameters
         ----------
-        consent_button: str
-            Locator for the Accept Cookies button
-        consent_iframe = None: str
-            Locator for the frame where consent buttons are displayed
+        button_loc: str
+            Locator for the button which will clear the popup
+        iframe_loc = None: str
+            Locator for the frame where the buttons are displayed
 
         Returns
         -------
@@ -123,26 +129,30 @@ class Scraper:
 
         """
         try:
-            if consent_iframe is not None:
-                consent_frame = WebDriverWait(self._driver, 10).until(
+            if iframe_loc is not None:
+                dismiss_frame = WebDriverWait(self._driver, 10).until(
                     EC.visibility_of_element_located(
-                        (consent_iframe.locate_by, 
-                        consent_iframe.locate_value)))
-                self._driver.switch_to.frame(consent_frame)
+                        (iframe_loc.locate_by, 
+                        iframe_loc.locate_value)))
+                self._driver.switch_to.frame(dismiss_frame)
 
             # This additional wait may be required to ensure 
             # the buttons are accessible
             try:
-                accept_button = WebDriverWait(self._driver, 10).until(
+                button_loc = WebDriverWait(self._driver, 10).until(
                     EC.element_to_be_clickable(
-                        (consent_button.locate_by, 
-                        consent_button.locate_value)))
-                accept_button.click()
+                        (button_loc.locate_by, 
+                        button_loc.locate_value)))
+                button_loc.click()
             except TimeoutException:
                 # already clicked
                 pass
 
             self._driver.switch_to.default_content()
+
+        except TimeoutException:
+            # already clicked / not there
+            pass
 
         except NoSuchElementException:
             # If the element is not there then cookies must have been 
@@ -154,11 +164,11 @@ class Scraper:
             # There is no other navigation etc.
             # which would case this so maybe something in page load.  
             # Retry when this occurs
-            accept_button = WebDriverWait(self._driver, 10).until(
+            button_loc = WebDriverWait(self._driver, 10).until(
                 EC.element_to_be_clickable(
-                    (consent_button.locate_by, 
-                    consent_button.locate_value)))
-            accept_button.click()
+                    (button_loc.locate_by, 
+                    button_loc.locate_value)))
+            button_loc.click()
 
     def search(self, search_url: str, no_results: Locator = None) -> bool:
 
