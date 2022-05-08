@@ -98,7 +98,6 @@ class RecipeScraper:
             search_url = Template(self.search_template).substitute(**search_mappings)
             if self.scraper.search(search_url, self.xp_no_results):
 
-
                 # Get the links from the recipe cards in search results
                 search_results_locator = Locator(By.XPATH,
                     "//a[(@class='body-copy-small standard-card-new__description')]")
@@ -127,5 +126,7 @@ class RecipeScraper:
                         self.images, 
                         data_folder,
                         images_folder)
+            else:
+                print(f"No results for {keyword_search}")
         finally:
             self.scraper.quit()

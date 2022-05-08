@@ -97,11 +97,12 @@ class Scraper:
 
         try:
             # initiate the session
-            options = Options()
-            options.add_argument("--headless")
-            options.binary_location = '/usr/bin/google-chrome'
-            driverService = Service('/usr/bin/chromedriver')
-            self._driver = webdriver.Chrome(service=driverService, options=options)
+            # options = Options()
+            # options.add_argument("--headless")
+            # options.binary_location = '/usr/bin/google-chrome'
+            # driverService = Service('/usr/bin/chromedriver')
+            # self._driver = webdriver.Chrome(service=driverService, options=options)
+            self._driver = webdriver.Chrome()
             self._driver.get(url)
 
         except WebDriverException as e:
@@ -194,9 +195,9 @@ class Scraper:
             if no_results != None:
                 try:               
                     # if the no results div exists then search returned no results
-                    self._driver.find_element(
-                        by=no_results.locate_by, value=no_results.locate_value)
-                    return False
+                    if len(self._driver.find_elements(
+                        by=no_results.locate_by, value=no_results.locate_value)) != 0:
+                        return False
 
                 except NoSuchElementException:
                     # if the no results div does not exist 
@@ -257,9 +258,10 @@ class Scraper:
             self._driver.get(url)
             if invalid_page != None:
                 try:
-                    invalid_page_element = self._driver.find_element(
-                                by=invalid_page.locate_by, value=invalid_page.locate_value)
-                    return False
+                    if len(self._driver.find_elements(
+                                by=invalid_page.locate_by, 
+                                value=invalid_page.locate_value)) != 0:
+                        return False
                 except NoSuchElementException:
                     return True
             else:
