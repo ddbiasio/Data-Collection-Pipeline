@@ -13,6 +13,6 @@ rs = RecipeScraper()
 
 for search in searches:
     try:
-        rs.get_recipe_data(search.replace(' ', '+'), 2)
+        rs.get_recipe_data(search.replace(' ', '+'), 1)
     except RuntimeError as exc:
         print(f"Unable to retrieve data for {search}: {str(exc)}")

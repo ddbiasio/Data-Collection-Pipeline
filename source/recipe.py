@@ -109,7 +109,7 @@ class RecipeScraper:
                 search_results_locator = Locator(By.XPATH,
                     "//a[(@class='body-copy-small standard-card-new__description')]")
 
-                for page in range(1, num_pages):
+                for page in range(1, num_pages + 1):
                     # Sets the URL for results pages by page num
                     results_mappings = {'pagenum': page, 'searchwords': keyword_search}
                     results_page = Template(self.results_template).substitute(**results_mappings)
