@@ -42,8 +42,8 @@ class Scraper:
 
     Methods
     -------
-        accept_cookies(self, consent_button: str, 
-                consent_iframe = None: str) -> None
+        dismiss_popup(self, button_loc: str, 
+                iframe_loc = None: str) -> None
             Locates a button within a frame (optional) 
             and executes the click to accept cookies
 
@@ -194,7 +194,7 @@ class Scraper:
             if no_results != None:
                 try:               
                     # if the no results div exists then search returned no results
-                    no_results_element = self._driver.find_element(
+                    self._driver.find_element(
                         by=no_results.locate_by, value=no_results.locate_value)
                     return False
 
@@ -242,7 +242,6 @@ class Scraper:
     def go_to_page_url(self, url: str, invalid_page: Locator) -> bool:
         """
         Navigates to the web page identified by 'url'
-
 
         Parameters
         ----------

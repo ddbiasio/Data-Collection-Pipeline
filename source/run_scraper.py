@@ -1,11 +1,10 @@
-from sys import excepthook
 from recipe import RecipeScraper
 from utilities import file_ops
 
 # A list of search terms that can be iterated through
 # for multiple scraping variations
 
-searches = ["chicken"]
+searches = ["chickensdfsdsdfdg"]
 
 file_ops.create_folder("./raw_data")
 

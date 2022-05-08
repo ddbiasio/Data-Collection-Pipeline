@@ -97,13 +97,7 @@ class RecipeScraper:
             search_mappings = {'searchwords': keyword_search}
             search_url = Template(self.search_template).substitute(**search_mappings)
             if self.scraper.search(search_url, self.xp_no_results):
-                # Create the folders for the data and images
-                # Data folder ./raw_data/search_term (replace spaces with underscore)
-                data_folder = f"./raw_data/{keyword_search.replace(' ', '_')}"
-                # Images folder ./raw_data/search_term/images
-                images_folder = f"{data_folder}/images"
-                file_ops.create_folder(data_folder)
-                file_ops.create_folder(images_folder)
+
 
                 # Get the links from the recipe cards in search results
                 search_results_locator = Locator(By.XPATH,
@@ -117,13 +111,21 @@ class RecipeScraper:
                     if self.scraper.go_to_page_url(results_page, self.invalid_page):
                         urls = self.scraper.get_item_links(search_results_locator)
                 
-                # Iterate through the page URLS n times and scrape the data
-                # Writing the files to the defined data folder
-                self.scrape_pages(
-                    urls, 
-                    self.recipe_dict, 
-                    self.images, 
-                    data_folder,
-                    images_folder)
+                if urls.count > 1:
+                    # Create the folders for the data and images
+                    # Data folder ./raw_data/search_term (replace spaces with underscore)
+                    data_folder = f"./raw_data/{keyword_search.replace(' ', '_')}"
+                    # Images folder ./raw_data/search_term/images
+                    images_folder = f"{data_folder}/images"
+                    file_ops.create_folder(data_folder)
+                    file_ops.create_folder(images_folder)
+                    # Iterate through the page URLS n times and scrape the data
+                    # Writing the files to the defined data folder
+                    self.scrape_pages(
+                        urls, 
+                        self.recipe_dict, 
+                        self.images, 
+                        data_folder,
+                        images_folder)
         finally:
             self.scraper.quit()
