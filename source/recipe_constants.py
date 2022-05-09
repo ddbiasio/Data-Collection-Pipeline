@@ -12,6 +12,7 @@ ACCEPT_BUTTON_LOC = Locator(By.XPATH, "//button[(@class=' css-1x23ujx')]")
 DISMISS_SIGN_IN_LOC = Locator(By.XPATH,"//button[(@class='pn-widget__link pn-widget__link--secondary unbutton')]")
 SIGN_IN_IFRAME_LOC = Locator(By.TAG_NAME, "iframe")
 
+RESULT_CARDS_LOC = Locator(By.XPATH, "//a[(@class='body-copy-small standard-card-new__description')]")
 NO_RESULTS_DIV_LOC = Locator(By.XPATH,
             "//div[(@class='col-12 template-search-universal__no-results')]")
 
