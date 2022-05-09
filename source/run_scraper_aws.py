@@ -1,29 +1,44 @@
 import configparser
 from recipe import RecipeScraper
-from file_storage import FileStorage
+from s3_storage import S3Storage
 import boto3
 
-def init_storage(root_folder: str):
-    return FileStorage(root_folder)
+def init_storage(bucket: str):
+    # Get the aws settings from config file
+    config = configparser.ConfigParser()
+    config.read_file(open('./source/config.ini'))
+    aws_access_key = config.get('S3Storage', 'accesskeyid')
+    aws_secret_key = config.get('S3Storage', 'secretaccesskey') 
+    aws_user = config.get('S3Storage', 'iamuser') 
+    aws_region = config.get('S3Storage', 'region') 
+    
+    # file_ops.dict_to_json_file(page_dict, f"{data_folder}/{item_id}.json")
+        
+    return S3Storage(
+            aws_access_key,
+            aws_secret_key,
+            aws_region,
+            aws_user,
+            bucket)
 
-def save_file(fs_client: FileStorage,
+def save_file(s3storage: S3Storage,
         page_dict: dict,
         folder: str):
 
-        fs_client.dict_to_json_file(
+        s3storage.dict_to_json_file(
             page_dict,
             folder,
             f"{page_dict['item_id']}"
             )
 
-def save_images(fs_client: FileStorage,
+def save_images(s3storage: S3Storage,
         page_dict: dict,
         folder: str):
 
     for url in page_dict["image_urls"]:
         # Get the file extension from the url
         file_ext = url.rsplit('/', 1)[-1].rsplit('.', 1)[-1]
-        fs_client.save_image(
+        s3storage.save_image(
             url,
             folder,
             f"{page_dict['item_id']}.{file_ext}")
@@ -43,14 +58,10 @@ if __name__ == "__main__":
 
         # if data has been scraped
         if len(rs.page_data) > 0:
-            fs = init_storage("./raw_data")
+            s3 = init_storage("aicore-recipes-raw-data")
             # s3.create_bucket("aicore-recipes-raw-data")
             for idx, page_dict in enumerate(rs.page_data):
-                # create the folders for data and images
-                data_folder = f"{fs.root_folder}/{search.replace(' ', '-')}"
-                images_folder = f"{data_folder}/images"
-                fs.create_folder(data_folder)
-                fs.create_folder(images_folder)
-                # save the files in the appropriate folder
-                save_file(fs, page_dict, data_folder)
-                save_images(fs, page_dict, images_folder)
+                folder_name = search.replace(' ', '-')
+                save_file(s3, page_dict, search)
+                save_images(s3, page_dict, search)
+
