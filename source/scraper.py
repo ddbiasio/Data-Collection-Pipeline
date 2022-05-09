@@ -140,11 +140,11 @@ class Scraper:
             # This additional wait may be required to ensure 
             # the buttons are accessible
             try:
-                button_loc = WebDriverWait(self._driver, 10).until(
+                dismiss_button = WebDriverWait(self._driver, 10).until(
                     EC.element_to_be_clickable(
                         (button_loc.locate_by, 
                         button_loc.locate_value)))
-                button_loc.click()
+                dismiss_button.click()
             except TimeoutException:
                 # already clicked
                 pass
@@ -195,9 +195,8 @@ class Scraper:
             if no_results != None:
                 try:               
                     # if the no results div exists then search returned no results
-                    if len(self._driver.find_elements(
-                        by=no_results.locate_by, value=no_results.locate_value)) != 0:
-                        return False
+                    return len(self._driver.find_elements(
+                        by=no_results.locate_by, value=no_results.locate_value)) == 0
 
                 except NoSuchElementException:
                     # if the no results div does not exist 
@@ -240,7 +239,9 @@ class Scraper:
             url_list.append(item_url)
         return url_list
 
-    def go_to_page_url(self, url: str, invalid_page: Locator) -> bool:
+    def go_to_page_url(self, 
+        url: str, 
+        invalid_page: Locator) -> bool:
         """
         Navigates to the web page identified by 'url'
 
@@ -257,13 +258,9 @@ class Scraper:
         try:
             self._driver.get(url)
             if invalid_page != None:
-                try:
-                    if len(self._driver.find_elements(
-                                by=invalid_page.locate_by, 
-                                value=invalid_page.locate_value)) != 0:
-                        return False
-                except NoSuchElementException:
-                    return True
+                return len(self._driver.find_elements(
+                            by=invalid_page.locate_by, 
+                            value=invalid_page.locate_value)) == 0
             else:
                 return True
         except (TimeoutException, WebDriverException):
