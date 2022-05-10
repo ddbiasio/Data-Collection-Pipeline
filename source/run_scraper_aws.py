@@ -12,8 +12,6 @@ def init_storage(bucket: str):
     aws_user = config.get('S3Storage', 'iamuser') 
     aws_region = config.get('S3Storage', 'region') 
     
-    # file_ops.dict_to_json_file(page_dict, f"{data_folder}/{item_id}.json")
-        
     return S3Storage(
             aws_access_key,
             aws_secret_key,
@@ -58,10 +56,8 @@ if __name__ == "__main__":
 
         # if data has been scraped
         if len(rs.page_data) > 0:
-            s3 = init_storage("aicore-recipes-raw-data")
-            # s3.create_bucket("aicore-recipes-raw-data")
+            s3 = init_storage("raw-data")
             for idx, page_dict in enumerate(rs.page_data):
                 folder_name = search.replace(' ', '-')
                 save_file(s3, page_dict, search)
                 save_images(s3, page_dict, search)
-

@@ -3,6 +3,7 @@ import configparser
 import requests
 from utilities import UUIDEncoder
 import json
+import uuid
 
 class S3Storage:
     """
@@ -23,7 +24,14 @@ class S3Storage:
             aws_secret_access_key = secret_access_key,
             region_name = region
             )
-        self.bucket_name = bucket
+        self.__access_key_id = access_key_id
+        self.__secret_access_key = secret_access_key
+        self.__region = region
+        self.__user = user
+
+        bucket_name, bucketresponse = (
+                self.create_bucket(bucket))
+        self.bucket_name = bucket_name
 
     def save_image(self,
             url: str,
@@ -49,17 +57,27 @@ class S3Storage:
             Bucket=self.bucket_name,
             Key=f"{folder}/{file}.json")
 
-    def create_bucket(self,
-            bucket: str):
+    def create_bucket_name(self, 
+            bucket_prefix):
+        # The generated bucket name must be between 3 and 63 chars long
+        return ''.join([bucket_prefix, str(uuid.uuid4())])
 
-        bucket_owner = self.user
+    def create_bucket(self, 
+            bucket_prefix: str):
+       
+        for bucket_dict in self.__client.list_buckets().get('Buckets'):
+            if bucket_prefix in bucket_dict['Name']:
+                return bucket_dict['Name'], True
+        
+        bucket_name = self.create_bucket_name(bucket_prefix)
 
-        response = self.__client.head_bucket(
-            Bucket=bucket,
-            ExpectedBucketOwner=bucket_owner)
-
-        if not response == 200:
-            bucket = self.__client.create_bucket(
-                Bucket=bucket, 
-                CreateBucketConfiguration=
-                    {'LocationConstraint': self.region})
+        bucket_response = self.__client.create_bucket(
+            Bucket=bucket_name,
+            CreateBucketConfiguration={
+            'LocationConstraint': self.__region})
+        
+        if bucket_response['ResponseMetadata']['HTTPStatusCode'] == 200:
+            # Bucket created
+            return bucket_name, True
+        else:
+            return None, False
