@@ -8,27 +8,30 @@ import recipe_constants as rc
 
 class RecipeScraper(Scraper):
 
+# [{'method_step': method_step_value,
+#    'method_details': method_details_value}]
+
     def __init__(self):
         # initialise with the base website
 
         self.recipe_dict = {
             "recipe_name": rc.RECIPE_NAME_LOC,
-            "ingredients": [rc.INGREDIENTS_LOC],
+            "ingredients": [("ingredient", rc.INGREDIENTS_LOC)],
             "method": {
                 "list_loc": rc.METHOD_STEPS_LOC,
-                "key_loc": rc.METHOD_STEP_KEY_LOC,
-                "value_loc": rc.METHOD_STEP_DETAIL
-                },
+                "dict_keys": ["method_step", "method_instructions"],
+                "dict_values": [rc.METHOD_STEP_KEY_LOC,rc.METHOD_STEP_DETAIL]
+            },
             "nutritional_info": {
                 "list_loc": rc.NUTRITIONAL_LIST_LOC,
-                "key_loc": rc.NUTRITIONAL_INFO_LOC,
-                "value_loc": rc.NUTRITIONAL_VALUE_LOC       
+                "dict_keys": ["nutritional_info", "nutritional_value"],
+                "dict_values": [rc.NUTRITIONAL_INFO_LOC,rc.NUTRITIONAL_VALUE_LOC]     
                 },
             "planning_info": {
-                "list_loc": rc.PLANNING_LIST_LOC,
-                "key_loc": rc.PLANNING_LIST_TASK,
-                "value_loc": rc.PLANNING_LIST_TIME              
-                }
+                "list_loc": rc.PLANNING_LIST_LOC,            
+                "dict_keys": ["prep_stage", "prep_time"],
+                "dict_values": [rc.PLANNING_LIST_TASK,rc.PLANNING_LIST_TIME]     
+                  }
         }
 
         self.page_data = []
@@ -82,7 +85,7 @@ class RecipeScraper(Scraper):
             page_dict.update({"image_urls": self.get_image_url(image_loc)})
 
             self.page_data.append(page_dict)
-
+            
             break
 
     def get_recipe_data(

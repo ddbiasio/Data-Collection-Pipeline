@@ -290,28 +290,33 @@ class Scraper:
         except NoSuchElementException:
             raise RuntimeError(f"Element at {loc.locate_value} does not exist.")
 
-    def get_element_list(self, loc: Locator) -> list[str]:
+    def get_element_list(self, list_def: tuple) -> list[str]:
         """
         Finds a list of elements using the defined Locator
         and returns the text of each in a list
 
         Parameters
         ----------
-        loc: Locator
-            A supported Locator strategy and value of the 
-            Locator to find the element
+        list_def: dict
+            A dictionary defining the key to store values against
+            and a supported locator strategy to get the value for
+            each list item to be stored in the dictionary
 
         Returns
         -------
-        list[str]
+        list[dict]:
+            A list of dictionaries with a single key: value
+            pair in each dictionary
 
         """
+        key, loc = list_def
         list_values = []
         list_items = self._driver.find_elements(
             by=loc.locate_by, value=loc.locate_value)
         if len(list_items) > 0:
             for item in list_items:
-                list_values.append(item.text)
+                list_dict = {key: item.text}
+                list_values.append(list_dict)
             return list_values
         else:
             raise RuntimeError(f"Elements at {loc.locate_value} does not exist.")
@@ -319,46 +324,46 @@ class Scraper:
     def get_elements_dict(
             self, 
             list_loc: Locator,
-            key_loc: Locator,
-            value_loc: Locator) -> dict:
+            dict_keys: list,
+            dict_values: list) -> list[dict]:
         """
-        Finds a list of elements, and then finds key / value
-        elements within each element and returns their values in
-        a dictionary
+        Finds a list of elements, and then finds multiple values
+        as specified by locator details in 'values' which corresponds to 
+        items specified in 'keys' and creates a dictionary item
+        for each key / value pair
+        
         Parameters
         ----------
         list_loc: Locator
             A supported Locator strategy and value of the 
             Locator to find the list elements
-        key_loc: Locator
-            A supported Locator strategy and value of the 
-            Locator to find the key element
-        value_loc: Locator
-            A supported Locator strategy and value of the 
-            Locator to find the value element
+        keys: list
+            A list of key values for each dictionary item
+        values: list
+            A list of supported Locator strategy sorresponding to
+            the elements which contain the data for each key in keys
         Returns
         -------
-        list[str]
+        list[dict]
 
         """
-        dict_values = {}
+        dict_list = []
 
         list_items = self._driver.find_elements(by=list_loc.locate_by, value=list_loc.locate_value)
-        if len(list_items) > 0:
-            for item in list_items:
+        if len(list_items) > 0:     
+            for item in list_items:     
+                item_dict = {}
                 try:
-                    key_text = item.find_element(by=key_loc.locate_by, value=key_loc.locate_value).text
+                    for idx, key in enumerate(dict_keys):
+                        key_text = key
+                        key_value = item.find_element(by=dict_values[idx].locate_by, value=dict_values[idx].locate_value).text
+                        item_dict.update({key_text: key_value})
                 except NoSuchElementException:         
-                    raise RuntimeError(f"Element at {key_loc.locate_value} does not exist.")
-                try:
-                    value_text = item.find_element(by=value_loc.locate_by, value=value_loc.locate_value).text
-                except NoSuchElementException:            
-                    raise RuntimeError(f"Element at {value_loc.locate_value} does not exist.")
-                dict_values.update({key_text: value_text})
-            return dict_values
+                    raise RuntimeError(f"Element at {dict_values[idx].locate_value} does not exist.")
+                dict_list.append(item_dict)
+            return dict_list
         else:
             raise RuntimeError(f"Elements at {list_loc.locate_value} does not exist.")
-        
 
     def get_page_data(self, page_definition: dict) -> dict:
         """
@@ -389,6 +394,7 @@ class Scraper:
                 page_dict.update({key: self.get_element_text(value)})
             elif type(value) is list:
                 # Dictionary item is a list of values
+                # The list should be of format key: list_loc
                 page_dict.update({key: self.get_element_list(*value)})
             else:
                 # Dictionary item is a dictionary of values

@@ -18,7 +18,7 @@ class S3Storage:
             user: str,
             bucket: str):
 
-        self.__client = boto3.client(
+        self.__s3resource = boto3.resource(
             's3',
             aws_access_key_id = access_key_id,
             aws_secret_access_key = secret_access_key,
@@ -32,6 +32,7 @@ class S3Storage:
         bucket_name, bucketresponse = (
                 self.create_bucket(bucket))
         self.bucket_name = bucket_name
+        self.__s3bucket = self.__s3resource.Bucket(self.bucket_name)
 
     def save_image(self,
             url: str,
@@ -42,14 +43,14 @@ class S3Storage:
         r = requests.get(url, stream=True)
         #Key will the the folder/filename
         key = f"{folder}/{file}" 
-        self.__client.upload_fileobj(r.raw, self.bucket_name, key)
+        self.__s3bucket.upload_fileobj(r.raw, key)
 
     def dict_to_json_file(self,
             dict_to_save: dict,
             folder: str,
             file: str):
 
-        self.__client.put_object(
+        self.__s3bucket.put_object(
             Body=json.dumps(
                 dict_to_save, 
                 cls=UUIDEncoder, 
@@ -65,13 +66,13 @@ class S3Storage:
     def create_bucket(self, 
             bucket_prefix: str):
        
-        for bucket_dict in self.__client.list_buckets().get('Buckets'):
-            if bucket_prefix in bucket_dict['Name']:
-                return bucket_dict['Name'], True
+        for bucket in self.__s3resource.buckets.all():
+            if bucket_prefix in bucket.name:
+                return bucket.name, True
         
         bucket_name = self.create_bucket_name(bucket_prefix)
 
-        bucket_response = self.__client.create_bucket(
+        bucket_response = self.__s3resource.create_bucket(
             Bucket=bucket_name,
             CreateBucketConfiguration={
             'LocationConstraint': self.__region})
@@ -81,3 +82,20 @@ class S3Storage:
             return bucket_name, True
         else:
             return None, False
+
+    
+    def list_files(self,
+            folder: str) -> list:
+
+        files = []
+
+        for object_summary in self.__s3bucket.objects.filter(Prefix=f"{folder}/"):
+            files.append(object_summary.key)
+
+        return files
+
+    def read_json_file(self,
+            file: str):
+        content_object = self.__s3bucket.Object(self.bucket_name, file)
+        file_content = content_object.get()['Body'].read().decode('utf-8')
+        return json.loads(file_content)

@@ -1,5 +1,5 @@
 import configparser
-from recipe import RecipeScraper
+from recipe_scaper import RecipeScraper
 from s3_storage import S3Storage
 import boto3
 
@@ -60,4 +60,4 @@ if __name__ == "__main__":
             for idx, page_dict in enumerate(rs.page_data):
                 folder_name = search.replace(' ', '-')
                 save_file(s3, page_dict, search)
-                save_images(s3, page_dict, search)
+                save_images(s3, page_dict, f"{search}/images")

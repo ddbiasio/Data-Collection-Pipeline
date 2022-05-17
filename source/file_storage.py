@@ -2,13 +2,13 @@ import json
 from utilities import UUIDEncoder
 import os
 from urllib import request
+import glob
 
 class FileStorage:
 
     def __init__(self,
             root_folder: str):
 
-        self.create_folder(root_folder)
         self.root_folder = root_folder
         
     def create_folder(self, folder_name: str):
@@ -24,6 +24,16 @@ class FileStorage:
         # create folder
         if not os.path.exists(folder_name):
             os.mkdir(folder_name)
+    
+    def list_files(self,
+            folder: str) -> list:
+
+        files = []
+        for path in os.listdir(folder):
+            full_path = os.path.join(folder, path)
+            if os.path.isfile(full_path):
+                files.append(full_path)
+        return files
 
     def dict_to_json_file(self,
             dict_to_save: dict,
@@ -39,7 +49,7 @@ class FileStorage:
         filename: str
             The filename of the JSON file to be created
         """
-        with open(f"{folder}/{file}", "w") as outfile:
+        with open(f"{folder}/{file}.json", "w") as outfile:
             json.dump(
                 dict_to_save,
                 outfile,
@@ -53,3 +63,9 @@ class FileStorage:
 
         # Download the file from `url` and save it locally under `file_name`:
         request.urlretrieve(url, f"{folder}/{file}")
+    
+    def read_json_file(self,
+            file: str):
+
+        with open(file, "r") as jsonfile: 
+            return json.load(jsonfile)
