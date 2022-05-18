@@ -1,7 +1,8 @@
 from file_storage import FileStorage
 from db_storage import DBStorage
-from source.recipe_scaper import RecipeScraper
+from recipe_scraper import RecipeScraper
 import json
+import configparser
 
 def init_storage(root_folder: str):
     return FileStorage(root_folder)
@@ -69,13 +70,15 @@ def get_json_data(fs_client: FileStorage,
 
 def init_db():
     # Local DB
-    DATABASE_TYPE = 'postgresql'
-    DBAPI = 'psycopg2'
-    HOST = 'localhost'
-    USER = 'postgres'
-    PASSWORD = 'C0balamin'
-    DATABASE = 'pagila'
-    PORT = 5432
+    config = configparser.ConfigParser()
+    config.read_file(open('./source/config.ini'))
+    DATABASE_TYPE = config.get('DBStorage', 'database_type')
+    DBAPI = config.get('DBStorage', 'dbapi')
+    HOST = config.get('DBStorage', 'host')
+    USER = config.get('DBStorage', 'user')
+    PASSWORD = config.get('DBStorage', 'password')
+    DATABASE = config.get('DBStorage', 'database')
+    PORT = config.get('DBStorage', 'port')
     db_conn = f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
     return DBStorage(db_conn)
 
@@ -120,7 +123,7 @@ def store_data_db(db_storage: DBStorage,
     )
 
 if __name__ == "__main__":
-    search_term = "steak"
+    search_term = "chocolate"
     search = search_term.replace(' ', '_')
     recipe_data = get_data(search, 1)
     fs = init_storage("./raw_data")

@@ -2,7 +2,6 @@ import json
 from utilities import UUIDEncoder
 import os
 from urllib import request
-import glob
 
 class FileStorage:
 

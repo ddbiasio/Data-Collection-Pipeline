@@ -97,12 +97,19 @@ class Scraper:
 
         try:
             # initiate the session
-            # options = Options()
+            options = Options()
             # options.add_argument("--headless")
-            # options.binary_location = '/usr/bin/google-chrome'
-            # driverService = Service('/usr/bin/chromedriver')
-            # self._driver = webdriver.Chrome(service=driverService, options=options)
-            self._driver = webdriver.Chrome()
+            options.binary_location = '/usr/bin/google-chrome'
+            driverService = Service('/usr/bin/chromedriver')
+            # options.add_argument("start-maximized"); # open Browser in maximized mode
+            # options.add_argument("disable-infobars"); # disabling infobars
+            # options.add_argument("--disable-extensions"); # disabling extensions
+            # options.add_argument("--disable-gpu"); # applicable to windows os only
+            # options.add_argument("--disable-dev-shm-usage"); # overcome limited resource problems
+            # options.add_argument("--no-sandbox"); # Bypass OS security model
+            # options.add_argument("--remote-debugging-port=9222")
+            self._driver = webdriver.Chrome(service=driverService, options=options)
+            # self._driver = webdriver.Chrome()
             self._driver.get(url)
 
         except WebDriverException as e:

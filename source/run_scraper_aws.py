@@ -1,5 +1,5 @@
 import configparser
-from recipe_scaper import RecipeScraper
+from recipe_scraper import RecipeScraper
 from s3_storage import S3Storage
 import boto3
 

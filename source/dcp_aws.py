@@ -1,6 +1,6 @@
 from s3_storage import S3Storage
 from db_storage import DBStorage
-from recipe_scaper import RecipeScraper
+from recipe_scraper import RecipeScraper
 import json
 import configparser
 
@@ -63,29 +63,25 @@ def store_data_files(s3storage: S3Storage,
 def get_json_data(s3storage: S3Storage,
         data_folder: str) -> list:
 
-    file_list = s3storage.list_files(data_folder)
+    file_list = s3storage.list_files(data_folder, "json")
     json_list = []
     for file in file_list:
-        with open(file, "r") as json_file:
-            if not ".json" in json_file.name:
-                pass
-            else:
-                item_json = s3storage.read_json_file(file)
-                json_list.append(item_json)
+        item_json = s3storage.read_json_file(file)
+        json_list.append(item_json)
     return json_list
 
 def init_db():
     config = configparser.ConfigParser()
     config.read_file(open('./source/config.ini'))
-    aws_access_key = config.get('RDStorage', 'database_type')
+    aws_access_key = config.get('RDSStorage', 'database_type')
 
-    DATABASE_TYPE = config.get('RDStorage', 'database_type')
-    DBAPI = config.get('RDStorage', 'dbapi')
-    ENDPOINT = config.get('RDStorage', 'endpoint')
-    USER = config.get('RDStorage', 'user')
-    PASSWORD = config.get('RDStorage', 'password')
-    PORT = config.get('RDStorage', 'port')
-    DATABASE = config.get('RDStorage', 'database')
+    DATABASE_TYPE = config.get('RDSStorage', 'database_type')
+    DBAPI = config.get('RDSStorage', 'dbapi')
+    ENDPOINT = config.get('RDSStorage', 'endpoint')
+    USER = config.get('RDSStorage', 'user')
+    PASSWORD = config.get('RDSStorage', 'password')
+    PORT = config.get('RDSStorage', 'port')
+    DATABASE = config.get('RDSStorage', 'database')
     db_conn = f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}"
     return DBStorage(db_conn)
 
@@ -129,11 +125,11 @@ def store_data_db(db_storage: DBStorage,
     )
 
 if __name__ == "__main__":
-    search_term = "steak"
+    search_term = "prawn"
     search = search_term.replace(' ', '_')
-    recipe_data = get_data(search, 1)
+    # recipe_data = get_data(search, 1)
     s3 = init_storage("raw-data")
-    store_data_files(s3, recipe_data, search_term)
-    json_data = get_json_data(s3, f"{s3.bucket_name}/{search}")
+    # store_data_files(s3, recipe_data, search_term)
+    json_data = get_json_data(s3, f"{search}")
     db = init_db()
     store_data_db(db, json_data)
