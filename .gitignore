@@ -1,4 +1,7 @@
-raw_data
-source/config.ini
-source/config.py
+raw_data/
+config.*
 .vscode/launch.json
+__pycache__/
+geckodriver.log
+.mypy_cache/
+scratch_pad/
