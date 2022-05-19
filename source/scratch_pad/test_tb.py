@@ -5,7 +5,7 @@ from file_storage import FileStorage
 import pandas as pd
 from pandas import json_normalize
 import json
-from db_storage import DBStorage
+from source.storage.db_storage import DBStorage
 
 fs = FileStorage("/home/siobhan/code/projects/Data-Collection-Pipeline/raw_data")
 data_folder = f"{fs.root_folder}/chicken"

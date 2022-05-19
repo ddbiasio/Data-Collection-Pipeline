@@ -3,7 +3,7 @@ import json
 import sqlalchemy
 import uuid
 import os
-from file_storage import FileStorage
+from .file_storage import FileStorage
 import pandas as pd
 from pandas import DataFrame, json_normalize
 import psycopg2
@@ -16,7 +16,7 @@ class DBStorage:
         self.__engine = create_engine(db_conn)
        
     def store_parent_df(self,
-            data_json: json,
+            data_json: str,
             table_name: str,
             index_cols: list,
             column_list: list,

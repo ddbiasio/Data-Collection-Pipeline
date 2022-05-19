@@ -1,7 +1,7 @@
 import boto3
 import configparser
 import requests
-from utilities import UUIDEncoder
+from .utilities import UUIDEncoder
 import json
 import uuid
 
@@ -9,6 +9,10 @@ class S3Storage:
     """
     Manages storage of files on an S3 instance
 
+    Attributes
+    ----------
+    bucket_name: str
+        The name
     """
 
     def __init__(self, 
@@ -30,7 +34,7 @@ class S3Storage:
         self.__user = user
 
         self.__s3bucket = self.create_bucket(bucket)
-        self.bucket_name = self.__s3bucket.name
+        self.__bucket_name = self.__s3bucket.name
 
     def save_image(self,
             url: str,
@@ -53,7 +57,7 @@ class S3Storage:
                 dict_to_save, 
                 cls=UUIDEncoder, 
                 indent=4),
-            Bucket=self.bucket_name,
+            Bucket=self.__bucket_name,
             Key=f"{folder}/{file}.json")
 
     def create_bucket_name(self, 

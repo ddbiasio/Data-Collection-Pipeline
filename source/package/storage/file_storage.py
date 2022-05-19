@@ -1,5 +1,5 @@
 import json
-from utilities import UUIDEncoder
+from .utilities import UUIDEncoder
 import os
 from urllib import request
 

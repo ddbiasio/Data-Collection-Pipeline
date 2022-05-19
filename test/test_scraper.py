@@ -1,6 +1,6 @@
 import pytest
-from source.scraper import Locator
-from source.scraper import Scraper
+from source.scraper.scraper import Locator
+from source.scraper.scraper import Scraper
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 

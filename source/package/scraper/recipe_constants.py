@@ -1,5 +1,5 @@
 
-from scraper import Locator
+from .scraper import Locator
 from selenium.webdriver.common.by import By
 
 # Navigational constants

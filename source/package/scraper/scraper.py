@@ -98,7 +98,7 @@ class Scraper:
         try:
             # initiate the session
             options = Options()
-            # options.add_argument("--headless")
+            options.add_argument("--headless")
             options.binary_location = '/usr/bin/google-chrome'
             driverService = Service('/usr/bin/chromedriver')
             # options.add_argument("start-maximized"); # open Browser in maximized mode

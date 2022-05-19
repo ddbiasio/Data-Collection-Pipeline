@@ -1,6 +1,6 @@
-from s3_storage import S3Storage
-from db_storage import DBStorage
-from recipe_scraper import RecipeScraper
+from package.storage.s3_storage import S3Storage
+from package.storage.db_storage import DBStorage
+from package.scraper.recipe_scraper import RecipeScraper
 import json
 import configparser
 
@@ -127,9 +127,9 @@ def store_data_db(db_storage: DBStorage,
 if __name__ == "__main__":
     search_term = "prawn"
     search = search_term.replace(' ', '_')
-    # recipe_data = get_data(search, 1)
+    recipe_data = get_data(search, 1)
     s3 = init_storage("raw-data")
-    # store_data_files(s3, recipe_data, search_term)
+    store_data_files(s3, recipe_data, search_term)
     json_data = get_json_data(s3, f"{search}")
     db = init_db()
     store_data_db(db, json_data)

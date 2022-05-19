@@ -1,6 +1,6 @@
-from file_storage import FileStorage
-from db_storage import DBStorage
-from recipe_scraper import RecipeScraper
+from package.storage.file_storage import FileStorage
+from package.storage.db_storage import DBStorage
+from package.scraper.recipe_scraper import RecipeScraper
 import json
 import configparser
 
