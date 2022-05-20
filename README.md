@@ -6,7 +6,7 @@ At the basic level a simple key word search can be initiated to return pages of 
 The recipe card provides a link to the recipe page where ingredients, method, nutritional info and other details can be obtained.
 
 # Milestone 2
-The web scraping will be implemented with Selenium as that seems to offer more features for interacting with the web site should I need this. I am however concerned about performance once I move past scraping a few pages of data.
+The web scraping will be implemented with Selenium as that seems to offer more features for interacting with the web site should I need this.
 ## Task 1
 Created an empty scraper class with some basic properties and method stubs
 ## Task 2
@@ -65,7 +65,7 @@ I also added some exception handling to handle elements not being found, or page
 
 I have updated all docstrings to reflect the changes made.
 
-# Task 3
+## Task 3
 Using pytest to create unit tests.  During the task I have further refactored the code. I discovered that I could use a more detailed XPATH to go directly to an element so I now find elements using this instead of travewrsing the page stucture to find elements within divs etc.  Once I implemented this I found the scraper to run much faster sicne it requires less find_element operations to get all the data.
 
 I revisited how I could inform the scraper class of the details I needed to scrape, and so I now pass a dictionary to the class which has as it keys the items to be scraped which will be the keys in the dictionary conatining the page data.  The values are locator details (By and value to pass to the find_element function.
@@ -84,11 +84,53 @@ I have a method to find all the images relating to the recipe (which assumes all
 
 The Scraper has a method which will then accept a page defintion (dict) and use this to scrape the page and return the data in dictinary format
 
-I also added a methiod which will scrape all the pages from a search, write each page to a json file and download and save the images.
+I also added a method which will scrape all the pages from a search, write each page to a json file and download and save the images.
 
 I created a utilities module for the JSONDecoder class, and also for some of the basic filer operations such as creating folders, downloading and saving an image.
 
 I have installed mypy and implemented code changes to fix issues identified from that, and continue to do so on an ongoing basis.  I have also ran deepsource against my code and applied fixes for some of the issues, and will keep doing this on an ongoing basis.
 
 
+# Milestone 5
 
+## Task 1
+Created classes for local file storage and S3 bucket storage
+FileStorage: creates the root folder (raw_data), data folder and images folder, and methods to save a json string directly to a json file, and retrived images from the URL and save
+S3Storage: create a bucket (raw_data appended with UUID, only if there isn't an existing raw_data* bucket), and methods to save json string directly to an S3 object (key = search/recipe_ID), and directly save the image from the URL to an S3 object (key = search/images/image_name.jpeg) (this determines the image type).  The create bucket method also applies a security policy - without this the objects cannot be viewed
+Generated a config.ini for AWS setting using configparser (config.py)
+
+## Task 2
+Created a class for database operations, which creates the connection to the database (can be local or RDS), normalises the JSON data into panda DataFrames and writes these to specified tables (options to append, replace)
+Added methods to the storage classes to get a list of files from a folder or bucket location, read in the JSON data.  This JSON data is then passed to the DBStorage class for upload to the database
+Added the setting for local and RDS database connection settings to config.py and re-created config.ini
+
+Created two python scripts dcp_aws.py and dcp_local.py to run the pipeline either locally or to AWS
+- Scrape the data and return a list of dictionaries
+- Save the dictionaries to JSON files, get the images and save those
+- Traverse the folder / bucket location and read in the JSON data
+- Normalise the JSON data (recipe details is the parent table, the others are child tables linked by the ID), write to DB
+
+Restructured source code folders:
+source
+    package
+        scraper
+            recipe_constants.py
+            recipe_scraper.py
+            scraper.py
+        storage
+            db_storage.py
+            file_storage.py
+            s3_storage.py
+            utilities.py
+    config.ini
+    config.py
+    dcp_aws.py
+    dcp_local.py
+    test
+        test_scraper.py
+
+## Task 3
+Was completed in Task 1
+
+## Task 4
+Before updating

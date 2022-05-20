@@ -5,10 +5,6 @@ class UUIDEncoder(json.JSONEncoder):
     """
     Contains a function to make UUID in dictionary serializable
 
-    Attributes
-    ----------
-    None
-
     Methods
     -------
     default(obj : object) -> hex
@@ -17,6 +13,18 @@ class UUIDEncoder(json.JSONEncoder):
     """
 
     def default(self, obj: object) -> str:
+        """Returns UUID as Hex
+
+        Parameters
+        ----------
+        obj : object
+            Any object
+
+        Returns
+        -------
+        str
+           Returns obj (as hex str when obj is a UUID object)
+        """        
         if isinstance(obj, uuid.UUID):
             # if the obj is uuid, we simply return the value of uuid
             return obj.hex

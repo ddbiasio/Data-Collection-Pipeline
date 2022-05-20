@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from string import Template
 import uuid
 from . import recipe_constants as rc
+from tqdm import tqdm
 
 class RecipeScraper(Scraper):
     """
@@ -15,15 +16,15 @@ class RecipeScraper(Scraper):
 
     Attributes
     ----------
-    __recipe_dict: dict
-        A dictionary which provides the structure for the output dictionary
-    page_data: list
-        A list of dictionaries popukated with recipe data from the website
+    page_data : list
+        A list of dictionaries populated by the web scraper
     
-    
+    Methods
+    -------
+    scrape_pages(item_links: list, page_def: dict, image_loc: Locator) -> None
+    get_recipe_data(keyword_search: str, num_pages: int) -> None
 
     """
-
 
     def __init__(self):
 
@@ -88,28 +89,52 @@ class RecipeScraper(Scraper):
         image_loc: Locator) -> None:
 
         """
-        Scrapes a list of URLS in range to num_pages
+        Scrapes a list of URLS using `get_page_data`
         using the page definition dictionary provided
-        and saves each page as a JSON file
-        """
-        for link in item_links:
+        and appends each data dictionary to `page_data`
 
+        Parameters
+        ----------
+        item_links : list
+            A list of URLs for pages to be scraped
+        page_def : dict
+            A dictionary defining the output dictionary keys 
+            and corresponding elements to be scraped
+        image_loc : Locator
+            A locator object identifying the elements for images
+
+        """
+        for link in tqdm(item_links, desc = 'Scraping progress'):
+            # go to the URL
             self.go_to_page_url(link, self.__invalid_page)
+            # populate dictionary from the page
             page_dict = self.get_page_data(page_def)
+            # set IDs and get the image url
             item_id = link.rsplit('/', 1)[-1]
             page_dict.update({"item_id": link.rsplit('/', 1)[-1]})
             page_dict.update({"item_UUID": uuid.uuid4()})
             page_dict.update({"image_urls": self.get_image_url(image_loc)})
-
+            # append to the page_data dictionary
             self.page_data.append(page_dict)
-            
-            break
 
     def get_recipe_data(
             self, 
             keyword_search: str, 
-            num_pages: int):
+            num_pages: int) -> None:
 
+        """
+        Executes a search using `keyword_search`, scraoes `num_pages` of the 
+        search results to get the URLs for individual
+        recipe pages to scrape and then populates `page_data` using `scrape_pages`
+
+        Parameters
+        ----------
+        keyword_search : str
+            The keywords to search for recipes, multiple words should be concatenated with +
+        num_pages : int
+            The number of resuls pages to gather links from
+        """
+        
         try:
             # Search for recipes    
             search_mappings = {'searchwords': keyword_search}
