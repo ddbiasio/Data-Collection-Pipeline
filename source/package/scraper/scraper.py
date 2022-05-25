@@ -17,7 +17,7 @@ class Locator:
     as an object to pass to Scraper methods to find elements
 
     """
-    def __init__(self, locate_by: By, locate_value: str):
+    def __init__(self, locate_by: str, locate_value: str):
         """Create a new instance of the Locator class
 
         Parameters
@@ -52,6 +52,17 @@ class Scraper:
         quit()
 
     """
+    def exception_handler(func):
+        def inner_function(*args, **kwargs):
+            try:
+                func(*args, **kwargs)
+            except WebDriverException as e:
+                raise RuntimeError(f"WebDriverException in {func.__name__}: {e.msg}") from e
+            except TimeoutException as e:
+                raise RuntimeError(f"TimeoutException in {func.__name__}: {e.msg}") from e
+        return inner_function
+
+    @exception_handler
     def __init__(self, 
                 url: str) -> None:
 
@@ -79,11 +90,15 @@ class Scraper:
             self.__driver.get(url)
             logging.info("Successfully initiated driver and loaded website")
 
-        except WebDriverException as e:
-            # If something fails the close the driver and raise the exception
-            # self.__driver.quit()
-            raise RuntimeError(f"Failed to initialise Scraper: {e.msg}") from e
+        except WebDriverException as w:
+            # If something fails raise the exception
+            raise RuntimeError(f"Failed to initialise Scraper: {w.msg}") from w
+        except TimeoutException as t:
+            # If something fails raise the exception
+            raise RuntimeError(f"Timeout occurred when initialising the Scraper: {t.msg}") from t         
 
+
+    @exception_handler
     def dismiss_popup(
             self,
             button_loc: Locator,
@@ -106,23 +121,20 @@ class Scraper:
                         iframe_loc.locate_value)))
                 self.__driver.switch_to.frame(dismiss_frame)
 
-            # This additional wait may be required to ensure 
-            # the buttons are accessible
-            try:
+                # This additional wait may be required to ensure 
+                # the buttons are accessible
+
                 dismiss_button = WebDriverWait(self.__driver, 10).until(
                     EC.element_to_be_clickable(
                         (button_loc.locate_by, 
                         button_loc.locate_value)))
                 dismiss_button.click()
-            except TimeoutException:
-                # already clicked
-                pass
 
             self.__driver.switch_to.default_content()
 
         except TimeoutException:
             # already clicked / not there
-            pass
+            return
 
         except NoSuchElementException:
             # If the element is not there then cookies must have been 
@@ -140,7 +152,7 @@ class Scraper:
                     button_loc.locate_value)))
             button_loc.click()
 
-    def search(self, search_url: str, no_results: Locator = None) -> bool:
+    def search(self, search_url: str, results_loc: Locator = None) -> bool:
 
         """
         Executes a search with a search URL which should
@@ -150,8 +162,8 @@ class Scraper:
         ----------
         search_url: str
             The URL which executes a search on the website
-        no_results: Locator
-            Locator strategy and value for the element displaying no results message
+        results_loc: Locator
+            Locator strategy and value for the elements displaying results
 
         Returns
         -------
@@ -161,32 +173,27 @@ class Scraper:
         """
         try:
             self.__driver.get(search_url)
+           
+            # if the no results div exists then search returned no results
+            return len(self.__driver.find_elements(
+                by=results_loc.locate_by, value=results_loc.locate_value)) == 0
 
-            if no_results != None:
-                try:               
-                    # if the no results div exists then search returned no results
-                    return len(self.__driver.find_elements(
-                        by=no_results.locate_by, value=no_results.locate_value)) == 0
-
-                except NoSuchElementException:
-                    # if the no results div does not exist 
-                    # then search returned results
-                    return True
-            else:
-                return True
-        except WebDriverException:
-            raise RuntimeError("The search page could not be loaded")
+        except WebDriverException as w:
+            # If something fails raise the exception
+            raise RuntimeError(f"Unable to load the search page: {w.msg}") from w
+        except TimeoutException as t:
+            # If something fails raise the exception
+            raise RuntimeError(f"Timeout occurred when loading the searcg page: {t.msg}") from t
 
     def get_item_links(self, 
-            loc: Locator, 
-            no_results_loc: Locator) -> list:
+            results_loc: Locator) -> list:
 
         """
         Returns a list of URLs for each item in a page of the search results
 
         Parameters
         ----------
-        loc: Locator
+        results_loc: Locator
             A supported Locator strategy and value of the Locator 
             to find the elements which have URL data for pages to be scraped
 
@@ -199,24 +206,20 @@ class Scraper:
         # and that each search result item will have an href attribute 
         # containing the link to the item page
 
+
         # find all the search result items
         url_list = []
-        # Only get links if page has results
-        if len(self.__driver.find_elements(
-                        by=no_results_loc.locate_by, 
-                        value=no_results_loc.locate_value)) == 0:
-            
-            items = WebDriverWait(self.__driver, 10).until(
-                EC.presence_of_all_elements_located(
-                    (loc.locate_by, 
-                    loc.locate_value)))
-            # items = self.__driver.find_elements(
-            #     by=loc.locate_by, value=loc.locate_value)
 
-            for item in items:
-                # go to each recipe and get the link and add to list
-                item_url = item.get_attribute("href")
-                url_list.append(item_url)
+        # Was getting a timeout error here, adding this wait for all the elements
+        # to be present seems to solve this
+        items = WebDriverWait(self.__driver, 10).until(
+            EC.presence_of_all_elements_located(
+                (results_loc.locate_by, 
+                results_loc.locate_value)))
+        for item in items:
+            # go to each recipe and get the link and add to list
+            item_url = item.get_attribute("href")
+            url_list.append(item_url)
         return url_list
 
     def go_to_page_url(self, 

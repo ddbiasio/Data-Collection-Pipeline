@@ -104,19 +104,16 @@ class RecipeScraper(Scraper):
 
     def get_urls(self, keyword_search: str, page_num: int) -> list:
         
-        # Get the links from the recipe cards in search results
-        search_results_locator = self.__results_loc
 
         page_urls = []
-
         # Sets the URL for results pages by page num
         results_mappings = {'pagenum': page_num, 'searchwords': keyword_search}
         results_page = Template(self.__results_template).substitute(**results_mappings)
-    
+        # Get the links from the recipe cards in search results   
         if self.go_to_page_url(results_page, self.__invalid_page):
-            page_urls = self.get_item_links(search_results_locator, self.__xp_no_results)
+            page_urls = self.get_item_links( self.__results_loc)
 
-        return page_urls           
+        return page_urls
 
     def scrape_page(self, url: str) -> None:
         """_summary_
@@ -190,7 +187,7 @@ class RecipeScraper(Scraper):
         # Search for recipes    
         search_mappings = {'searchwords': keyword_search}
         search_url = Template(self.__search_template).substitute(**search_mappings)
-        if self.search(search_url, self.__xp_no_results):
+        if self.search(search_url, self.__results_loc):
             return self.get_num_pages(num_pages)
         else:
             return 0
