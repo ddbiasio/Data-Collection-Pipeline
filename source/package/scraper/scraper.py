@@ -9,6 +9,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+import logging
 
 class Locator:
     """
@@ -16,7 +17,7 @@ class Locator:
     as an object to pass to Scraper methods to find elements
 
     """
-    def __init__(self, locate_by: str, locate_value: str):
+    def __init__(self, locate_by: By, locate_value: str):
         """Create a new instance of the Locator class
 
         Parameters
@@ -27,9 +28,11 @@ class Locator:
             Locator value for search result elements on the page 
             e.g. the Xpath, the tag etc.
         """
-        self.locate_by = locate_by
-        self.locate_value = locate_value
-
+        try:
+            self.locate_by = locate_by
+            self.locate_value = locate_value
+        except TypeError as e:
+            logging.ERROR("Error instantiating Locator object.")
 
 class Scraper:
 
@@ -66,10 +69,15 @@ class Scraper:
             # initiate the session
             options = Options()
             options.add_argument("--headless")
+            # These settings required otherwise initialisation of driver slow
+            options.add_argument('--no-proxy-server')
+            options.add_argument('--disable-gpu')
+            options.add_argument('--disable-extensions')
             options.binary_location = '/usr/bin/google-chrome'
             driverService = Service('/usr/bin/chromedriver')
             self.__driver = webdriver.Chrome(service=driverService, options=options)
             self.__driver.get(url)
+            logging.info("Successfully initiated driver and loaded website")
 
         except WebDriverException as e:
             # If something fails the close the driver and raise the exception
@@ -169,8 +177,9 @@ class Scraper:
         except WebDriverException:
             raise RuntimeError("The search page could not be loaded")
 
-
-    def get_item_links(self, loc: Locator) -> list:
+    def get_item_links(self, 
+            loc: Locator, 
+            no_results_loc: Locator) -> list:
 
         """
         Returns a list of URLs for each item in a page of the search results
@@ -192,13 +201,22 @@ class Scraper:
 
         # find all the search result items
         url_list = []
-        items = self.__driver.find_elements(
-            by=loc.locate_by, value=loc.locate_value)
+        # Only get links if page has results
+        if len(self.__driver.find_elements(
+                        by=no_results_loc.locate_by, 
+                        value=no_results_loc.locate_value)) == 0:
+            
+            items = WebDriverWait(self.__driver, 10).until(
+                EC.presence_of_all_elements_located(
+                    (loc.locate_by, 
+                    loc.locate_value)))
+            # items = self.__driver.find_elements(
+            #     by=loc.locate_by, value=loc.locate_value)
 
-        for item in items:
-            # go to each recipe and get the link and add to list
-            item_url = item.get_attribute("href")
-            url_list.append(item_url)
+            for item in items:
+                # go to each recipe and get the link and add to list
+                item_url = item.get_attribute("href")
+                url_list.append(item_url)
         return url_list
 
     def go_to_page_url(self, 
@@ -232,6 +250,56 @@ class Scraper:
         except (TimeoutException, WebDriverException):
             raise RuntimeError(f"Unable to load page: {url}")
 
+    def get_element(self, loc: Locator) -> WebElement:
+        """
+        Returns an element using the defined Locator
+
+        Parameters
+        ----------
+        parent:
+            The parent web element
+        loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the element
+
+        Returns
+        -------
+        WebElement
+            The web element
+        """
+        try:
+            return self.__driver.find_element(by=loc.locate_by,
+                                            value=loc.locate_value)
+
+        except NoSuchElementException:
+            # raise RuntimeError(f"Element at {loc.locate_value} does not exist.")
+            return None
+
+    def get_elements(self, loc: Locator) -> list:
+        """
+        Returns an element using the defined Locator
+
+        Parameters
+        ----------
+        parent:
+            The parent web element
+        loc: Locator
+            A supported Locator strategy and value of the 
+            Locator to find the element
+
+        Returns
+        -------
+        WebElement
+            A list of web elements
+        """
+        try:
+            return self.__driver.find_elements(by=loc.locate_by,
+                                            value=loc.locate_value)
+
+        except NoSuchElementException:
+            # raise RuntimeError(f"Elements at {loc.locate_value} does not exist.")
+            return None
+
     def get_element_text(self, loc: Locator) -> str:
         """
         Returns an element's text using the defined Locator
@@ -255,7 +323,8 @@ class Scraper:
                                             value=loc.locate_value).text
 
         except NoSuchElementException:
-            raise RuntimeError(f"Element at {loc.locate_value} does not exist.")
+            # raise RuntimeError(f"Element at {loc.locate_value} does not exist.")
+            return None
 
     def get_element_list(self, list_def: tuple) -> list[dict]:
         """
@@ -286,7 +355,8 @@ class Scraper:
                 list_values.append(list_dict)
             return list_values
         else:
-            raise RuntimeError(f"Elements at {loc.locate_value} does not exist.")
+            # raise RuntimeError(f"Elements at {loc.locate_value} does not exist.")
+            return []
  
     def get_elements_dict(
             self, 
@@ -331,7 +401,8 @@ class Scraper:
                 dict_list.append(item_dict)
             return dict_list
         else:
-            raise RuntimeError(f"Elements at {list_loc.locate_value} does not exist.")
+            # raise RuntimeError(f"Elements at {list_loc.locate_value} does not exist.")
+            return []
 
     def get_page_data(self, page_definition: dict) -> dict:
         """
@@ -390,7 +461,8 @@ class Scraper:
             images = self.__driver.find_elements(by=loc.locate_by,
                 value=loc.locate_value)
             for image in images:
-                image_urls.append(image.get_attribute('src').split('?', 1)[0])
+                # image_urls.append(image.get_attribute('src').split('?', 1)[0])
+                image_urls.append(image.get_attribute('src'))
 
         except NoSuchElementException:
             raise RuntimeError((f"Error getting image: "

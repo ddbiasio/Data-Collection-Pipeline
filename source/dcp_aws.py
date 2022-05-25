@@ -1,6 +1,6 @@
 from package.storage.s3_storage import S3Storage
 from package.storage.db_storage import DBStorage
-from package.scraper.recipe_scraper import RecipeScraper
+from .recipe_scraper import RecipeScraper
 import json
 import configparser
 
@@ -66,7 +66,7 @@ def save_file(s3storage: S3Storage,
     folder : str
         Folder name to construct key for the object storage
     """        
-    s3storage.dict_to_json_file(
+    s3storage.save_json_file(
         page_dict,
         folder,
         f"{page_dict['item_id']}"
@@ -158,7 +158,7 @@ def init_db() -> DBStorage:
     PORT = config.get('RDSStorage', 'port')
     DATABASE = config.get('RDSStorage', 'database')
     db_conn = f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}"
-    return DBStorage(db_conn)
+    return DBStorage(db_conn, USER)
 
 def store_data_db(db_storage: DBStorage,
         json_data: list):

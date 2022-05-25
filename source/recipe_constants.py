@@ -1,5 +1,5 @@
 
-from .scraper import Locator
+from package.scraper.scraper import Locator
 from selenium.webdriver.common.by import By
 
 """
@@ -38,7 +38,7 @@ METHOD_STEPS_LOC = Locator(By.XPATH, """//div[(@class='post recipe')]//section[(
 # Span container containing the method step number
 METHOD_STEP_KEY_LOC = Locator(By.XPATH, "./span[(@class='mb-xxs heading-6')]")
 # Paragraph with the instructions for the method step
-METHOD_STEP_DETAIL = Locator(By.TAG_NAME, "p")
+METHOD_STEP_DETAIL = Locator(By.XPATH, "./div[(@class='editor-content')]")
 
 # Table row elements containing nutritional info
 NUTRITIONAL_LIST_LOC = Locator(By.XPATH, """//div[(@class='post recipe')]//tr[(@class='key-value-blocks__item')]""")
@@ -56,3 +56,6 @@ PLANNING_LIST_TIME = Locator(By.XPATH, ".//time")
 
 # Image element containing the recipe image
 IMAGES_LOC = Locator(By.XPATH, "//div[(@class='post recipe')]//div[(@class='post-header__image-container')]//img[(@class='image__img')]")
+
+# Locator for the navigational items holding page numbers
+PAGE_NUMBERS_LOC = Locator(By.XPATH, "//div[(@class='pagination')]//a[(@class='pagination-item')]")

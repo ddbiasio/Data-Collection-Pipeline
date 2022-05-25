@@ -1,7 +1,9 @@
 raw_data/
 config.*
 .vscode/launch.json
-__pycache__/
+**/__pycache__/
 geckodriver.log
 .mypy_cache/
 scratch_pad/
+*.egg-info/
+*.log

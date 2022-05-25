@@ -1,9 +1,11 @@
 import json
+from logging import root
 from .utilities import UUIDEncoder
 import os
 from urllib import request
+from .storage import Storage
 
-class FileStorage:
+class FileStorage(Storage):
     """
     A class to manage operating system file operations
 
@@ -22,18 +24,29 @@ class FileStorage:
 
     """
     def __init__(self,
-            root_folder: str):
+            root_folder: str,
+            data_folder: str,
+            images_folder: str):
         """
         Creates an instance of the FileStorage class
 
         Parameters
         ----------
         root_folder: str
-            The root folder under which all operation will take place       
+            The root folder under which all operation will take place
+        data_folder : str
+            Name of the data folder to create on initialisation
+        images_folder : str
+        Name of the image folder to create on initialisation
         """
         self.root_folder = root_folder
+        self.data_folder = data_folder
+        self.images_folder = images_folder
+        self.__create_folder(root_folder)
+        self.__create_folder(data_folder)
+        self.__create_folder(images_folder)
         
-    def create_folder(self, folder: str):
+    def __create_folder(self, folder: str):
         """
         Creates a folder if it doesn't exist already
 
@@ -48,14 +61,17 @@ class FileStorage:
             os.mkdir(folder)
     
     def list_files(self,
-            folder: str) -> list:
+            folder: str,
+            file_type: str = None) -> list:
         """
-        Lists all files in a given folder
+        Lists all files in a given folder (filtered optionally by file type)
         
         Parameters
         ----------
         folder: str
             The name of the folder where the files are (full path should be provided)
+        file_type : str, optional
+            A valid file type extension, by default None
 
         Returns
         -------
@@ -68,10 +84,11 @@ class FileStorage:
             full_path = os.path.join(folder, path)
             # exclude directories
             if os.path.isfile(full_path):
-                files.append(full_path)
+                if file_type is None or file_type == full_path.rsplit('.', 1)[-1]:
+                    files.append(full_path)
         return files
 
-    def dict_to_json_file(self,
+    def save_json_file(self,
             dict_to_save: dict,
             folder: str,
             file: str):
@@ -80,11 +97,11 @@ class FileStorage:
         Parameters
         ----------
         dict_to_save : dict
-            _description_
+            The dictionary to be saved as JSON file
         folder : str
-            _description_
+            The folder where the file will be saved
         file : str
-            _description_
+            The name of the file
         """
         # Open a file to write to and save json string to the file
         with open(f"{folder}/{file}.json", "w") as outfile:
@@ -105,8 +122,8 @@ class FileStorage:
         ----------
         url: str
             The url of the image to be downloaded
-        folder: str
-            The name of the folder to save to (full path should be provided)
+        folder : str
+            The folder where the file will be saved
         file: str
             The name of the file to save as
         """

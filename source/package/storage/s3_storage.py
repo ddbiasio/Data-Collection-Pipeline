@@ -39,8 +39,8 @@ class S3Storage:
         self.__region = region
         self.__user = user
 
-        self.__s3bucket = self.create_bucket(bucket)
-        self.__bucket_name = self.__s3bucket.name
+        self.__s3bucket = None
+        self.__bucket_name = None
 
     def save_image(self,
             url: str,
@@ -63,7 +63,7 @@ class S3Storage:
         key = f"{folder}/{file}" 
         self.__s3bucket.upload_fileobj(r.raw, key)
 
-    def dict_to_json_file(self,
+    def save_json_file(self,
             dict_to_save: dict,
             folder: str,
             file: str):
@@ -103,8 +103,8 @@ class S3Storage:
         # The generated bucket name must be between 3 and 63 chars long
         return ''.join([bucket_prefix, str(uuid.uuid4())])
 
-    def create_bucket(self, 
-            bucket_prefix: str) -> Bucket:
+    def create_folder(self, 
+            folder: str):
         """Creates an S3 bucket
 
         Parameters
@@ -118,10 +118,10 @@ class S3Storage:
            Bucket: S3 Bucket
         """            
         for bucket in self.__s3resource.buckets.all():
-            if bucket_prefix in bucket.name:
-                return bucket
+            if folder in bucket.name:
+                self.__s3bucket = bucket
         
-        bucket_name = self.__create_bucket_name(bucket_prefix)
+        bucket_name = self.__create_bucket_name(folder)
 
         bucket = self.__s3resource.create_bucket(
             Bucket=bucket_name,
@@ -145,7 +145,8 @@ class S3Storage:
         })
         bucket_policy = self.__s3resource.BucketPolicy(bucket_name)
         bucket_policy.put(Policy=bucket_policy_json)
-        return bucket
+        self.__s3bucket = bucket
+        self.__bucket_name = bucket_name
 
     def list_files(self,
             folder: str,

@@ -1,12 +1,10 @@
-import configparser
-import json
 import sqlalchemy
+import psycopg2
+from sqlalchemy.exc import ProgrammingError
 import uuid
-import os
-from .file_storage import FileStorage
 import pandas as pd
 from pandas import DataFrame, json_normalize
-import psycopg2
+
 from sqlalchemy import create_engine
 
 class DBStorage:
@@ -14,12 +12,10 @@ class DBStorage:
     """
     A class with methods to save scraped data to a Postgres database
 
-    Methods
-    -------
-    store_parent_df(data_json: str, table_name: str, index_cols: list, column_list: list, table_action: str) -> DataFrame
-    store_child_df(data_json: json, table_name: str, index_cols: list, record_fk: str, table_action: str) -> DataFrame
-    upsert_df(df: pd.DataFrame, table_name: str) -> bool
-    item_exists(table_owner: str, table_name: str, item_id_column: str, item_id_value: str) -> bool
+    Attributes
+    ----------
+    db_owner : str
+        The name of the database owner
     """
     def __init__(self,
             db_conn: str):
@@ -28,7 +24,7 @@ class DBStorage:
         
         Parameters
         ----------
-        db_conn: str
+        db_conn : str
             A valid database connction string
         """
         self.__engine = create_engine(db_conn)
@@ -61,7 +57,7 @@ class DBStorage:
         df.to_sql(table_name, self.__engine, if_exists=table_action, index=True)
 
     def store_child_df(self,
-            data_json: json,
+            data_json: str,
             table_name: str,
             index_cols: list,
             record_fk: str,
@@ -158,12 +154,11 @@ class DBStorage:
         return True
 
     def item_exists(self,
-            table_owner: str,
             table_name: str,
             item_id_column: str,
             item_id_value: str) -> bool:
         """
-        Checks if an record exists in a specified table for a given ID
+        Checks if an record exists in specified owner.table for a given ID
 
         Parameters
         ----------
@@ -181,10 +176,18 @@ class DBStorage:
             True if record exists
         """
         # check if an ID exists in the database already
-        if self.__engine.execute(
-            f"""SELECT EXISTS (
-                SELECT FROM {table_owner}.{table_name} 
-                WHERE  {item_id_column} = '{item_id_value}');
-                """
-        ).first()[0]:
-            return True
+        try:
+            result = self.__engine.execute(
+                f"""SELECT EXISTS (
+                    SELECT FROM {table_name} 
+                    WHERE  {item_id_column} = '{item_id_value}');
+                    """)
+            if result.first()[0]:
+                return True
+        # except UndefinedTable:
+        #     # For first time scraper is run
+        #     return True
+        except ProgrammingError as pe:
+            if pe.code == psycopg2.errors.lookup("42P01"):
+                return True
+
