@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from string import Template
 import uuid
 import recipe_constants as rc
-import time
+import logging
 
 class RecipeScraper(Scraper):
     """
@@ -115,7 +115,7 @@ class RecipeScraper(Scraper):
 
         return page_urls
 
-    def scrape_page(self, url: str) -> None:
+    def scrape_page(self, url: str) -> dict:
         """_summary_
 
         Parameters
@@ -133,47 +133,25 @@ class RecipeScraper(Scraper):
         try:
             page_dict = {}
             # go to the URL
-            self.go_to_page_url(url, self.__invalid_page)
-            # self.dismiss_popup(rc.DISMISS_SIGN_IN_LOC, rc.SIGN_IN_IFRAME_LOC)
-            # populate dictionary from the page
-            page_dict = self.get_page_data(self.__recipe_dict)
-            page_dict.update({"item_id": url.rsplit('/', 1)[-1]})
-            page_dict.update({"item_UUID": uuid.uuid4()})
-            page_dict.update({"image_urls": self.get_image_url(self.__images)})
-            return page_dict
-
+            if self.go_to_page_url(url, self.__invalid_page):                
+                # populate dictionary from the page
+                page_dict = self.get_page_data(self.__recipe_dict)
+                page_dict.update({"item_id": url.rsplit('/', 1)[-1]})
+                page_dict.update({"item_UUID": uuid.uuid4()})
+                page_dict.update({"image_urls": self.get_image_url(self.__images)})
+                return page_dict
+            else:
+                logging.warning(f"Page not found: {url}")
         except RuntimeError as e:
             print(f"Error scraping page {url} {e.args[0]}")
         finally:
             # return the dictionary
             return page_dict
 
-    def scrape_pages(
-        self,
-        item_links: list) -> None:
-
-        """
-        Scrapes a list of URLS using `get_page_data`
-        using the page definition dictionary provided
-        and appends each data dictionary to `page_data`
-
-        Parameters
-        ----------
-        item_links : list
-            A list of URLs for pages to be scraped
-
-        """
-        self.page_data = []
-        for link in item_links:
-
-            page = self.scrape_page(link)
-            if len(page) > 0:
-                self.page_data.append(page)
-
     def search_recipes(
             self,
             keyword_search: str,
-            num_pages: int) -> bool:
+            num_pages: int) -> int:
 
         """
         Executes a recipe search using `keyword_search`

@@ -4,7 +4,7 @@ from .utilities import UUIDEncoder
 import os
 from urllib import request
 from .storage import Storage
-
+# TODO Need test functions for this
 class FileStorage(Storage):
     """
     A class to manage operating system file operations
@@ -37,7 +37,7 @@ class FileStorage(Storage):
         data_folder : str
             Name of the data folder to create on initialisation
         images_folder : str
-        Name of the image folder to create on initialisation
+            Name of the image folder to create on initialisation
         """
         self.root_folder = root_folder
         self.data_folder = data_folder
@@ -92,7 +92,7 @@ class FileStorage(Storage):
             dict_to_save: dict,
             folder: str,
             file: str):
-        """_summary_
+        """Saves a dictionary to json file
 
         Parameters
         ----------

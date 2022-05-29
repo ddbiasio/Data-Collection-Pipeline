@@ -11,8 +11,9 @@ class S3Storage:
             access_key_id: str, 
             secret_access_key: str,
             region: str,
-            user: str,
-            bucket: str):
+            bucket_prefix: str,
+            data_folder: str,
+            images_folder: str):
         """Creates an instance of the S3Storage class
 
         Parameters
@@ -23,10 +24,10 @@ class S3Storage:
             AWS Secret Access Key
         region : str
             AWS region
-        user : str
-            AWS IAM User
-        bucket : str
-            Name for the bucket to be created (prefix)
+        data_folder : str
+            Name of the data folder to create on initialisation
+        images_folder : str
+            Name of the image folder to create on initialisation
         """
         self.__s3resource = boto3.resource(
             's3',
@@ -34,13 +35,13 @@ class S3Storage:
             aws_secret_access_key = secret_access_key,
             region_name = region
             )
-        self.__access_key_id = access_key_id
-        self.__secret_access_key = secret_access_key
-        self.__region = region
-        self.__user = user
 
+        self.__region = region
         self.__s3bucket = None
         self.__bucket_name = None
+        self.data_folder = data_folder
+        self.images_folder = images_folder
+        self.__create_bucket(bucket_prefix)
 
     def save_image(self,
             url: str,
@@ -103,8 +104,8 @@ class S3Storage:
         # The generated bucket name must be between 3 and 63 chars long
         return ''.join([bucket_prefix, str(uuid.uuid4())])
 
-    def create_folder(self, 
-            folder: str):
+    def __create_bucket(self, 
+            bucket_prefix: str):
         """Creates an S3 bucket
 
         Parameters
@@ -118,10 +119,10 @@ class S3Storage:
            Bucket: S3 Bucket
         """            
         for bucket in self.__s3resource.buckets.all():
-            if folder in bucket.name:
+            if bucket_prefix in bucket.name:
                 self.__s3bucket = bucket
         
-        bucket_name = self.__create_bucket_name(folder)
+        bucket_name = self.__create_bucket_name(bucket_prefix)
 
         bucket = self.__s3resource.create_bucket(
             Bucket=bucket_name,

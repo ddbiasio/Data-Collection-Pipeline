@@ -1,3 +1,4 @@
+from tkinter import E
 from package.storage.file_storage import Storage
 from package.storage.db_storage import DBStorage
 from recipe_scraper import RecipeScraper
@@ -52,16 +53,16 @@ def save_images(storage: Storage,
 def store_data_files(storage: Storage,
         page_data_list: list,
         search: str):
-    """Saves each recipe and images to a folder
+    """_summary_
 
     Parameters
     ----------
     storage : Storage
-        A FileStorage or S3Storage instance
+        _description_
     page_data_list : list
-        List of recipe dictionaries
+        _description_
     search : str
-        Search keywords used (will be used to construct file names)
+        _description_
     """
     if len(page_data_list) > 0:
 
@@ -151,24 +152,28 @@ def run_pipeline(
         num_pages: int, 
         file_store: Storage, 
         db_storage: DBStorage):
-    
-    rs = RecipeScraper()
-    results_pages = rs.search_recipes(search_term, num_pages)
-    if results_pages > 0:
-        for page_num in tqdm(range(1, results_pages + 1), desc = 'Scraping progress', leave=False):
-            # Get urls per page of search results
-            urls = rs.get_urls(search_term, page_num)
-            # Check list of urls is populated    
-            if len(urls) > 0:
-                # Scrape pages for results page `page_num`
-                for url in tqdm(urls, desc = 'Scraping pages'):
-                    # get the ID from the URL
-                    item_id = url.rsplit('/', 1)[-1]
-                    if not db_storage.item_exists("recipe", "item_id", item_id):
-                        rs.scrape_pages(urls)
-                        if len(rs.page_data) > 0:
-                            store_data_files(file_store, rs.page_data, search_term)
-                            # json_data = get_json_data(file_store, f"{file_store.root_folder}/{search_term}")
-                            store_data_db(db_storage, rs.page_data)
-                
+    try:
+        rs = RecipeScraper()
+        results_pages = rs.search_recipes(search_term, num_pages)
+        if results_pages > 0:
+            for page_num in tqdm(range(1, results_pages + 1), desc = 'Scraping progress', leave=False):
+                # Get urls per page of search results
+                urls = rs.get_urls(search_term, page_num)
+                # Check list of urls is populated    
+                if len(urls) > 0:
+                    rs.page_data = []
+                    # Scrape pages for results page `page_num`
+                    for url in tqdm(urls, desc = 'Scraping pages'):
+                        # get the ID from the URL
+                        item_id = url.rsplit('/', 1)[-1]
+                        if not db_storage.item_exists("recipe", "item_id", item_id):
+                            page_dict = rs.scrape_page(url)
+                            if len(page_dict) != 0:
+                                rs.page_data.append(page_dict)
+                    if len(rs.page_data) > 0:
+                        store_data_files(file_store, rs.page_data, search_term)
+                        # json_data = get_json_data(file_store, f"{file_store.root_folder}/{search_term}")
+                        store_data_db(db_storage, rs.page_data)
+    except RuntimeError as e:
+        print({e.args})     
     rs.quit()

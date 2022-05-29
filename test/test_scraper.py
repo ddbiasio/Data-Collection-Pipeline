@@ -1,8 +1,13 @@
+from typing import Type
+from numpy import equal
 import pytest
 from source.package.scraper.scraper import Locator
 from source.package.scraper.scraper import Scraper
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.remote.webelement import WebElement
+
+# TODO Add Docstring
 
 @pytest.fixture(scope="module")
 def test_scraper() -> Scraper:
@@ -26,14 +31,44 @@ def test_accept_cookies(test_scraper: Scraper):
     test_scraper.dismiss_popup(accept_button)
 
 def test_search(test_scraper: Scraper):
-    no_results = Locator(By.XPATH, "//div[(@class='pgheader pgheader-noresults')]")
-    assert test_scraper.search("https://www.propertypal.com/property-for-sale/castlereagh-belfast", no_results)
+    # no_results = Locator(By.XPATH, "//div[(@class='pgheader pgheader-noresults')]")
+    # This is how the class was in the HTML - not sure what all the
+    # blanl lines are about but it doesn't work without them
+    results_cards = Locator(By.XPATH,"""//div[(@class='box propbox
+		 
+		
+		
+		
+		 propbox--forsale 
+		
+		
+		
+		
+		
+		
+	')]""")
+    assert test_scraper.search("https://www.propertypal.com/property-for-sale/castlereagh-belfast", results_cards)
 
 def test_no_results(test_scraper: Scraper):
-    no_results = Locator(By.XPATH, "//div[(@class='pgheader pgheader-noresults')]")
+    # no_results = Locator(By.XPATH, "//div[(@class='pgheader pgheader-noresults')]")
+    # This is how the class was in the HTML - not sure what all the
+    # blanl lines are about but it doesn't work without them
+    results_cards = Locator(By.XPATH,"""//div[(@class='box propbox
+		 
+		
+		
+		
+		 propbox--forsale 
+		
+		
+		
+		
+		
+		
+	')]""")
     assert not test_scraper.search(
         "https://www.propertypal.com/property-for-sale/searching-for-something-silly", 
-        no_results)
+        results_cards)
 
 def test_go_to_page_url(test_scraper: Scraper):
     error_page = Locator(By.XPATH, "//div[(@class='article error-page error-page-404')]")
@@ -68,6 +103,13 @@ def test_get_element(test_scraper: Scraper):
     error_page = Locator(By.XPATH, "//div[(@class='article error-page error-page-404')]")
     price = Locator(By.XPATH, "//span[(@class='price-value ')]")
     test_scraper.go_to_page_url("https://www.propertypal.com/7a-albert-drive-belfast/753419", error_page)
+    price_text = test_scraper.get_element(price)
+    assert type(price_text) is WebElement
+
+def test_get_element_text(test_scraper: Scraper):
+    error_page = Locator(By.XPATH, "//div[(@class='article error-page error-page-404')]")
+    price = Locator(By.XPATH, "//span[(@class='price-value ')]")
+    test_scraper.go_to_page_url("https://www.propertypal.com/7a-albert-drive-belfast/753419", error_page)
     price_text = test_scraper.get_element_text(price)
     assert price_text
 
@@ -98,20 +140,23 @@ def test_get_page_data(test_scraper: Scraper):
 
 def test_invalid_element(test_scraper: Scraper):
     with pytest.raises(RuntimeError):
-        value = test_scraper.get_element_text(
+        value = test_scraper.get_element(
             Locator(By.XPATH, "invalid_xpath"))
 
+def test_invalid_elements(test_scraper: Scraper):
+    value = test_scraper.get_element_list(("feature", Locator(By.XPATH, "invalid_xpath")))
+    assert value == []
+
 def test_invalid_list(test_scraper: Scraper):
-    with pytest.raises(RuntimeError):
-        value = test_scraper.get_element_list(("feature", Locator(By.XPATH, "invalid_xpath")))
+    value = test_scraper.get_elements(Locator(By.XPATH, "invalid_xpath"))
+    assert value == []
 
 def test_invalid_dict_list(test_scraper: Scraper):
-    with pytest.raises(RuntimeError):
-        value = test_scraper.get_elements_dict(Locator(By.ID, "invalid_xpath"),
-            ["info", "info_text"],
-            [Locator(By.XPATH, ".//th"), Locator(By.XPATH, ".//td")]
-        )
-
+    value = test_scraper.get_elements_dict(Locator(By.ID, "invalid_xpath"),
+        ["info", "info_text"],
+        [Locator(By.XPATH, ".//th"), Locator(By.XPATH, ".//td")]
+    )
+    assert value == []
 def test_invalid_dict_key(test_scraper: Scraper):
     with pytest.raises(RuntimeError):
         value = test_scraper.get_elements_dict(Locator(By.ID, "key-info-table"),

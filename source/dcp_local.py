@@ -1,6 +1,5 @@
 from package.storage.file_storage import FileStorage
 import pipeline
-import json
 import configparser
 import os
 from source.package.storage.db_storage import DBStorage
@@ -30,10 +29,10 @@ def get_db_conn() -> str:
 
 if __name__ == "__main__":
     # Setup log files
-    logging.basicConfig(filename='dcp_local.log', level=logging.INFO)
+    logging.basicConfig(filename='dcp_local.log', level=logging.INFO, format='%(asctime)s - %(message)s', filemode="w")
     # Get the data, store it locally, save to local DB
     logging.info('Initialising pipeline')
-    search_term = "steak"
+    search_term = "noodles"
     search = search_term.replace(' ', '_')
     root_folder = "./raw_data"
     data_folder = f"{root_folder}/{search}"
@@ -41,6 +40,6 @@ if __name__ == "__main__":
     logging.info(f"Running pipeline for search: {search}")
     pipeline.run_pipeline(
         search, 
-        1,
+        2,
         FileStorage("./raw_data", data_folder, images_folder), 
         DBStorage(get_db_conn()))
