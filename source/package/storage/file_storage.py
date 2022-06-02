@@ -1,6 +1,6 @@
 import json
 from logging import root
-from .utilities import UUIDEncoder
+from ..utils.utilities import UUIDEncoder
 import os
 from urllib import request
 from .storage import Storage

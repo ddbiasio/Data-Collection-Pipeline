@@ -1,7 +1,7 @@
 import boto3
 import configparser
 import requests
-from .utilities import UUIDEncoder
+from ..utils.utilities import UUIDEncoder
 import json
 import uuid
 from boto3_type_annotations.s3 import ServiceResource, Bucket
@@ -40,7 +40,7 @@ class S3Storage:
         self.__s3bucket = None
         self.__bucket_name = None
         self.data_folder = data_folder
-        self.images_folder = images_folder
+        self.images_folder = f"{data_folder}/{images_folder}"
         self.__create_bucket(bucket_prefix)
 
     def save_image(self,
@@ -121,6 +121,8 @@ class S3Storage:
         for bucket in self.__s3resource.buckets.all():
             if bucket_prefix in bucket.name:
                 self.__s3bucket = bucket
+                self.__bucket_name = bucket.name
+                return
         
         bucket_name = self.__create_bucket_name(bucket_prefix)
 

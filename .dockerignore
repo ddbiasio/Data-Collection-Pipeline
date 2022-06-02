@@ -1,0 +1,8 @@
+raw_data/
+.vscode/launch.json
+**/__pycache__/
+geckodriver.log
+.mypy_cache/
+scratch_pad/
+*.egg-info/
+*.log

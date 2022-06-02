@@ -1,5 +1,5 @@
 import configparser
-from package.scraper.scraper import Locator
+# from package.scraper.scraper import Locator
 from package.scraper.scraper import Scraper
 from package.storage.db_storage import DBStorage
 from selenium.webdriver.common.by import By 
@@ -104,7 +104,6 @@ class RecipeScraper(Scraper):
 
     def get_urls(self, keyword_search: str, page_num: int) -> list:
         
-
         page_urls = []
         # Sets the URL for results pages by page num
         results_mappings = {'pagenum': page_num, 'searchwords': keyword_search}

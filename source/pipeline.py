@@ -1,12 +1,8 @@
-from tkinter import E
 from package.storage.file_storage import Storage
 from package.storage.db_storage import DBStorage
 from recipe_scraper import RecipeScraper
-import json
-import configparser
-import recipe_constants as rc
 from tqdm.auto import tqdm
-from time import sleep
+import uuid
 
 def save_file(storage: Storage,
         page_dict: dict,
@@ -53,22 +49,29 @@ def save_images(storage: Storage,
 def store_data_files(storage: Storage,
         page_data_list: list,
         search: str):
-    """_summary_
+    """Stores the data dictionaries in a single file
 
     Parameters
     ----------
     storage : Storage
-        _description_
+        A concrete instance of a Storage class
     page_data_list : list
-        _description_
+        List of dictionaries defining scraped page data
     search : str
-        _description_
+        The search string used (for the file name)
+    page_num: Page number of results
     """
     if len(page_data_list) > 0:
 
+        storage.save_json_file(
+            page_data_list,
+            storage.data_folder,
+            f"{search}-{uuid.uuid4()}"
+            )
+
         for idx, page_dict in enumerate(page_data_list):
             # save the files in the appropriate folder
-            save_file(storage, page_dict, storage.data_folder)
+            # save_file(storage, page_dict, storage.data_folder)
             save_images(storage, page_dict, storage.images_folder)
 
 def get_json_data(storage: Storage,
@@ -174,6 +177,6 @@ def run_pipeline(
                         store_data_files(file_store, rs.page_data, search_term)
                         # json_data = get_json_data(file_store, f"{file_store.root_folder}/{search_term}")
                         store_data_db(db_storage, rs.page_data)
+        rs.quit()
     except RuntimeError as e:
-        print({e.args})     
-    rs.quit()
+        print({e.args})

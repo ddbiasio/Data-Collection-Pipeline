@@ -134,3 +134,10 @@ Was completed in Task 1
 
 ## Task 4
 Before updating
+
+
+
+DOCKER BUILD: docker build -f local.DockerFile -t scraper:latest .
+
+docker run --name scraper_local -it scraper --name=prawns --pages=1
+

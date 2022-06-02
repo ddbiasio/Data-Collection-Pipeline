@@ -4,6 +4,7 @@ import configparser
 import logging
 import pipeline
 import os
+import argparse
 
 def get_db_conn() -> str:
     """Initialises the DBStorage object using settings in config.ini
@@ -22,24 +23,37 @@ def get_db_conn() -> str:
     PORT = config.get('RDSStorage', 'port')
     DATABASE = config.get('RDSStorage', 'database')
     return f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}"
-    
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--search', type=str, default="chicken")
+    parser.add_argument('--pages', type=int, default=1)
+    return parser.parse_args()
+
 if __name__ == "__main__":
     # Get the data, store it on S3, upload to RDS
     # Setup log files
     logging.basicConfig(filename='dcp_was.log', level=logging.INFO, format='%(asctime)s - %(message)s', filemode="w")
     logging.info('Initialising pipeline')
-    search_term = "noodles"
-    search = search_term.replace(' ', '_')
+    
+    args = get_args()
 
+    search_term = args.search
+    search = search_term.replace(' ', '_')
+    if args.pages is None:
+        num_pages = 0
+    else:
+        num_pages = args.pages
     # Get the aws settings from config file
     config = configparser.ConfigParser()
-    config.read_file(open('./source/config.ini'))
+    config_file_path = os.path.join(os.path.dirname(__file__), "config.ini")
+    config.read_file(open(config_file_path))
     aws_access_key = config.get('S3Storage', 'accesskeyid')
     aws_secret_key = config.get('S3Storage', 'secretaccesskey') 
     aws_region = config.get('S3Storage', 'region') 
     logging.info(f"Running pipeline for search: {search}")
     pipeline.run_pipeline(
         search, 
-        2,
+        num_pages,
         S3Storage(aws_access_key, aws_secret_key, aws_region, "raw-data", search_term, "images"), 
         DBStorage(get_db_conn()))

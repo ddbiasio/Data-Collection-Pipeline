@@ -26,7 +26,6 @@ def get_db_conn() -> str:
     PORT = config.get('DBStorage', 'port')
     return f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 
-
 if __name__ == "__main__":
     # Setup log files
     logging.basicConfig(filename='dcp_local.log', level=logging.INFO, format='%(asctime)s - %(message)s', filemode="w")
@@ -40,6 +39,6 @@ if __name__ == "__main__":
     logging.info(f"Running pipeline for search: {search}")
     pipeline.run_pipeline(
         search, 
-        2,
+        3,
         FileStorage("./raw_data", data_folder, images_folder), 
         DBStorage(get_db_conn()))
