@@ -1,14 +1,16 @@
-import sqlalchemy
 import psycopg2
-from sqlalchemy.exc import ProgrammingError
+from sqlalchemy.exc import ProgrammingError, OperationalError
 import uuid
 import pandas as pd
-from pandas import DataFrame, json_normalize
-
+from pandas import json_normalize
 from sqlalchemy import create_engine
+from ..utils.logger import log_class
+import logging
 
+@log_class
 class DBStorage:
 
+    logger = logging.getLogger(__name__)
     """
     A class with methods to save scraped data to a Postgres database
 
@@ -28,63 +30,46 @@ class DBStorage:
             A valid database connction string
         """
         self.__engine = create_engine(db_conn)
-       
-    def store_parent_df(self,
-            data_json: str,
-            table_name: str,
-            index_cols: list,
-            column_list: list,
-            table_action: str) -> None:
-        """
-        Normalises a string in json format into a pandas DataFrame and uploads to database (parent table)
+        try:
+            self.__engine.connect()
+        except OperationalError as oe:
+            raise RuntimeError(f"The database connection cannot be made (error code: {oe.code})")
+
+    def json_to_db(self,
+            data_json: dict,
+            parent_table: str,
+            parent_tab_cols: list,
+            child_tabs: list[tuple],
+            fk_column: list):
+        """Normalises a json dictionary into parent and child entities
+        and inserts the data into the relevant database tables
 
         Parameters
         ----------
-        data_json: str
-            Data in the format of a json string
-        table_name: str
-            The nameof the table where data will be inserted
-        index_cols: list
-            A list of columns to be used as indexes in the DataFrame
-        column_list: list
-            The list of column names to be extracted from the json
-        table_action: str
-            How to behave if the table already exists (fail, replace, append) 
+        data_json : dict
+            A valid json dictionary
+        parent_table : str
+            The name of the parent table
+        parent_tab_cols : list
+            (The column(s) to extract for the parent table)
+        child_tabs : list[tuple]
+            List of child tables and index keys paired as tuples of a string and a list
+            e.g. [("table1", ["fk_col", "ind_col1"]), ("table2", ["fk_col", "ind_col2"])]
+            Index columns must include the foreign key and at least one other column
+            to provide a unique value for the index
+        fk_column : list
+            The unique column(s) for the parent table, also used as foreign key in child tables
         """
-        df = (json_normalize(
-                data_json)[column_list].copy()
-                .set_index(index_cols, verify_integrity=True))
-        df.to_sql(table_name, self.__engine, if_exists=table_action, index=True)
-
-    def store_child_df(self,
-            data_json: str,
-            table_name: str,
-            index_cols: list,
-            record_fk: str,
-            table_action: str):
-
-        """
-        Normalises a string in json format into a pandas DataFrame and uploads to database (child table)
-
-        Parameters
-        ----------
-        data_json: str
-            Data in the format of a json string
-        table_name: str
-            The nameof the table where data will be inserted
-        index_cols: list
-            A list of columns to be used as indexes in the DataFrame
-        record_fk: str
-            The column which will be the foreign key to the parent table
-        table_action: str
-            How to behave if the table already exists (fail, replace, append) 
-        """
-        df = json_normalize(
-                    data_json,
-                    record_path=[table_name],
-                    meta=[record_fk]
-                    ).set_index(index_cols)
-        df.to_sql(table_name, self.__engine, if_exists=table_action, index=True)
+        (json_normalize(
+            data_json)[parent_tab_cols]).set_index(
+            fk_column, verify_integrity=True).to_sql(
+            parent_table, self.__engine, if_exists="append")
+        for tab in child_tabs:
+            table_name, index_cols = tab
+            (json_normalize(
+                    data_json, [table_name], fk_column)).set_index(
+                    index_cols, verify_integrity=True).to_sql(
+                    table_name, self.__engine, if_exists="append")
 
     def upsert_df(self,
         df: pd.DataFrame, 
@@ -162,8 +147,6 @@ class DBStorage:
 
         Parameters
         ----------
-        table_owner: str
-            The table owner
         table_name: str
             The table name
         item_id_column: str
@@ -173,7 +156,7 @@ class DBStorage:
 
         Returns
         -------
-            True if record exists
+            True if record exists (or table doesn't exist)
         """
         # check if an ID exists in the database already
         try:
@@ -184,10 +167,9 @@ class DBStorage:
                     """)
             if result.first()[0]:
                 return True
-        # except UndefinedTable:
-        #     # For first time scraper is run
-        #     return True
         except ProgrammingError as pe:
             if pe.code == psycopg2.errors.lookup("42P01"):
                 return True
+        except OperationalError as oe:
+            return False
 

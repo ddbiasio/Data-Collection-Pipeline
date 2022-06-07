@@ -33,8 +33,9 @@ def get_args():
 if __name__ == "__main__":
     # Get the data, store it on S3, upload to RDS
     # Setup log files
-    logging.basicConfig(filename='dcp_was.log', level=logging.INFO, format='%(asctime)s - %(message)s', filemode="w")
-    logging.info('Initialising pipeline')
+    logging.basicConfig(filename='./dcp_aws.log', level=logging.INFO, format='%(name)s: %(asctime)s - %(message)s', filemode="w")
+    logger = logging.getLogger('dcp_aws')
+    logger.info('Initialising pipeline')
     
     args = get_args()
 
@@ -51,9 +52,12 @@ if __name__ == "__main__":
     aws_access_key = config.get('S3Storage', 'accesskeyid')
     aws_secret_key = config.get('S3Storage', 'secretaccesskey') 
     aws_region = config.get('S3Storage', 'region') 
-    logging.info(f"Running pipeline for search: {search}")
-    pipeline.run_pipeline(
-        search, 
-        num_pages,
-        S3Storage(aws_access_key, aws_secret_key, aws_region, "raw-data", search_term, "images"), 
-        DBStorage(get_db_conn()))
+    logger.info(f"Running pipeline for search: {search}")
+    try:
+        pipeline.run_pipeline(
+            search, 
+            num_pages,
+            S3Storage(aws_access_key, aws_secret_key, aws_region, "raw-data", search_term, "images"), 
+            DBStorage(get_db_conn()))
+    except RuntimeError as e:
+       logger.exception(f"Exception raised in {__name__}. exception: {str(e)}")

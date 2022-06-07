@@ -1,6 +1,7 @@
+from distutils.log import Log
+from typing import Dict
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import WebDriverException
@@ -8,57 +9,43 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-import logging
+from ..utils.logger import log_class
 from functools import wraps
+import logging
 
-# class Locator:
-#     """
-#     This class allows an element Locator to be defined 
-#     as an object to pass to Scraper methods to find elements
+@log_class
+class Locator:
+    # Create a logger for the Locator class
+    logger = logging.getLogger(__name__)
+    """
+    This class allows an element Locator to be defined 
+    as an object to pass to Scraper methods to find elements
 
-#     """
-#     def __init__(self, locate_by: str, locate_value: str):
-#         """Create a new instance of the Locator class
+    """
+    def __init__(self, locate_by: str, locate_value: str):
+        """Create a new instance of the Locator class
 
-#         Parameters
-#         ----------
-#         locate_by : str
-#             A supported Locator strategy e.g. XPATH, TAG_NAME etc.
-#         locate_value : str
-#             Locator value for search result elements on the page 
-#             e.g. the Xpath, the tag etc.
-#         """
-#         try:
-#             self.locate_by = locate_by
-#             self.locate_value = locate_value
-#         except TypeError as e:
-#             logging.ERROR("Error instantiating Locator object.")
+        Parameters
+        ----------
+        locate_by : str
+            A supported Locator strategy e.g. XPATH, TAG_NAME etc.
+        locate_value : str
+            Locator value for search result elements on the page 
+            e.g. the Xpath, the tag etc.
+        """
+        self.locate_by = locate_by
+        self.locate_value = locate_value
 
-class Scraper:
+    def __iter__(self):
+        yield from [self.locate_by, self.locate_value]
 
+@log_class
+class Scraper():
+    logger = logging.getLogger(__name__)
     """
     This class provides generic functions for web scraping
-
     """
-    def exception_handler(func):
-        @wraps(func)
-        def inner_function(*args, **kwargs):
-            try:
-                args_repr = [repr(a) for a in args]
-                kwargs_repr = [f"{k}={v!r}" for k, v in kwargs.items()]
-                signature = ", ".join(args_repr + kwargs_repr)
-                response = func(*args, **kwargs)
-            except WebDriverException as e:
-                raise RuntimeError(f"WebDriverException in {func.__name__}({signature}): {e.msg}") from e
-            except TimeoutException as e:
-                raise RuntimeError(f"TimeoutException in {func.__name__}({signature}): {e.msg}") from e
-            except NoSuchElementException as e:
-                raise RuntimeError(f"Element was not found in {func.__name__}({signature}): {e.msg}") from e
-            return response
-        return inner_function
 
-    @exception_handler
     def __init__(self, 
                 url: str) -> None:
 
@@ -87,12 +74,11 @@ class Scraper:
         # driverService = Service('/usr/bin/chromedriver')
         self.__driver = webdriver.Chrome(options=options)
         self.__driver.get(url)
-        logging.info("Successfully initiated driver and loaded website")      
 
     def dismiss_popup(
             self,
-            button_loc: By,
-            iframe_loc: By = None) -> None:
+            button_loc: Locator,
+            iframe_loc: Locator = None) -> None:
         """
         Locates a button within a frame and executes the click to accept cookies
 
@@ -109,12 +95,12 @@ class Scraper:
                     EC.visibility_of_element_located(*iframe_loc))
                 self.__driver.switch_to.frame(dismiss_frame)
 
-                # This additional wait may be required to ensure 
-                # the buttons are accessible
+            # This additional wait may be required to ensure 
+            # the buttons are accessible
 
-                dismiss_button = WebDriverWait(self.__driver, 10).until(
-                    EC.element_to_be_clickable(*button_loc))
-                dismiss_button.click()
+            dismiss_button = WebDriverWait(self.__driver, 10).until(
+                EC.element_to_be_clickable(button_loc))
+            dismiss_button.click()
 
             self.__driver.switch_to.default_content()
 
@@ -136,8 +122,7 @@ class Scraper:
                 EC.element_to_be_clickable(*button_loc))
             button_loc.click()
 
-    # @exception_handler
-    def search(self, search_url: str, results_loc: By = None) -> bool:
+    def search(self, search_url: str, results_loc: Locator) -> bool:
         """
         Executes a search with a search URL which should
         be in the correct format for the web site being scraped
@@ -161,9 +146,8 @@ class Scraper:
         # if the no results div exists then search returned no results
         return len(self.__driver.find_elements(*results_loc)) != 0
 
-    @exception_handler
     def get_item_links(self, 
-            results_loc: By) -> list:
+            results_loc: Locator) -> list:
 
         """
         Returns a list of URLs for each item in a page of the search results
@@ -193,14 +177,13 @@ class Scraper:
             EC.presence_of_all_elements_located(results_loc))
         for item in items:
             # go to each recipe and get the link and add to list
-            item_url = item.get_attribute("href")
+            item_url = item.get_attribute('href')
             url_list.append(item_url)
         return url_list
 
-    @exception_handler
     def go_to_page_url(self, 
         url: str, 
-        invalid_page: By) -> bool:
+        invalid_page: Locator) -> bool:
         """
         Navigates to the web page identified by 'url'
 
@@ -223,8 +206,7 @@ class Scraper:
         else:
             return True
 
-    @exception_handler
-    def get_element(self, loc: tuple) -> WebElement:
+    def get_element(self, loc: Locator) -> WebElement:
         """
         Returns an element using the defined locator information
 
@@ -240,8 +222,7 @@ class Scraper:
         """
         return self.__driver.find_element(*loc)
 
-    @exception_handler
-    def get_elements(self, loc: tuple) -> list[WebElement]:
+    def get_elements(self, loc: Locator) -> list[WebElement]:
         """
         Returns a list of elements using the defined locator information
 
@@ -257,8 +238,7 @@ class Scraper:
         """
         return self.__driver.find_elements(*loc)
 
-    @exception_handler
-    def get_element_text(self, loc: tuple) -> str:
+    def get_element_text(self, loc: Locator) -> str:
         """
         Returns text attribute of element using the defined locator information
 
@@ -275,8 +255,9 @@ class Scraper:
         
         return self.__driver.find_element(*loc).text
 
-    @exception_handler
-    def get_element_list(self, list_def: tuple) -> list[dict]:
+    def get_elements_list(self, 
+            item_key: str,
+            list_loc: Locator) -> list[dict]:
         """
         Finds a list of elements using the defined Locator
         and returns the text of each in a list
@@ -292,24 +273,13 @@ class Scraper:
             A list of dictionaries with a single key: value
             pair in each dictionary
         """
-        key, loc = list_def
-        list_values = []
-        list_items = self.__driver.find_elements(*loc)
-        if len(list_items) > 0:
-            for item in list_items:
-                list_dict = {key: item.text}
-                list_values.append(list_dict)
-            return list_values
-        else:
-            # raise RuntimeError(f"Elements at {loc.locate_value} does not exist.")
-            return []
+        list_items = self.__driver.find_elements(*list_loc)
+        return [{item_key: item.text} for item in list_items]
  
-    @exception_handler
     def get_elements_dict(
             self, 
-            list_loc: tuple,
-            dict_keys: list,
-            dict_values: list) -> list[dict]:
+            list_loc: Locator,
+            **locators: Dict[str, Locator]) -> list[dict]:
         """
         Finds a list of elements, and then finds multiple values
         as specified by locator details in 'values' which corresponds to 
@@ -334,58 +304,20 @@ class Scraper:
         dict_list = []
 
         list_items = self.__driver.find_elements(*list_loc)
-        if len(list_items) > 0:     
-            for item in list_items:     
+        if len(list_items) > 0:
+            for item in list_items:
                 item_dict = {}
-                for idx, key in enumerate(dict_keys):
+                # item_dict = {key: item.find_element(*value).text for (key, value) in locators}
+                for key, value in locators.items():
                     key_text = key
-                    key_value = item.find_element(*dict_values[idx]).text
+                    key_value = item.find_element(*value).text
                     item_dict.update({key_text: key_value})
                 dict_list.append(item_dict)
             return dict_list
         else:
             return []
 
-    def get_page_data(self, page_definition: dict) -> dict:
-        """
-        Uses the page_definition to scrape a page for the
-        data items described in the dictionary, where each key is a 
-        data item for the page data
-
-        Parameters
-        ----------
-        page_defintion: dict
-            A dicitonary defining how page data will be located
-            {key: tuple} - returns a text value from an element
-            {key: [tuple]} - returns list of dictionaries from a list of elements
-            {key: {list_loc: tuple}, {key_loc: tuple}, {value_loc: tuple}} - 
-                returns a dictionary of key / value pairs from a list of elements
-            tuple values are supported locator strategy and value pairs
-            e.g. (By.XPATH, "//div[(@class='post recipe')]//h1[(@class='heading-1')]")
-        
-        Returns
-        -------
-        dict 
-            A dictionary of items containing information scraped from the page
-        """
-
-        page_dict = {}
-
-        for key, value in page_definition.items():
-            if type(value) is tuple:
-                # Dictionary item is a single element text value
-                page_dict.update({key: self.get_element_text(value)})
-            elif type(value) is list:
-                # Dictionary item is a list of values
-                # The list should be of format key: list_loc
-                page_dict.update({key: self.get_element_list(*value)})
-            else:
-                # Dictionary item is a dictionary of values
-                page_dict.update({key: self.get_elements_dict(**value)})
-
-        return page_dict
-
-    def get_image_url(self, loc: tuple) -> list:
+    def get_image_url(self, loc: Locator) -> list:
         """
         Gets the URL associated with an image / images from the src attribute
 

@@ -1,12 +1,16 @@
 import boto3
-import configparser
 import requests
 from ..utils.utilities import UUIDEncoder
 import json
 import uuid
-from boto3_type_annotations.s3 import ServiceResource, Bucket
+from ..utils.logger import log_class
+import logging
+
+@log_class
 class S3Storage:
 
+    logger = logging.getLogger(__name__)
+    
     def __init__(self, 
             access_key_id: str, 
             secret_access_key: str,

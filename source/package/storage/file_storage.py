@@ -4,7 +4,10 @@ from ..utils.utilities import UUIDEncoder
 import os
 from urllib import request
 from .storage import Storage
-# TODO Need test functions for this
+from ..utils.logger import log_class
+import logging
+
+@log_class
 class FileStorage(Storage):
     """
     A class to manage operating system file operations
@@ -23,6 +26,7 @@ class FileStorage(Storage):
     read_json_file(file: str) -> str
 
     """
+    logger = logging.getLogger(__name__)
     def __init__(self,
             root_folder: str,
             data_folder: str,

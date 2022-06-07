@@ -28,17 +28,20 @@ def get_db_conn() -> str:
 
 if __name__ == "__main__":
     # Setup log files
-    logging.basicConfig(filename='dcp_local.log', level=logging.INFO, format='%(asctime)s - %(message)s', filemode="w")
-    # Get the data, store it locally, save to local DB
-    logging.info('Initialising pipeline')
-    search_term = "noodles"
+    logging.basicConfig(filename='./dcp_local.log', level=logging.INFO, format='%(name)s: %(asctime)s - %(message)s', filemode="w")
+    logger = logging.getLogger('dcp_local')
+    logger.info('Initialising pipeline')
+    search_term = "pear"
     search = search_term.replace(' ', '_')
     root_folder = "./raw_data"
     data_folder = f"{root_folder}/{search}"
     images_folder = f"{root_folder}/{search}/images"
-    logging.info(f"Running pipeline for search: {search}")
-    pipeline.run_pipeline(
-        search, 
-        3,
-        FileStorage("./raw_data", data_folder, images_folder), 
-        DBStorage(get_db_conn()))
+    logger.info(f"Running pipeline for search: {search}")
+    try:
+        pipeline.run_pipeline(
+            search, 
+            1,
+            FileStorage("./raw_data", data_folder, images_folder), 
+            DBStorage(get_db_conn()))
+    except RuntimeError as e:
+       logger.exception(f"Exception raised in {__name__}. exception: {str(e)}")

@@ -1,9 +1,15 @@
+import logging
 from package.storage.file_storage import Storage
 from package.storage.db_storage import DBStorage
 from recipe_scraper import RecipeScraper
 from tqdm.auto import tqdm
 import uuid
+from package.utils.logger import log
+import logging
 
+logger = logging.getLogger("pipeline")
+
+@log(my_logger=logger)
 def save_file(storage: Storage,
         page_dict: dict,
         folder: str):
@@ -23,7 +29,9 @@ def save_file(storage: Storage,
         folder,
         f"{page_dict['item_id']}"
         )
+    logger.info(f"Saved file: {page_dict['item_id']}")
 
+@log(my_logger=logger)
 def save_images(storage: Storage,
         page_dict: dict,
         folder: str):
@@ -45,7 +53,9 @@ def save_images(storage: Storage,
             url,
             folder,
             f"{page_dict['item_id']}.{file_ext}")
+        logger.info(f"Saved image: {page_dict['item_id']}.{file_ext}")
 
+@log(my_logger=logger)
 def store_data_files(storage: Storage,
         page_data_list: list,
         search: str):
@@ -73,34 +83,9 @@ def store_data_files(storage: Storage,
             # save the files in the appropriate folder
             # save_file(storage, page_dict, storage.data_folder)
             save_images(storage, page_dict, storage.images_folder)
+        logger.info(f"Saved all data and image files.")
 
-def get_json_data(storage: Storage,
-        data_folder: str) -> list:
-    """Returns a list of json strings from files in a folder
-
-    Parameters
-    ----------
-    storage : Storage
-        A FileStorage or S3Storage instance
-    data_folder : str
-        The folder to get the files from
-
-    Returns
-    -------
-    list
-       List of recipes as json strings
-    """
-    file_list = storage.list_files(data_folder)
-    json_list = []
-    for file in file_list:
-        with open(file, "r") as json_file:
-            if not ".json" in json_file.name:
-                pass
-            else:
-                item_json = storage.read_json_file(file)
-                json_list.append(item_json)
-    return json_list
-
+@log(my_logger=logger)
 def store_data_db(db_storage: DBStorage,
         json_data: list):
     """Uploads the data to the database
@@ -112,56 +97,39 @@ def store_data_db(db_storage: DBStorage,
     json_data : list
         A list of json strings
     """
-    db_storage.store_parent_df(
-    json_data, 
-    'recipe', 
-    ['item_id'], 
-    ['item_id', 'recipe_name', 'item_UUID','image_urls'],
-    'append')
-
-    db_storage.store_child_df(
+    db_storage.json_to_db(
         json_data,
-        'ingredients',
-        ['item_id', 'ingredient'],
-        ['item_id'],
-        'append'
+        'recipe',
+        ['item_id', 'recipe_name', 'item_UUID','image_urls'],
+        [
+            ('ingredients', ['item_id', 'ingredient']),
+            ('method', ['item_id', 'method_step']),
+            ('planning_info', ['item_id', 'prep_stage']),
+            ('nutritional_info', ['item_id', 'nutritional_info'])
+        ],
+        ['item_id']
     )
+    logger.info(f"Saved data to database for {len(json_data)} items.")
 
-    db_storage.store_child_df(
-        json_data,
-        'method',
-        ['item_id', 'method_step'],
-        ['item_id'],
-        'append'
-    )
-    db_storage.store_child_df(
-        json_data,
-        'planning_info',
-        ['item_id', 'prep_stage'],
-        ['item_id'],
-        'append'
-    )
-
-    db_storage.store_child_df(
-        json_data,
-        'nutritional_info',
-        ['item_id', 'nutritional_info'],
-        ['item_id'],
-        'append'
-    )
-
+@log(my_logger=logger)
 def run_pipeline(
         search_term: str, 
         num_pages: int, 
         file_store: Storage, 
         db_storage: DBStorage):
     try:
+
         rs = RecipeScraper()
+        logger.info(f"Initialised the scraper class.")
         results_pages = rs.search_recipes(search_term, num_pages)
         if results_pages > 0:
+            
+            logger.info(f"Executed search: {results_pages} pages if results")
+
             for page_num in tqdm(range(1, results_pages + 1), desc = 'Scraping progress', leave=False):
                 # Get urls per page of search results
                 urls = rs.get_urls(search_term, page_num)
+                logger.info(f"Retrieved urls for page {page_num} of search results.")
                 # Check list of urls is populated    
                 if len(urls) > 0:
                     rs.page_data = []
@@ -170,13 +138,16 @@ def run_pipeline(
                         # get the ID from the URL
                         item_id = url.rsplit('/', 1)[-1]
                         if not db_storage.item_exists("recipe", "item_id", item_id):
-                            page_dict = rs.scrape_page(url)
+                            page_dict = rs.get_page_data(url)
                             if len(page_dict) != 0:
                                 rs.page_data.append(page_dict)
+                        logger.info(f"Scraped data from {url}.")
                     if len(rs.page_data) > 0:
                         store_data_files(file_store, rs.page_data, search_term)
                         # json_data = get_json_data(file_store, f"{file_store.root_folder}/{search_term}")
                         store_data_db(db_storage, rs.page_data)
+                        logger.info(f"Saved files, images and uploaded data for {len(rs.page_data)} items.")
         rs.quit()
     except RuntimeError as e:
-        print({e.args})
+       logger.exception(f"Exception raised in {__name__}. exception: {str(e)}")
+       raise e
