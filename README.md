@@ -119,6 +119,68 @@ class Storage(ABC):
 * The use of the abstract storage class allows the pipeline to be defined generically for both local and AWS usage.  When the main pipeline function is called, the DBStorage object is initialisied with either the local or RDS connection string, and a concrete Storage object is passed in
 * Added a pipeline script which extracts much of the functionality from the dcp_local.py and dcp_aws.py, and which accepts the search / page numbers parameters, along with a Storage and DBStorage object and performs all the necessary tasks to scrape data
 * Modified dcp_local.py and dcp_aws.py to instantiate the relevant Storage and DBStorage class and make the call to run_pipeline function
+
+***dcp_local.py:***
+```Python
+    logging.basicConfig(filename='./dcp_local.log', level=logging.INFO, format='%(name)s: %(asctime)s - %(message)s', filemode="w")
+    logger = logging.getLogger('dcp_local')
+    logger.info('Initialising pipeline')
+    search_term = "pear"
+    search = search_term.replace(' ', '_')
+    root_folder = "./raw_data"
+    data_folder = f"{root_folder}/{search}"
+    images_folder = f"{root_folder}/{search}/images"
+    logger.info(f"Running pipeline for search: {search}")
+    try:
+        pipeline.run_pipeline(
+            search, 
+            1,
+            FileStorage("./raw_data", data_folder, images_folder), 
+            DBStorage(get_db_conn()))
+    except RuntimeError as e:
+       logger.exception(f"Exception raised in {__name__}. exception: {str(e)}")
+ ```
+ 
+ ***dcp_aws.py:***
+ ```Python
+     # Get the data, store it on S3, upload to RDS
+    # Setup log files
+    logging.basicConfig(filename='./dcp_aws.log', level=logging.INFO, format='%(name)s: %(asctime)s - %(message)s', filemode="w")
+    logger = logging.getLogger('dcp_aws')
+    logger.info('Initialising pipeline')
+    
+    args = get_args()
+
+    search_term = args.search
+    search = search_term.replace(' ', '_')
+    if args.pages is None:
+        num_pages = 0
+    else:
+        num_pages = args.pages
+    # Get the aws settings from config file
+    config = configparser.ConfigParser()
+    config_file_path = os.path.join(os.path.dirname(__file__), "config.ini")
+    config.read_file(open(config_file_path))
+    aws_access_key = config.get('S3Storage', 'accesskeyid')
+    aws_secret_key = config.get('S3Storage', 'secretaccesskey') 
+    aws_region = config.get('S3Storage', 'region') 
+    logger.info(f"Running pipeline for search: {search}")
+    try:
+        pipeline.run_pipeline(
+            search, 
+            num_pages,
+            S3Storage(
+                aws_access_key,
+                aws_secret_key,
+                aws_region
+                "raw-data",
+                search_term,
+                "images"), 
+            DBStorage(get_db_conn()))
+    except RuntimeError as e:
+       logger.exception(f"Exception raised in {__name__}. exception: {str(e)}")
+ ```
+ 
 * Restructured the folders to create a package folder with all the classes, created a package using setup.py and modified all imports accordingly in source and test
 * Added a method to check if an item ID exists in the database to prevent rescraping
 * Changed RecipeScraper to inherit from and extend the Scraper class
@@ -178,31 +240,32 @@ class Scraper():
 ![image](https://user-images.githubusercontent.com/100235973/172435713-3e02cdc8-2d04-4a48-922c-b59e7c98265d.png)
 
 # Project Folder Structure
-
-dcpipline
-    source
-        package
-            scraper
-                recipe_constants.py
-                recipe_scraper.py
-                scraper.py
-            storage
-                db_storage.py
-                file_storage.py
-                s3_storage.py
-            utils
-                logger.py
-                utilities.py
-        config.ini
-        config.py
-        dcp_aws.py
-        dcp_local.py
-        pipeline.py
-        recipe_constants.py
-        recipe_scraper.py
-        test
-            test_scraper.py
-            test_file_storage.py
-            test_s3_storage.py
-    DockerFile
-    setup.py
+```
+- dcpipline
+    - source
+        - package
+            - scraper
+                - recipe_constants.py
+                - recipe_scraper.py
+                - scraper.py
+            - storage
+                - db_storage.py
+                - file_storage.py
+                - s3_storage.py
+            - utils
+                - logger.py
+                - utilities.py
+        - config.ini
+        - config.py
+        - dcp_aws.py
+        - dcp_local.py
+        - pipeline.py
+        - recipe_constants.py
+        - recipe_scraper.py
+        - test
+            - test_scraper.py
+            - test_file_storage.py
+            - test_s3_storage.py
+    - DockerFile
+    - setup.py
+```
