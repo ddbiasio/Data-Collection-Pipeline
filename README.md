@@ -137,7 +137,7 @@ Before updating
 
 
 
-DOCKER BUILD: docker build -f local.DockerFile -t scraper:latest .
+DOCKER BUILD: docker build -f DockerFile -t scraper:latest .
 
-docker run --name scraper_local -it scraper --name=prawns --pages=1
+docker run --name scraper_local -it scraper --search=carbonara --pages=1
 
