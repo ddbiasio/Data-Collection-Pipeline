@@ -25,11 +25,14 @@ def get_db_conn() -> str:
     return f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{ENDPOINT}:{PORT}/{DATABASE}"
 
 def get_args():
+    # Get the parameters for running the scraper
     parser = argparse.ArgumentParser()
     parser.add_argument('--search', type=str, default="chicken")
     parser.add_argument('--pages', type=int, default=1)
     return parser.parse_args()
 
+# Runs the pipeline to AWS i.e. files saved to S3
+# and data uploaded to an RDS database
 if __name__ == "__main__":
     # Get the data, store it on S3, upload to RDS
     # Setup log files
@@ -57,7 +60,13 @@ if __name__ == "__main__":
         pipeline.run_pipeline(
             search, 
             num_pages,
-            S3Storage(aws_access_key, aws_secret_key, aws_region, "raw-data", search_term, "images"), 
+            S3Storage(
+                aws_access_key,
+                aws_secret_key,
+                aws_region
+                "raw-data",
+                search_term,
+                "images"), 
             DBStorage(get_db_conn()))
     except RuntimeError as e:
        logger.exception(f"Exception raised in {__name__}. exception: {str(e)}")

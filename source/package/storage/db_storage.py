@@ -9,15 +9,13 @@ import logging
 
 @log_class
 class DBStorage:
-
+    # Create a logger for the Locator class
+    # Will be accessed by class decorator
+    # which decorates each method with logging functionality
     logger = logging.getLogger(__name__)
     """
     A class with methods to save scraped data to a Postgres database
 
-    Attributes
-    ----------
-    db_owner : str
-        The name of the database owner
     """
     def __init__(self,
             db_conn: str):
@@ -30,6 +28,7 @@ class DBStorage:
             A valid database connction string
         """
         self.__engine = create_engine(db_conn)
+        # Test connection to make sure database up etc.
         try:
             self.__engine.connect()
         except OperationalError as oe:
@@ -60,10 +59,12 @@ class DBStorage:
         fk_column : list
             The unique column(s) for the parent table, also used as foreign key in child tables
         """
+        # Get the parent table
         (json_normalize(
             data_json)[parent_tab_cols]).set_index(
             fk_column, verify_integrity=True).to_sql(
             parent_table, self.__engine, if_exists="append")
+        # Get the child table(s)
         for tab in child_tabs:
             table_name, index_cols = tab
             (json_normalize(

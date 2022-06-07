@@ -14,19 +14,19 @@ class FileStorage(Storage):
 
     Attributes
     ----------
-    root_folder: str
+    root_folder : str
         The root folder under which all operation will take place
-    
-    Methods
-    -------
-    create_folder(folder: str)
-    list_files(folder: str) -> list
-    dict_to_json_file(dict_to_save: dict, folder: str, file: str)
-    save_image(url: str, folder: str, file: str)
-    read_json_file(file: str) -> str
+    data_folder : str
+        The folder where json files are stored
+    images_folder :
+        The folder where images are stored
 
     """
+    # Create a logger for the Locator class
+    # Will be accessed by class decorator
+    # which decorates each method with logging functionality
     logger = logging.getLogger(__name__)
+
     def __init__(self,
             root_folder: str,
             data_folder: str,

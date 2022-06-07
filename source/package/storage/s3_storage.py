@@ -8,7 +8,20 @@ import logging
 
 @log_class
 class S3Storage:
+    """
+    A class to manage operating system file operations
 
+    Attributes
+    ----------
+    data_folder : str
+        The folder where json files are stored
+    images_folder :
+        The folder where images are stored
+    """
+
+    # Create a logger for the Locator class
+    # Will be accessed by class decorator
+    # which decorates each method with logging functionality
     logger = logging.getLogger(__name__)
     
     def __init__(self, 

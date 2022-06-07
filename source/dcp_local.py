@@ -26,6 +26,8 @@ def get_db_conn() -> str:
     PORT = config.get('DBStorage', 'port')
     return f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 
+# Runs the pipeliee locally i.e. files saved locally
+# and data uploaded to a local DB
 if __name__ == "__main__":
     # Setup log files
     logging.basicConfig(filename='./dcp_local.log', level=logging.INFO, format='%(name)s: %(asctime)s - %(message)s', filemode="w")

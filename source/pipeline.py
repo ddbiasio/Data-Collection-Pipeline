@@ -7,6 +7,7 @@ import uuid
 from package.utils.logger import log
 import logging
 
+# Create a logger for pipeline log messages
 logger = logging.getLogger("pipeline")
 
 @log(my_logger=logger)
@@ -69,7 +70,6 @@ def store_data_files(storage: Storage,
         List of dictionaries defining scraped page data
     search : str
         The search string used (for the file name)
-    page_num: Page number of results
     """
     if len(page_data_list) > 0:
 
@@ -79,7 +79,7 @@ def store_data_files(storage: Storage,
             f"{search}-{uuid.uuid4()}"
             )
 
-        for idx, page_dict in enumerate(page_data_list):
+        for page_dict in page_data_list:
             # save the files in the appropriate folder
             # save_file(storage, page_dict, storage.data_folder)
             save_images(storage, page_dict, storage.images_folder)
@@ -117,6 +117,25 @@ def run_pipeline(
         num_pages: int, 
         file_store: Storage, 
         db_storage: DBStorage):
+    """The main routine to run all the necessary 
+    tasks to scrape and save recipe data
+
+    Parameters
+    ----------
+    search_term : str
+        The search words to be used to sear for recipes
+    num_pages : int
+        Number fo results pages to scrape
+    file_store : Storage
+       An instance of a concrete Storage object
+    db_storage : DBStorage
+        An instance of DBStorage initialised with a valid DB connection
+
+    Raises
+    ------
+    RuntimeError
+        RuntimeError excepion will be propagated up and raised to calling functions
+    """
     try:
 
         rs = RecipeScraper()

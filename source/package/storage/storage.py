@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 
 class Storage(ABC):
 
+    """Abstract class for storage operations
+    """
     @abstractmethod
     def list_files(self,
             folder: str,

@@ -17,8 +17,6 @@ class RecipeScraper(Scraper):
 
     Attributes
     ----------
-    scraper : Scraper
-        An instance of the web scraper class
     page_data : list
         A list of dictionaries populated by the web scraper
 
@@ -42,8 +40,19 @@ class RecipeScraper(Scraper):
         super().__init__(rc.WEBSITE_URL)
         self.dismiss_popup(rc.ACCEPT_BUTTON_LOC)
 
-    def get_num_pages(self, num_pages):
+    def get_num_pages(self, num_pages: int) -> int:
+        """Gets the number of results pages using the navigation control
 
+        Parameters
+        ----------
+        num_pages : int
+            The number of search pages to be scraped
+
+        Returns
+        -------
+        int
+            Returns with num_pages if set, or the total number of results pages
+        """
         if num_pages == 0:
             # Get the total results pages so we know how many iterations
             # Mainly for the status bar as we could just keep going
@@ -59,7 +68,20 @@ class RecipeScraper(Scraper):
             return num_pages
 
     def get_urls(self, keyword_search: str, page_num: int) -> list:
-        
+        """Gets the URLS for recipe pages from one page of results
+
+        Parameters
+        ----------
+        keyword_search : str
+            The word(s) used for the search (used to build results page URL)
+        page_num : int
+            The page number to go to (used to build results page URL)
+
+        Returns
+        -------
+        list
+            List of URLs
+        """        
         page_urls = []
         # Sets the URL for results pages by page num
         results_mappings = {'pagenum': page_num, 'searchwords': keyword_search}

@@ -1,21 +1,20 @@
-from distutils.log import Log
 from typing import Dict
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.options import Options
 from ..utils.logger import log_class
-from functools import wraps
 import logging
 
 @log_class
 class Locator:
     # Create a logger for the Locator class
+    # Will be accessed by class decorator
+    # which decorates each method with logging functionality
     logger = logging.getLogger(__name__)
     """
     This class allows an element Locator to be defined 
@@ -37,10 +36,20 @@ class Locator:
         self.locate_value = locate_value
 
     def __iter__(self):
+        """Makes the Locator object iterable to allow unpacking in method calls
+
+        Yields
+        ------
+        tuple
+            Tuple of the Locator class
+        """
         yield from [self.locate_by, self.locate_value]
 
 @log_class
 class Scraper():
+    # Create a logger for the Locator class
+    # Will be accessed by class decorator
+    # which decorates each method with logging functionality
     logger = logging.getLogger(__name__)
     """
     This class provides generic functions for web scraping
@@ -48,7 +57,6 @@ class Scraper():
 
     def __init__(self, 
                 url: str) -> None:
-
         """
         Parameters
         ----------
@@ -212,7 +220,7 @@ class Scraper():
 
         Parameters
         ----------
-        loc: tuple
+        loc: Locator
             A supported Locator strategy and value
 
         Returns
@@ -228,7 +236,7 @@ class Scraper():
 
         Parameters
         ----------
-        loc: tuple
+        loc: Locator
             A supported Locator strategy and value
 
         Returns
@@ -244,7 +252,7 @@ class Scraper():
 
         Parameters
         ----------
-        loc: tuple
+        loc: Locator
             A supported Locator strategy and value
 
         Returns
@@ -264,8 +272,12 @@ class Scraper():
 
         Parameters
         ----------
-        list_def: tuple
-            A supported Locator strategy and value
+        item_key : str
+            The key value that will be written for each item in the
+            dictionaries returned from the method
+        list_def: Locator
+            A supported Locator strategy and value to find the values
+            for the dictionaries returned from the method
 
         Returns
         -------
@@ -288,13 +300,11 @@ class Scraper():
         
         Parameters
         ----------
-        list_loc: tuple
-            A supported locator strategy and value
-        keys: list
-            A list of key values for each dictionary item
+        list_loc: Locator
+            A supported Locator strategy and value
         values: list
-            A list of supported locator strategy and values of elements
-            containing the values for each dictionary item
+            One or more dictionaries where key is the output dictionary key
+            and value is a Locator object of where to find the output dictionary value
         Returns
         -------
         list[dict]
@@ -307,7 +317,6 @@ class Scraper():
         if len(list_items) > 0:
             for item in list_items:
                 item_dict = {}
-                # item_dict = {key: item.find_element(*value).text for (key, value) in locators}
                 for key, value in locators.items():
                     key_text = key
                     key_value = item.find_element(*value).text
@@ -335,7 +344,6 @@ class Scraper():
         image_urls = []
         images = self.__driver.find_elements(*loc)
         for image in images:
-            # image_urls.append(image.get_attribute('src').split('?', 1)[0])
             image_urls.append(image.get_attribute('src'))
         return image_urls
 
