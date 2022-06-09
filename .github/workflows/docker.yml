@@ -37,6 +37,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ../deploy/scraper.Dockerfile
+          file: ./deploy/scraper.DockerFile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/scraper:latest
