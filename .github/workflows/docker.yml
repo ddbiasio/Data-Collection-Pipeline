@@ -10,6 +10,7 @@ on:
     paths-ignore:
     - '**/README.md'
     - '.github/workflows/*'
+    - 'deploy/*'
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,5 +42,8 @@ jobs:
         with:
           context: .
           file: ./deploy/scraper.DockerFile
+          builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USER_NAME }}/scraper:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USER_NAME }}/scraper:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USER_NAME }}/scraper:buildcache,mode=max          
