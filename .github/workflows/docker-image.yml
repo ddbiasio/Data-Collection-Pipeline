@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+    - '**/README.md'
+    - '.github/workflows/*'
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore:
+        - '**/README.md'
+        - '.github/workflows/*'
+  workflow_dispatch:
+jobs:
+
+  build:
+
+    runs-on: [ubuntu-latest, ubuntu-18.04]
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Build the Docker image
+      run: docker build . --file scraper.Dockerfile --tag scraper:$(date +%s)
