@@ -1,5 +1,4 @@
 raw_data/
-config.*
 .vscode/launch.json
 **/__pycache__/
 geckodriver.log
@@ -8,3 +7,4 @@ scratch_pad/
 *.egg-info/
 *.log
 deploy/build_prom.txt
+deploy/build_stuff.txt
