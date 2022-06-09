@@ -274,11 +274,10 @@ class Scraper():
 The Recipe Scraper application has been deployed to a Docker image  with all the relevant packages installed.  The entrypoint is configured to run the AWS pipeline.
 The AWS pipeline module accepts 2 paramters --search: the search word(s) and --pages: number of search results pages to get links from for scraping
 
-The application requires the AWS credentials to be set as environment variables on the host, and when running the container these should be passed to the container using the -e option
+The application requires the AWS credentials to be set using aws configure
+These are then passed to the container using the -v option and so are never saved in the image
 
-**Example usage:     docker run -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-    -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_REGION=$AWS_REGION \
-    --name scraper -it scraper --search=lobster --pages=1**
+**Example usage:     sudo docker run -v $HOME/.aws/credentials:/root/.aws/credentials --name scraper --rm siobhand/scraper:latest --search=salmon --pages=1 **
 
 
 ## Monitoring
