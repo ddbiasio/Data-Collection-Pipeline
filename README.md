@@ -269,3 +269,11 @@ class Scraper():
     - DockerFile
     - setup.py
 ```
+
+## Containerisation
+The Recipe Scraper application has been deployed to a Docker image  with all the relevant packages installed.  The entrypoint is configured to run the AWS pipeline.
+The AWS pipeline module accepts 2 paramters --search: the search word(s) and --pages: number of search results pages to get links from for scraping
+Example usage: docker run --search scraper_local -it scraper --name=carbonara --pages
+
+## Monitoring
+A Prometheus image has been created, which also scrapes metrics from node_exporter and docker.  Grafana has been hooked up to Prometheus and a simple dashboard demonstrates some of the metrics which can be collected and observed.
