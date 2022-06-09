@@ -46,12 +46,14 @@ class S3Storage:
         images_folder : str
             Name of the image folder to create on initialisation
         """
-        self.__s3resource = boto3.resource(
-            's3',
-            aws_access_key_id = access_key_id,
-            aws_secret_access_key = secret_access_key,
-            region_name = region
-            )
+        session = boto3.Session(profile_name='default')
+        self.__s3resource = session.resource('s3')
+        # self.__s3resource = boto3.resource(
+        #     's3',
+        #     aws_access_key_id = access_key_id,
+        #     aws_secret_access_key = secret_access_key,
+        #     region_name = region
+        #     )
 
         self.__region = region
         self.__s3bucket = None

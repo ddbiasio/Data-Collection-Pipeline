@@ -8,3 +8,4 @@ scratch_pad/
 *.log
 deploy/build_prom.txt
 deploy/build_stuff.txt
+deploy/daemon.json
