@@ -87,8 +87,6 @@ dcpipline
     source
         package
             scraper
-                recipe_constants.py
-                recipe_scraper.py
                 scraper.py
             storage
                 db_storage.py

@@ -7,3 +7,4 @@ geckodriver.log
 scratch_pad/
 *.egg-info/
 *.log
+deploy/build_prom.txt
