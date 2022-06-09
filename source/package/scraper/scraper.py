@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options
 from ..utils.logger import log_class
 import logging
 
-@log_class
+# @log_class
 class Locator:
     # Create a logger for the Locator class
     # Will be accessed by class decorator
@@ -127,7 +127,7 @@ class Scraper():
             # which would case this so maybe something in page load.  
             # Retry when this occurs
             button_loc = WebDriverWait(self.__driver, 10).until(
-                EC.element_to_be_clickable(*button_loc))
+                EC.element_to_be_clickable(button_loc))
             button_loc.click()
 
     def search(self, search_url: str, results_loc: Locator) -> bool:
